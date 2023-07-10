@@ -33,38 +33,43 @@ class LogTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { return section==1 ? "Pages" : nil }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 + logs.count
+        if section == 0 {
+            return 2
+        } else {return logs.count}
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-            case 0:
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as? DateTableViewCell {
-                    cell.titleLabel.text = "Start Date:"
-                    
-                    //set the date from persisting storage
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "MM/dd/yyyy"
-                    let startDate = dateFormatter.date(from: "05/01/2022")
-                    cell.datePicker.date = startDate ?? Date()
-                    
-                    return cell
-                }
-            case 1:
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as? DateTableViewCell {
-                    cell.titleLabel.text = "Today's Date:"
-                    cell.datePicker.isEnabled = false
-                    return cell
-                }
-            case 2:
-                if let configCell = tableView.dequeueReusableCell(withIdentifier: "configCell") as? ConfigurationTableViewCell {
-                    return configCell
-                }
-            default:
-                if let logCell = tableView.dequeueReusableCell(withIdentifier: "logCell") as? LogTableViewCell {
-                    logCell.titleLabel.text = String(logs[indexPath.row - 3].pageNumber)
-                    return logCell
-                }
+        if indexPath.section == 0 {
+            switch indexPath.row {
+                case 0:
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as? DateTableViewCell {
+                        cell.titleLabel.text = "Start Date:"
+                        
+                        //set the date from persisting storage
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yyyy"
+                        let startDate = dateFormatter.date(from: "05/01/2022")
+                        cell.datePicker.date = startDate ?? Date()
+                        
+                        return cell
+                    }
+                case 1:
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as? DateTableViewCell {
+                        cell.titleLabel.text = "Today's Date:"
+                        cell.datePicker.isEnabled = false
+                        return cell
+                    }
+                default: return UITableViewCell()
+            }
+        } else {
+            if let logCell = tableView.dequeueReusableCell(withIdentifier: "logCell") as? LogTableViewCell {
+                logCell.titleLabel.text = String(logs[indexPath.row].pageNumber)
+                return logCell
+            }
         }
         return UITableViewCell()
     }
