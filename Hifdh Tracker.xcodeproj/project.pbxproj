@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */; };
 		CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31862A5BA4EC003B76C7 /* SceneDelegate.swift */; };
-		CD1E31892A5BA4EC003B76C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31882A5BA4EC003B76C7 /* ViewController.swift */; };
 		CD1E318C2A5BA4EC003B76C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1E318A2A5BA4EC003B76C7 /* Main.storyboard */; };
 		CD1E318F2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD1E318D2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld */; };
 		CD1E31912A5BA4ED003B76C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */; };
@@ -40,7 +39,6 @@
 		CD1E31812A5BA4EC003B76C7 /* Hifdh Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hifdh Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD1E31862A5BA4EC003B76C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CD1E31882A5BA4EC003B76C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CD1E318B2A5BA4EC003B76C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD1E318E2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hifdh_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,12 +99,9 @@
 		CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */,
-				CD1E31862A5BA4EC003B76C7 /* SceneDelegate.swift */,
-				CD1E31882A5BA4EC003B76C7 /* ViewController.swift */,
-				CD1E318A2A5BA4EC003B76C7 /* Main.storyboard */,
+				CD1E31B92A5BA9A5003B76C7 /* Lauch */,
+				CD1E31B72A5BA965003B76C7 /* LogScreen */,
 				CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */,
-				CD1E31922A5BA4ED003B76C7 /* LaunchScreen.storyboard */,
 				CD1E31952A5BA4ED003B76C7 /* Info.plist */,
 				CD1E318D2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld */,
 			);
@@ -128,6 +123,24 @@
 				CD1E31AA2A5BA4ED003B76C7 /* Hifdh_TrackerUITestsLaunchTests.swift */,
 			);
 			path = "Hifdh TrackerUITests";
+			sourceTree = "<group>";
+		};
+		CD1E31B72A5BA965003B76C7 /* LogScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LogScreen;
+			sourceTree = "<group>";
+		};
+		CD1E31B92A5BA9A5003B76C7 /* Lauch */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */,
+				CD1E31862A5BA4EC003B76C7 /* SceneDelegate.swift */,
+				CD1E31922A5BA4ED003B76C7 /* LaunchScreen.storyboard */,
+				CD1E318A2A5BA4EC003B76C7 /* Main.storyboard */,
+			);
+			path = Lauch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +275,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD1E318F2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld in Sources */,
-				CD1E31892A5BA4EC003B76C7 /* ViewController.swift in Sources */,
 				CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
 			);
@@ -444,11 +456,14 @@
 				DEVELOPMENT_TEAM = 944MKRCGTA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hifdh Tracker/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Hifdh Tracker";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,11 +487,14 @@
 				DEVELOPMENT_TEAM = 944MKRCGTA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hifdh Tracker/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Hifdh Tracker";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
