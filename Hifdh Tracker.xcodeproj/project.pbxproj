@@ -20,6 +20,8 @@
 		CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31C12A5BB8AE003B76C7 /* DateTableViewCell.swift */; };
 		CD1E31C42A5BC8AE003B76C7 /* ConfigurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31C32A5BC8AE003B76C7 /* ConfigurationTableViewCell.swift */; };
 		CD1E31C62A5BCCD9003B76C7 /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31C52A5BCCD9003B76C7 /* LogTableViewCell.swift */; };
+		CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */; };
+		CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		CD1E31C12A5BB8AE003B76C7 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		CD1E31C32A5BC8AE003B76C7 /* ConfigurationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTableViewCell.swift; sourceTree = "<group>"; };
 		CD1E31C52A5BCCD9003B76C7 /* LogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
+		CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				CD1E31CC2A5BD21E003B76C7 /* Models */,
 				CD1E31B92A5BA9A5003B76C7 /* Lauch */,
 				CD1E31B72A5BA965003B76C7 /* Log */,
 				CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */,
@@ -153,6 +158,15 @@
 				CD1E318A2A5BA4EC003B76C7 /* Main.storyboard */,
 			);
 			path = Lauch;
+			sourceTree = "<group>";
+		};
+		CD1E31CC2A5BD21E003B76C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */,
+				CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,10 +300,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */,
 				CD1E31C62A5BCCD9003B76C7 /* LogTableViewCell.swift in Sources */,
 				CD1E31C02A5BB4B8003B76C7 /* LogTableViewController.swift in Sources */,
 				CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */,
 				CD1E31C42A5BC8AE003B76C7 /* ConfigurationTableViewCell.swift in Sources */,
+				CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */,
 				CD1E318F2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld in Sources */,
 				CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,

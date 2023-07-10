@@ -6,9 +6,25 @@
 //
 
 import UIKit
+import CoreData
 
 class LogTableViewController: UITableViewController {
-    let logs = [ 601, 602, 603, 604 ]
+    var logs : [Page] = []
+    // give access to appdelegate
+    let delegate = UIApplication.shared.delegate as? AppDelegate
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // load from db
+        if let context = delegate?.persistentContainer.viewContext {
+            
+            let request: NSFetchRequest<Page> = Page.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: true)]
+            if let pageLogsFromCoreData = try? context.fetch(request) {
+                logs = pageLogsFromCoreData
+                tableView.reloadData()
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -46,7 +62,7 @@ class LogTableViewController: UITableViewController {
                 }
             default:
                 if let logCell = tableView.dequeueReusableCell(withIdentifier: "logCell") as? LogTableViewCell {
-                    logCell.titleLabel.text = String(logs[indexPath.row - 3])
+                    logCell.titleLabel.text = String(logs[indexPath.row - 3].pageNumber)
                     return logCell
                 }
         }
