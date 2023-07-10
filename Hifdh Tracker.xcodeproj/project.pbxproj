@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */; };
+		CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31862A5BA4EC003B76C7 /* SceneDelegate.swift */; };
+		CD1E31892A5BA4EC003B76C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31882A5BA4EC003B76C7 /* ViewController.swift */; };
+		CD1E318C2A5BA4EC003B76C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1E318A2A5BA4EC003B76C7 /* Main.storyboard */; };
+		CD1E318F2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD1E318D2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld */; };
+		CD1E31912A5BA4ED003B76C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */; };
+		CD1E31942A5BA4ED003B76C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1E31922A5BA4ED003B76C7 /* LaunchScreen.storyboard */; };
+		CD1E319F2A5BA4ED003B76C7 /* Hifdh_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E319E2A5BA4ED003B76C7 /* Hifdh_TrackerTests.swift */; };
+		CD1E31A92A5BA4ED003B76C7 /* Hifdh_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31A82A5BA4ED003B76C7 /* Hifdh_TrackerUITests.swift */; };
+		CD1E31AB2A5BA4ED003B76C7 /* Hifdh_TrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31AA2A5BA4ED003B76C7 /* Hifdh_TrackerUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD1E319B2A5BA4ED003B76C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD1E31792A5BA4EC003B76C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD1E31802A5BA4EC003B76C7;
+			remoteInfo = "Hifdh Tracker";
+		};
+		CD1E31A52A5BA4ED003B76C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD1E31792A5BA4EC003B76C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD1E31802A5BA4EC003B76C7;
+			remoteInfo = "Hifdh Tracker";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CD1E31812A5BA4EC003B76C7 /* Hifdh Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hifdh Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CD1E31862A5BA4EC003B76C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CD1E31882A5BA4EC003B76C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD1E318B2A5BA4EC003B76C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD1E318E2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hifdh_Tracker.xcdatamodel; sourceTree = "<group>"; };
+		CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD1E31932A5BA4ED003B76C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CD1E31952A5BA4ED003B76C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD1E319A2A5BA4ED003B76C7 /* Hifdh TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hifdh TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD1E319E2A5BA4ED003B76C7 /* Hifdh_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hifdh_TrackerTests.swift; sourceTree = "<group>"; };
+		CD1E31A42A5BA4ED003B76C7 /* Hifdh TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hifdh TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD1E31A82A5BA4ED003B76C7 /* Hifdh_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hifdh_TrackerUITests.swift; sourceTree = "<group>"; };
+		CD1E31AA2A5BA4ED003B76C7 /* Hifdh_TrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hifdh_TrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD1E317E2A5BA4EC003B76C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD1E31972A5BA4ED003B76C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD1E31A12A5BA4ED003B76C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD1E31782A5BA4EC003B76C7 = {
+			isa = PBXGroup;
+			children = (
+				CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */,
+				CD1E319D2A5BA4ED003B76C7 /* Hifdh TrackerTests */,
+				CD1E31A72A5BA4ED003B76C7 /* Hifdh TrackerUITests */,
+				CD1E31822A5BA4EC003B76C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD1E31822A5BA4EC003B76C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E31812A5BA4EC003B76C7 /* Hifdh Tracker.app */,
+				CD1E319A2A5BA4ED003B76C7 /* Hifdh TrackerTests.xctest */,
+				CD1E31A42A5BA4ED003B76C7 /* Hifdh TrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */,
+				CD1E31862A5BA4EC003B76C7 /* SceneDelegate.swift */,
+				CD1E31882A5BA4EC003B76C7 /* ViewController.swift */,
+				CD1E318A2A5BA4EC003B76C7 /* Main.storyboard */,
+				CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */,
+				CD1E31922A5BA4ED003B76C7 /* LaunchScreen.storyboard */,
+				CD1E31952A5BA4ED003B76C7 /* Info.plist */,
+				CD1E318D2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld */,
+			);
+			path = "Hifdh Tracker";
+			sourceTree = "<group>";
+		};
+		CD1E319D2A5BA4ED003B76C7 /* Hifdh TrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E319E2A5BA4ED003B76C7 /* Hifdh_TrackerTests.swift */,
+			);
+			path = "Hifdh TrackerTests";
+			sourceTree = "<group>";
+		};
+		CD1E31A72A5BA4ED003B76C7 /* Hifdh TrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E31A82A5BA4ED003B76C7 /* Hifdh_TrackerUITests.swift */,
+				CD1E31AA2A5BA4ED003B76C7 /* Hifdh_TrackerUITestsLaunchTests.swift */,
+			);
+			path = "Hifdh TrackerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD1E31802A5BA4EC003B76C7 /* Hifdh Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD1E31AE2A5BA4ED003B76C7 /* Build configuration list for PBXNativeTarget "Hifdh Tracker" */;
+			buildPhases = (
+				CD1E317D2A5BA4EC003B76C7 /* Sources */,
+				CD1E317E2A5BA4EC003B76C7 /* Frameworks */,
+				CD1E317F2A5BA4EC003B76C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hifdh Tracker";
+			productName = "Hifdh Tracker";
+			productReference = CD1E31812A5BA4EC003B76C7 /* Hifdh Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD1E31992A5BA4ED003B76C7 /* Hifdh TrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD1E31B12A5BA4ED003B76C7 /* Build configuration list for PBXNativeTarget "Hifdh TrackerTests" */;
+			buildPhases = (
+				CD1E31962A5BA4ED003B76C7 /* Sources */,
+				CD1E31972A5BA4ED003B76C7 /* Frameworks */,
+				CD1E31982A5BA4ED003B76C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD1E319C2A5BA4ED003B76C7 /* PBXTargetDependency */,
+			);
+			name = "Hifdh TrackerTests";
+			productName = "Hifdh TrackerTests";
+			productReference = CD1E319A2A5BA4ED003B76C7 /* Hifdh TrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CD1E31A32A5BA4ED003B76C7 /* Hifdh TrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD1E31B42A5BA4ED003B76C7 /* Build configuration list for PBXNativeTarget "Hifdh TrackerUITests" */;
+			buildPhases = (
+				CD1E31A02A5BA4ED003B76C7 /* Sources */,
+				CD1E31A12A5BA4ED003B76C7 /* Frameworks */,
+				CD1E31A22A5BA4ED003B76C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD1E31A62A5BA4ED003B76C7 /* PBXTargetDependency */,
+			);
+			name = "Hifdh TrackerUITests";
+			productName = "Hifdh TrackerUITests";
+			productReference = CD1E31A42A5BA4ED003B76C7 /* Hifdh TrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD1E31792A5BA4EC003B76C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					CD1E31802A5BA4EC003B76C7 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					CD1E31992A5BA4ED003B76C7 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = CD1E31802A5BA4EC003B76C7;
+					};
+					CD1E31A32A5BA4ED003B76C7 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = CD1E31802A5BA4EC003B76C7;
+					};
+				};
+			};
+			buildConfigurationList = CD1E317C2A5BA4EC003B76C7 /* Build configuration list for PBXProject "Hifdh Tracker" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD1E31782A5BA4EC003B76C7;
+			productRefGroup = CD1E31822A5BA4EC003B76C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD1E31802A5BA4EC003B76C7 /* Hifdh Tracker */,
+				CD1E31992A5BA4ED003B76C7 /* Hifdh TrackerTests */,
+				CD1E31A32A5BA4ED003B76C7 /* Hifdh TrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD1E317F2A5BA4EC003B76C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD1E31942A5BA4ED003B76C7 /* LaunchScreen.storyboard in Resources */,
+				CD1E31912A5BA4ED003B76C7 /* Assets.xcassets in Resources */,
+				CD1E318C2A5BA4EC003B76C7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD1E31982A5BA4ED003B76C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD1E31A22A5BA4ED003B76C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD1E317D2A5BA4EC003B76C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD1E318F2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld in Sources */,
+				CD1E31892A5BA4EC003B76C7 /* ViewController.swift in Sources */,
+				CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */,
+				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD1E31962A5BA4ED003B76C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD1E319F2A5BA4ED003B76C7 /* Hifdh_TrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD1E31A02A5BA4ED003B76C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD1E31A92A5BA4ED003B76C7 /* Hifdh_TrackerUITests.swift in Sources */,
+				CD1E31AB2A5BA4ED003B76C7 /* Hifdh_TrackerUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD1E319C2A5BA4ED003B76C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD1E31802A5BA4EC003B76C7 /* Hifdh Tracker */;
+			targetProxy = CD1E319B2A5BA4ED003B76C7 /* PBXContainerItemProxy */;
+		};
+		CD1E31A62A5BA4ED003B76C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD1E31802A5BA4EC003B76C7 /* Hifdh Tracker */;
+			targetProxy = CD1E31A52A5BA4ED003B76C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD1E318A2A5BA4EC003B76C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD1E318B2A5BA4EC003B76C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CD1E31922A5BA4ED003B76C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD1E31932A5BA4ED003B76C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD1E31AC2A5BA4ED003B76C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CD1E31AD2A5BA4ED003B76C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD1E31AF2A5BA4ED003B76C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 944MKRCGTA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hifdh Tracker/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quadriow.Hifdh-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD1E31B02A5BA4ED003B76C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 944MKRCGTA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hifdh Tracker/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quadriow.Hifdh-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CD1E31B22A5BA4ED003B76C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 944MKRCGTA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quadriow.Hifdh-TrackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hifdh Tracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hifdh Tracker";
+			};
+			name = Debug;
+		};
+		CD1E31B32A5BA4ED003B76C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 944MKRCGTA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quadriow.Hifdh-TrackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hifdh Tracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hifdh Tracker";
+			};
+			name = Release;
+		};
+		CD1E31B52A5BA4ED003B76C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 944MKRCGTA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quadriow.Hifdh-TrackerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Hifdh Tracker";
+			};
+			name = Debug;
+		};
+		CD1E31B62A5BA4ED003B76C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 944MKRCGTA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quadriow.Hifdh-TrackerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Hifdh Tracker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD1E317C2A5BA4EC003B76C7 /* Build configuration list for PBXProject "Hifdh Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD1E31AC2A5BA4ED003B76C7 /* Debug */,
+				CD1E31AD2A5BA4ED003B76C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD1E31AE2A5BA4ED003B76C7 /* Build configuration list for PBXNativeTarget "Hifdh Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD1E31AF2A5BA4ED003B76C7 /* Debug */,
+				CD1E31B02A5BA4ED003B76C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD1E31B12A5BA4ED003B76C7 /* Build configuration list for PBXNativeTarget "Hifdh TrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD1E31B22A5BA4ED003B76C7 /* Debug */,
+				CD1E31B32A5BA4ED003B76C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD1E31B42A5BA4ED003B76C7 /* Build configuration list for PBXNativeTarget "Hifdh TrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD1E31B52A5BA4ED003B76C7 /* Debug */,
+				CD1E31B62A5BA4ED003B76C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CD1E318D2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CD1E318E2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodel */,
+			);
+			currentVersion = CD1E318E2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodel */;
+			path = Hifdh_Tracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CD1E31792A5BA4EC003B76C7 /* Project object */;
+}
