@@ -22,7 +22,7 @@ class AddLogViewController: UIViewController {
     var logs: [Page]?
     
     //reload on dismiss
-    var isDismissed: ( ()->Void )?
+    var isDismissed: ( () -> Void )?
     
     func dismiss() {
         isDismissed?()
@@ -38,9 +38,9 @@ class AddLogViewController: UIViewController {
     
     @IBAction func createLogButtonTouchUpInside(_ sender: Any) {
         //take values from "from" and "to" text fields and make them ints
-        let indexStart = (Int(fromPageTextField.text!) ?? 604) - 1
-        let indexEnd = (Int(untilPageTextField.text!) ?? 604) - 1
-        if indexStart < 0 || indexStart > 603 || indexEnd < 0 || indexEnd > 603 {
+        let indexStart = (Int(fromPageTextField.text!) ?? 0) - 1
+        let indexEnd = (Int(untilPageTextField.text!) ?? 0) - 1
+        if indexStart < 1 || indexStart > 603 || indexEnd < 1 || indexEnd > 603 {
         // handle error "enter a number between 1 and 604"
             showErrorConstraint.isActive = true
             hideErrorConstraint.isActive = false
