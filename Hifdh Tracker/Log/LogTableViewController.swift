@@ -9,6 +9,8 @@ import UIKit
 import CoreData
 
 class LogTableViewController: UITableViewController {
+    var foundFirstNotInMemory = false
+    var firstNotInMemoryIndexPath: IndexPath?
     var logs : [Page] = []
     // give access to appdelegate
     let delegate = UIApplication.shared.delegate as? AppDelegate
@@ -21,7 +23,9 @@ class LogTableViewController: UITableViewController {
             request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: true)]
             if let pageLogsFromCoreData = try? context.fetch(request) {
                 logs = pageLogsFromCoreData
+                firstNotInMemoryIndexPath = IndexPath(row: logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
                 tableView.reloadData()
+                tableView.scrollToRow(at: firstNotInMemoryIndexPath!, at: .middle, animated: true)
             }
         }
     }
@@ -67,21 +71,50 @@ class LogTableViewController: UITableViewController {
             }
         } else {
             if let logCell = tableView.dequeueReusableCell(withIdentifier: "logCell") as? LogTableViewCell {
-                logCell.titleLabel.text = String(logs[indexPath.row].pageNumber)
+                let currentPage = logs[indexPath.row]
+                logCell.titleLabel.text = String(currentPage.pageNumber)
+                logCell.datePicker.setDate(currentPage.dateMemorized ?? Date (), animated: true)
+                let inMemory = currentPage.isMemorized
+                logCell.memorySwitch.isOn = inMemory
+                updateDatePickerInPageCell(logCell)
+                logCell.switchValueChangedAction = { [self] in
+                    if let _ = self.delegate?.persistentContainer.viewContext {
+                        currentPage.isMemorized = !currentPage.isMemorized
+                        currentPage.dateMemorized = logCell.datePicker.date
+                        delegate?.saveContext()
+                    }
+                    updateDatePickerInPageCell(logCell)
+                }
                 return logCell
             }
         }
         return UITableViewCell()
     }
-    
-    /*
+    func updateDatePickerInPageCell(_ logCell: LogTableViewCell) {
+        if logCell.memorySwitch.isOn {
+            logCell.datePicker.isEnabled = false
+        } else {
+            logCell.datePicker.isEnabled = true
+            logCell.datePicker.date = Date()
+        }
+    }
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+         if (segue.identifier == "addLog") {
+             
+             
+             if let destination = segue.destination as? AddLogViewController {
+                 destination.logs = self.logs
+                 destination.delegate = self.delegate
+                 destination.isDismissed = {[weak self] in
+                     self?.tableView.reloadData()
+                 }
+             }
+         }
      }
-     */
     
 }

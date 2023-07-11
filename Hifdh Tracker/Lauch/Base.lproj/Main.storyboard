@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4q-4S-Kdu">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +12,7 @@
         <scene sceneID="Eru-63-1a3">
             <objects>
                 <tabBarController id="Y4q-4S-Kdu" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="glv-Hj-hUZ">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="glv-Hj-hUZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,7 +30,7 @@
             </objects>
             <point key="canvasLocation" x="-622" y="-388"/>
         </scene>
-        <!--Log Table View Controller-->
+        <!--Log-->
         <scene sceneID="Tb9-sq-PbC">
             <objects>
                 <tableViewController id="yoN-8U-b1W" customClass="LogTableViewController" customModule="Hifdh_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,6 +124,9 @@
                                                 </datePicker>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="djW-cE-Nas">
                                                     <rect key="frame" x="304" y="0.0" width="51" height="34.666666666666664"/>
+                                                    <connections>
+                                                        <action selector="switchValueChanged:" destination="HIx-Ml-FUk" eventType="valueChanged" id="5zN-rr-cYd"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </stackView>
@@ -134,6 +138,9 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="Jyl-6f-6as" secondAttribute="bottom" id="zaY-JH-E0c"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectionStyle" value=".none"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="datePicker" destination="XTE-eC-T4F" id="27c-vw-lr3"/>
                                     <outlet property="memorySwitch" destination="djW-cE-Nas" id="PFZ-S3-Xzt"/>
@@ -146,11 +153,114 @@
                             <outlet property="delegate" destination="yoN-8U-b1W" id="fP8-zY-Oxo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="IfX-0E-O7G"/>
+                    <navigationItem key="navigationItem" title="Log" id="IfX-0E-O7G">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vCs-rw-bkC">
+                            <connections>
+                                <segue destination="WED-qr-7Ws" kind="presentation" identifier="addLog" id="q8p-tP-euA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkO-FP-V0k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1469.4656488549617" y="-388.02816901408454"/>
+        </scene>
+        <!--Add Log-->
+        <scene sceneID="Bmg-AR-fUY">
+            <objects>
+                <viewController title="Add Log" id="WED-qr-7Ws" customClass="AddLogViewController" customModule="Hifdh_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WK0-DG-iYW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Log" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0X-AV-GSN">
+                                <rect key="frame" x="160" y="20" width="73.333333333333314" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="00N-DO-lbk">
+                                <rect key="frame" x="138" y="64" width="117" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="6Zf-lr-cqg"/>
+                                    <constraint firstAttribute="height" constant="40" id="qRn-cB-fes"/>
+                                </constraints>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="From" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Uc-eh-COO">
+                                <rect key="frame" x="129.66666666666666" y="119" width="60" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="6or-Un-MkZ"/>
+                                    <constraint firstAttribute="height" constant="40" id="jn7-1N-5fE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tiH-mb-YAq">
+                                <rect key="frame" x="203.66666666666666" y="119" width="59.999999999999972" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="AY4-UY-zR4"/>
+                                    <constraint firstAttribute="height" constant="40" id="nZR-rV-vl8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ErrorLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2id-2X-JrM">
+                                <rect key="frame" x="46.666666666666657" y="169" width="300" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="7Xp-X4-lFO"/>
+                                    <constraint firstAttribute="height" id="EYe-LM-r56"/>
+                                    <constraint firstAttribute="height" constant="30" identifier="showErrorConstraint" id="fZe-xl-VgQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fZe-xl-VgQ"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HE0-2q-2sr">
+                                <rect key="frame" x="129" y="207" width="133.99999999999997" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Create Log"/>
+                                <connections>
+                                    <action selector="createLogButtonTouchUpInside:" destination="WED-qr-7Ws" eventType="touchUpInside" id="GhW-WJ-cZ9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Xw-CC-ixZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HE0-2q-2sr" firstAttribute="centerX" secondItem="6Xw-CC-ixZ" secondAttribute="centerX" id="9vd-33-Tst"/>
+                            <constraint firstItem="E0X-AV-GSN" firstAttribute="top" secondItem="6Xw-CC-ixZ" secondAttribute="top" constant="20" id="F0D-Lc-K7k"/>
+                            <constraint firstItem="00N-DO-lbk" firstAttribute="centerX" secondItem="WK0-DG-iYW" secondAttribute="centerX" id="OBc-2t-fMf"/>
+                            <constraint firstItem="HE0-2q-2sr" firstAttribute="leading" secondItem="9Uc-eh-COO" secondAttribute="leading" id="PvQ-uw-dD5"/>
+                            <constraint firstItem="HE0-2q-2sr" firstAttribute="top" secondItem="2id-2X-JrM" secondAttribute="bottom" constant="10" id="Q8h-fe-IcQ"/>
+                            <constraint firstItem="tiH-mb-YAq" firstAttribute="leading" secondItem="6Xw-CC-ixZ" secondAttribute="centerX" constant="7" id="Tfq-qF-Tuv"/>
+                            <constraint firstItem="9Uc-eh-COO" firstAttribute="top" secondItem="00N-DO-lbk" secondAttribute="bottom" constant="15" id="XZw-G0-Vw5"/>
+                            <constraint firstItem="tiH-mb-YAq" firstAttribute="top" secondItem="00N-DO-lbk" secondAttribute="bottom" constant="15" id="har-BB-87k"/>
+                            <constraint firstItem="2id-2X-JrM" firstAttribute="centerX" secondItem="WK0-DG-iYW" secondAttribute="centerX" id="iRT-hg-3Zq"/>
+                            <constraint firstItem="00N-DO-lbk" firstAttribute="top" secondItem="E0X-AV-GSN" secondAttribute="bottom" constant="20" id="kZ9-P8-gIE"/>
+                            <constraint firstItem="2id-2X-JrM" firstAttribute="top" secondItem="tiH-mb-YAq" secondAttribute="bottom" constant="10" id="ku5-Yb-Cjp"/>
+                            <constraint firstItem="9Uc-eh-COO" firstAttribute="trailing" secondItem="6Xw-CC-ixZ" secondAttribute="centerX" constant="-7" id="sJB-gO-G3j"/>
+                            <constraint firstItem="E0X-AV-GSN" firstAttribute="centerX" secondItem="WK0-DG-iYW" secondAttribute="centerX" id="xaz-aT-yMs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Log" largeTitleDisplayMode="never" id="aSI-t1-xuW"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="393" height="300"/>
+                    <connections>
+                        <outlet property="datePicker" destination="00N-DO-lbk" id="Npu-2F-XHe"/>
+                        <outlet property="errorLabel" destination="2id-2X-JrM" id="tSN-zg-Lof"/>
+                        <outlet property="fromPageTextField" destination="9Uc-eh-COO" id="tdm-ve-iP0"/>
+                        <outlet property="hideErrorConstraint" destination="EYe-LM-r56" id="gFf-ef-Zsd"/>
+                        <outlet property="showErrorConstraint" destination="fZe-xl-VgQ" id="LMR-aw-wbQ"/>
+                        <outlet property="untilPageTextField" destination="tiH-mb-YAq" id="pc0-W0-S9C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AEp-Fe-2Ec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2364" y="-388"/>
         </scene>
         <!--Log-->
         <scene sceneID="Tzh-cR-miT">
@@ -176,6 +286,9 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
