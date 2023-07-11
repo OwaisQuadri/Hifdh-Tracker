@@ -15,6 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // helper to set default first run values
+        let userDefaults = UserDefaults.standard
+        let defaultValues = ["firstRun" : true]
+        userDefaults.register(defaults: defaultValues)
+        let managedContext = persistentContainer.viewContext
+        
+        // if first run
+        if userDefaults.bool(forKey: "firstRun") {
+            Page.getDefaultPages(managedContext)
+           
+            userDefaults.set(false, forKey: "firstRun")
+        }
         return true
     }
 

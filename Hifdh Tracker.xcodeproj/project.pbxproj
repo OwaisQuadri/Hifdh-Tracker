@@ -16,6 +16,13 @@
 		CD1E319F2A5BA4ED003B76C7 /* Hifdh_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E319E2A5BA4ED003B76C7 /* Hifdh_TrackerTests.swift */; };
 		CD1E31A92A5BA4ED003B76C7 /* Hifdh_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31A82A5BA4ED003B76C7 /* Hifdh_TrackerUITests.swift */; };
 		CD1E31AB2A5BA4ED003B76C7 /* Hifdh_TrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31AA2A5BA4ED003B76C7 /* Hifdh_TrackerUITestsLaunchTests.swift */; };
+		CD1E31C02A5BB4B8003B76C7 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31BF2A5BB4B8003B76C7 /* LogTableViewController.swift */; };
+		CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31C12A5BB8AE003B76C7 /* DateTableViewCell.swift */; };
+		CD1E31C42A5BC8AE003B76C7 /* ConfigurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31C32A5BC8AE003B76C7 /* ConfigurationTableViewCell.swift */; };
+		CD1E31C62A5BCCD9003B76C7 /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31C52A5BCCD9003B76C7 /* LogTableViewCell.swift */; };
+		CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */; };
+		CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */; };
+		CD46065E2A5CF0EA002F2F3F /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,13 @@
 		CD1E31A42A5BA4ED003B76C7 /* Hifdh TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hifdh TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1E31A82A5BA4ED003B76C7 /* Hifdh_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hifdh_TrackerUITests.swift; sourceTree = "<group>"; };
 		CD1E31AA2A5BA4ED003B76C7 /* Hifdh_TrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hifdh_TrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CD1E31BF2A5BB4B8003B76C7 /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
+		CD1E31C12A5BB8AE003B76C7 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
+		CD1E31C32A5BC8AE003B76C7 /* ConfigurationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTableViewCell.swift; sourceTree = "<group>"; };
+		CD1E31C52A5BCCD9003B76C7 /* LogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
+		CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +113,9 @@
 		CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				CD1E31CC2A5BD21E003B76C7 /* Models */,
 				CD1E31B92A5BA9A5003B76C7 /* Lauch */,
-				CD1E31B72A5BA965003B76C7 /* LogScreen */,
+				CD1E31B72A5BA965003B76C7 /* Log */,
 				CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */,
 				CD1E31952A5BA4ED003B76C7 /* Info.plist */,
 				CD1E318D2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld */,
@@ -125,11 +140,16 @@
 			path = "Hifdh TrackerUITests";
 			sourceTree = "<group>";
 		};
-		CD1E31B72A5BA965003B76C7 /* LogScreen */ = {
+		CD1E31B72A5BA965003B76C7 /* Log */ = {
 			isa = PBXGroup;
 			children = (
+				CD1E31BF2A5BB4B8003B76C7 /* LogTableViewController.swift */,
+				CD1E31C12A5BB8AE003B76C7 /* DateTableViewCell.swift */,
+				CD1E31C32A5BC8AE003B76C7 /* ConfigurationTableViewCell.swift */,
+				CD1E31C52A5BCCD9003B76C7 /* LogTableViewCell.swift */,
+				CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */,
 			);
-			path = LogScreen;
+			path = Log;
 			sourceTree = "<group>";
 		};
 		CD1E31B92A5BA9A5003B76C7 /* Lauch */ = {
@@ -141,6 +161,15 @@
 				CD1E318A2A5BA4EC003B76C7 /* Main.storyboard */,
 			);
 			path = Lauch;
+			sourceTree = "<group>";
+		};
+		CD1E31CC2A5BD21E003B76C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */,
+				CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +188,8 @@
 			dependencies = (
 			);
 			name = "Hifdh Tracker";
+			packageProductDependencies = (
+			);
 			productName = "Hifdh Tracker";
 			productReference = CD1E31812A5BA4EC003B76C7 /* Hifdh Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -231,6 +262,8 @@
 				Base,
 			);
 			mainGroup = CD1E31782A5BA4EC003B76C7;
+			packageReferences = (
+			);
 			productRefGroup = CD1E31822A5BA4EC003B76C7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -274,6 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */,
+				CD46065E2A5CF0EA002F2F3F /* AddLogViewController.swift in Sources */,
+				CD1E31C62A5BCCD9003B76C7 /* LogTableViewCell.swift in Sources */,
+				CD1E31C02A5BB4B8003B76C7 /* LogTableViewController.swift in Sources */,
+				CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */,
+				CD1E31C42A5BC8AE003B76C7 /* ConfigurationTableViewCell.swift in Sources */,
+				CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */,
 				CD1E318F2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld in Sources */,
 				CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
