@@ -9,8 +9,6 @@ import UIKit
 import CoreData
 
 class LogTableViewController: UITableViewController {
-    var foundFirstNotInMemory = false
-    var firstNotInMemoryIndexPath: IndexPath?
     var logs : [Page] = []
     // give access to appdelegate
     let delegate = UIApplication.shared.delegate as? AppDelegate
@@ -23,9 +21,9 @@ class LogTableViewController: UITableViewController {
             request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: true)]
             if let pageLogsFromCoreData = try? context.fetch(request) {
                 logs = pageLogsFromCoreData
-                firstNotInMemoryIndexPath = IndexPath(row: logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
+                let firstNotInMemoryIndexPath = IndexPath(row: logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
                 tableView.reloadData()
-                tableView.scrollToRow(at: firstNotInMemoryIndexPath!, at: .middle, animated: true)
+                tableView.scrollToRow(at: firstNotInMemoryIndexPath, at: .middle, animated: true)
             }
         }
     }
@@ -105,12 +103,12 @@ class LogTableViewController: UITableViewController {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
          if (segue.identifier == "addLog") {
-             
-             
              if let destination = segue.destination as? AddLogViewController {
+                 //passing data
                  destination.logs = self.logs
                  destination.delegate = self.delegate
                  destination.isDismissed = {[weak self] in
+                     //reload tableview when I come back
                      self?.tableView.reloadData()
                  }
              }
