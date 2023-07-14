@@ -40,10 +40,10 @@ class AddLogViewController: UIViewController {
         //take values from "from" and "to" text fields and make them ints
         let indexStart = (Int(fromPageTextField.text!) ?? 0) - 1
         let indexEnd = (Int(untilPageTextField.text!) ?? 0) - 1
-        if indexStart < 1 || indexStart > 603 || indexEnd < 1 || indexEnd > 603 {
+        if indexStart < 0 || indexStart > 603 || indexEnd < 0 || indexEnd > 603 {
         // handle error "enter a number between 1 and 604"
-            showErrorConstraint.isActive = true
             hideErrorConstraint.isActive = false
+            showErrorConstraint.isActive = true
             errorLabel.text = "Please enter a value from 1-604"
             self.view.layoutIfNeeded()
             return
