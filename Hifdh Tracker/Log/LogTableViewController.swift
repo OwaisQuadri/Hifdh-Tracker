@@ -13,6 +13,8 @@ class LogTableViewController: UITableViewController {
     // give access to appdelegate
     let delegate = UIApplication.shared.delegate as? AppDelegate
     
+    @IBOutlet weak var percentBarButton: UIBarButtonItem!
+    
     override func viewWillAppear(_ animated: Bool) {
         // load from db
         if let context = delegate?.persistentContainer.viewContext {
@@ -22,7 +24,7 @@ class LogTableViewController: UITableViewController {
             if let pageLogsFromCoreData = try? context.fetch(request) {
                 logs = pageLogsFromCoreData
                 let firstNotInMemoryIndexPath = IndexPath(row: logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
-                tableView.reloadData()
+                updateData()
                 tableView.scrollToRow(at: firstNotInMemoryIndexPath, at: .middle, animated: true)
             }
         }
@@ -35,6 +37,28 @@ class LogTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    private func updateData(){
+        tableView.reloadData()
+        updateTopLeftPercent()
+    }
+    
+    private func updateTopLeftPercent() {
+        var percentMemorized: Double = 0.0
+        if let _ = delegate?.persistentContainer.viewContext {
+            // load total memorized percentage from CoreDate
+            let arrayOfMemorized = logs.compactMap{$0.isMemorized ? $0 : nil}
+            percentMemorized = Double(arrayOfMemorized.count) / 604.0
+        }
+        // set top bar item to number with format
+        let percentFormat = NumberFormatter()
+        percentFormat.numberStyle = .percent
+        percentFormat.maximumFractionDigits = 1
+        percentFormat.minimumFractionDigits = 1
+        let formattedTitle = percentFormat.string(from: NSNumber(floatLiteral: percentMemorized))
+        percentBarButton.title = formattedTitle
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
@@ -82,6 +106,7 @@ class LogTableViewController: UITableViewController {
                         delegate?.saveContext()
                     }
                     updateDatePickerInPageCell(logCell)
+                    updateData()
                 }
                 return logCell
             }
@@ -109,7 +134,7 @@ class LogTableViewController: UITableViewController {
                  destination.delegate = self.delegate
                  destination.isDismissed = {[weak self] in
                      //reload tableview when I come back
-                     self?.tableView.reloadData()
+                     self?.updateData()
                  }
              }
          }
