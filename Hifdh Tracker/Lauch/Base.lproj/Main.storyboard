@@ -74,7 +74,7 @@
                                     <outlet property="titleLabel" destination="8Zr-zK-J1w" id="XZn-ZS-bZS"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="configCell" id="cJQ-40-qie" customClass="ConfigurationTableViewCell" customModule="Hifdh_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="configCell" id="cJQ-40-qie" customClass="ConfigTableViewCell" customModule="Hifdh_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="109" width="393" height="53.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJQ-40-qie" id="Xy6-6R-AJN">
@@ -84,11 +84,11 @@
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DYu-gI-kl1">
                                             <rect key="frame" x="20" y="11" width="353" height="32.333333333333329"/>
                                             <segments>
-                                                <segment title="Pages"/>
-                                                <segment title="Surahs"/>
+                                                <segment title="From Front"/>
+                                                <segment title="From Back"/>
                                             </segments>
                                             <connections>
-                                                <action selector="configControlValueChanged:" destination="cJQ-40-qie" eventType="valueChanged" id="Wiq-So-TzQ"/>
+                                                <action selector="directionValueChanged:" destination="cJQ-40-qie" eventType="valueChanged" id="LIp-K1-Xe6"/>
                                             </connections>
                                         </segmentedControl>
                                     </subviews>
@@ -100,7 +100,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="configSegmentedControl" destination="DYu-gI-kl1" id="JEW-Xh-5Sc"/>
+                                    <outlet property="directionSegmentedControl" destination="DYu-gI-kl1" id="XpT-G3-6p4"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="logCell" id="HIx-Ml-FUk" customClass="LogTableViewCell" customModule="Hifdh_Tracker" customModuleProvider="target">

@@ -7,23 +7,25 @@
 
 import UIKit
 import CoreData
-
+enum UserDefaultsKey: String {
+    case isFirstRun = "isFirstRun"
+    case isFromFront = "isFromFront"
+}
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    let userDefaults = UserDefaults.standard
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // helper to set default first run values
-        let userDefaults = UserDefaults.standard
-        let defaultValues = ["firstRun" : true]
+        // set default first run values
+        let defaultValues = ["firstRun" : true, "isFromFront" : true]
         userDefaults.register(defaults: defaultValues)
         let managedContext = persistentContainer.viewContext
         
         // if first run
-        if userDefaults.bool(forKey: "firstRun") {
+        if getBoolUserDefaultsValue(for: .isFirstRun) {
             Page.getDefaultPages(managedContext)
            
             userDefaults.set(false, forKey: "firstRun")
@@ -73,7 +75,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-
+    // MARK: UserDefaults Helpers
+//    func createBoolUserDefaults(for key: UserDefaultsKey, value: Bool) {
+//
+//    }
+//    func setBoolUserDefaults(for key: UserDefaultsKey, value: Bool) {
+//
+//    }
+    func getBoolUserDefaultsValue(for key: UserDefaultsKey) -> Bool {
+        return userDefaults.bool(forKey: key.rawValue)
+    }
     // MARK: - Core Data Saving support
 
     func saveContext () {

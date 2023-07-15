@@ -18,19 +18,8 @@ class LogTableViewController: UITableViewController {
     @IBOutlet weak var percentBarButton: UIBarButtonItem!
     
     override func viewWillAppear(_ animated: Bool) {
-        // load from db
-        guard let context = delegate?.persistentContainer.viewContext else { return }
-        withCoreData {
-            let request: NSFetchRequest<Page> = Page.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: true)]
-            
-            if let pageLogsFromCoreData = try? context.fetch(request) {
-                self.logs = pageLogsFromCoreData
-                self.firstNotInMemoryIndexPath = IndexPath(row: self.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
-                self.updateData()
-                self.tableView.scrollToRow(at: self.firstNotInMemoryIndexPath, at: .middle, animated: true)
-            }
-        }
+        fetchData()
+        self.tableView.scrollToRow(at: self.firstNotInMemoryIndexPath, at: .middle, animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +28,26 @@ class LogTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func fetchData() {
+        // load from db
+        guard let context = delegate?.persistentContainer.viewContext else { return }
+        withCoreData { [self] in
+            let request: NSFetchRequest<Page> = Page.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: (delegate?.getBoolUserDefaultsValue(for: .isFromFront)) ?? true)]
+            
+            if let pageLogsFromCoreData = try? context.fetch(request) {
+                self.logs = pageLogsFromCoreData
+                self.firstNotInMemoryIndexPath = IndexPath(row: self.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
+                self.updateData()
+            }
+        }
+    }
+    
+    func refresh() {
+        fetchData()
+        tableView.reloadData()
     }
     
     private func updateData(){
@@ -50,7 +59,7 @@ class LogTableViewController: UITableViewController {
     private func updateTopLeftPercent() {
         var percentMemorized: Double = 0.0
         withCoreData {
-            // load total memorized percentage from CoreDate
+            // load total memorized percentage from CoreData
             let arrayOfMemorized = self.logs.compactMap{$0.isMemorized ? $0 : nil}
             percentMemorized = Double(arrayOfMemorized.count) / 604.0
         }
@@ -76,7 +85,7 @@ class LogTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { return section==1 ? "Pages" : nil }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 2
+            return 3
         } else {return logs.count}
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,6 +107,17 @@ class LogTableViewController: UITableViewController {
                         cell.titleLabel.text = "Today's Date:"
                         cell.datePicker.date = Date()
                         cell.datePicker.isEnabled = false
+                        return cell
+                    }
+                case 2:
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "configCell") as? ConfigTableViewCell {
+                        withCoreData { [self] in
+                            cell.directionSegmentedControl.selectedSegmentIndex = ((delegate?.getBoolUserDefaultsValue(for: .isFromFront)) ?? true) ? 0 : 1
+                            cell.directionValueChangedAction = { [self] in
+                                delegate?.userDefaults.set(cell.directionSegmentedControl.selectedSegmentIndex == 0, forKey: UserDefaultsKey.isFromFront.rawValue)
+                                refresh()
+                            }
+                        }
                         return cell
                     }
                 default: return UITableViewCell()
