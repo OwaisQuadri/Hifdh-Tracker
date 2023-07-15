@@ -66,6 +66,9 @@
                                         <constraint firstItem="8Zr-zK-J1w" firstAttribute="leading" secondItem="nV3-oK-qch" secondAttribute="leadingMargin" id="mM1-bw-ZkR"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectionStyle" value=".none"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="datePicker" destination="IRG-eP-uwd" id="Az7-W3-5nW"/>
                                     <outlet property="titleLabel" destination="8Zr-zK-J1w" id="XZn-ZS-bZS"/>
