@@ -10,6 +10,8 @@ import CoreData
 
 class LogTableViewController: UITableViewController {
     var logs : [Page] = []
+    var startDate: Date?
+    var firstNotInMemoryIndexPath: IndexPath = IndexPath(row: 0, section: 0)
     // give access to appdelegate
     let delegate = UIApplication.shared.delegate as? AppDelegate
     
@@ -24,9 +26,9 @@ class LogTableViewController: UITableViewController {
             
             if let pageLogsFromCoreData = try? context.fetch(request) {
                 self.logs = pageLogsFromCoreData
-                let firstNotInMemoryIndexPath = IndexPath(row: self.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
+                self.firstNotInMemoryIndexPath = IndexPath(row: self.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
                 self.updateData()
-                self.tableView.scrollToRow(at: firstNotInMemoryIndexPath, at: .middle, animated: true)
+                self.tableView.scrollToRow(at: self.firstNotInMemoryIndexPath, at: .middle, animated: true)
             }
         }
     }
@@ -40,6 +42,7 @@ class LogTableViewController: UITableViewController {
     }
     
     private func updateData(){
+        self.startDate = self.logs.map{ $0.dateMemorized ?? Date() }.min(by: { $0 < $1 })
         tableView.reloadData()
         updateTopLeftPercent()
     }
@@ -82,20 +85,18 @@ class LogTableViewController: UITableViewController {
                 case 0:
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as? DateTableViewCell {
                         cell.titleLabel.text = "Start Date:"
-                        
-                        //set the date from persisting storage
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "MM/dd/yyyy"
                         // get start date, from coredata
-                        
-                        let startDate = dateFormatter.date(from: "05/01/2022")
                         cell.datePicker.date = startDate ?? Date()
+                        cell.datePicker.isEnabled = false
                         
                         return cell
                     }
                 case 1:
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as? DateTableViewCell {
                         cell.titleLabel.text = "Today's Date:"
+                        cell.datePicker.date = Date()
                         cell.datePicker.isEnabled = false
                         return cell
                     }
@@ -130,6 +131,7 @@ class LogTableViewController: UITableViewController {
             logCell.datePicker.date = Date()
         }
     }
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -141,9 +143,10 @@ class LogTableViewController: UITableViewController {
                  //passing data
                  destination.logs = self.logs
                  destination.delegate = self.delegate
-                 destination.isDismissed = {[weak self] in
+                 destination.isDismissed = {[weak self] (pageNumber) in
                      //reload tableview when I come back
                      self?.updateData()
+                     self?.tableView.scrollToRow(at: IndexPath(row: pageNumber, section: 1), at: .middle, animated: true)
                  }
              }
          }
