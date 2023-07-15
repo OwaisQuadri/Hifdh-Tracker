@@ -114,6 +114,7 @@ class LogTableViewController: UITableViewController {
                     withCoreData {
                         currentPage.isMemorized = !currentPage.isMemorized
                         currentPage.dateMemorized = logCell.datePicker.date
+                        self.tableView.scrollToRow(at: IndexPath(row: Int(currentPage.pageNumber), section: 1), at: .middle, animated: true)
                     }
                     updateDatePickerInPageCell(logCell)
                     updateData()
