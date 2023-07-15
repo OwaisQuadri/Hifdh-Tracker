@@ -154,12 +154,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Log" id="IfX-0E-O7G">
+                        <barButtonItem key="leftBarButtonItem" title="100%" id="oCJ-zq-MLF">
+                            <color key="tintColor" systemColor="labelColor"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vCs-rw-bkC">
                             <connections>
                                 <segue destination="WED-qr-7Ws" kind="presentation" identifier="addLog" id="q8p-tP-euA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="percentBarButton" destination="oCJ-zq-MLF" id="W3n-ek-C8U"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkO-FP-V0k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -284,6 +290,9 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
