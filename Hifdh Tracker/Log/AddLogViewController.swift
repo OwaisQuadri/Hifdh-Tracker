@@ -22,10 +22,10 @@ class AddLogViewController: UIViewController {
     var logs: [Page]?
     
     //reload on dismiss
-    var isDismissed: ( () -> Void )?
+    var isDismissed: ( (Int) -> Void )?
     
-    func dismiss() {
-        isDismissed?()
+    func dismiss(andScrollTo pageNumber: Int) {
+        isDismissed?(pageNumber)
         self.dismiss(animated: true)
     }
     
@@ -51,8 +51,10 @@ class AddLogViewController: UIViewController {
         showErrorConstraint.isActive = false
         hideErrorConstraint.isActive = true
         self.view.layoutIfNeeded()
+        let x = min(indexEnd, indexStart)
+        let y = max(indexEnd, indexStart)
         if let _ = delegate?.persistentContainer.viewContext {
-            for i in indexStart...indexEnd {
+            for i in x...y {
                 if let logs = logs {
                     logs[i].isMemorized = true
                     logs[i].dateMemorized = datePicker.date
@@ -62,7 +64,7 @@ class AddLogViewController: UIViewController {
         delegate?.saveContext()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
             // Put your code which should be executed with a delay here
-            self.dismiss()
+            self.dismiss(andScrollTo: max(indexStart, indexEnd))
         }
     }
     /*
