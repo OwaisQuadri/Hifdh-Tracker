@@ -17,15 +17,16 @@ class LogTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // load from db
-        if let context = delegate?.persistentContainer.viewContext {
-            
+        guard let context = delegate?.persistentContainer.viewContext else { return }
+        withCoreData {
             let request: NSFetchRequest<Page> = Page.fetchRequest()
             request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: true)]
+            
             if let pageLogsFromCoreData = try? context.fetch(request) {
-                logs = pageLogsFromCoreData
-                let firstNotInMemoryIndexPath = IndexPath(row: logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
-                updateData()
-                tableView.scrollToRow(at: firstNotInMemoryIndexPath, at: .middle, animated: true)
+                self.logs = pageLogsFromCoreData
+                let firstNotInMemoryIndexPath = IndexPath(row: self.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
+                self.updateData()
+                self.tableView.scrollToRow(at: firstNotInMemoryIndexPath, at: .middle, animated: true)
             }
         }
     }
@@ -45,9 +46,9 @@ class LogTableViewController: UITableViewController {
     
     private func updateTopLeftPercent() {
         var percentMemorized: Double = 0.0
-        if let _ = delegate?.persistentContainer.viewContext {
+        withCoreData {
             // load total memorized percentage from CoreDate
-            let arrayOfMemorized = logs.compactMap{$0.isMemorized ? $0 : nil}
+            let arrayOfMemorized = self.logs.compactMap{$0.isMemorized ? $0 : nil}
             percentMemorized = Double(arrayOfMemorized.count) / 604.0
         }
         // set top bar item to number with format
@@ -57,6 +58,13 @@ class LogTableViewController: UITableViewController {
         percentFormat.minimumFractionDigits = 1
         let formattedTitle = percentFormat.string(from: NSNumber(floatLiteral: percentMemorized))
         percentBarButton.title = formattedTitle
+    }
+    
+    func withCoreData(completion: @escaping() -> Void ){
+        if let _ = delegate?.persistentContainer.viewContext {
+            completion()
+        }
+        delegate?.saveContext()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,6 +86,8 @@ class LogTableViewController: UITableViewController {
                         //set the date from persisting storage
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "MM/dd/yyyy"
+                        // get start date, from coredata
+                        
                         let startDate = dateFormatter.date(from: "05/01/2022")
                         cell.datePicker.date = startDate ?? Date()
                         
@@ -100,10 +110,9 @@ class LogTableViewController: UITableViewController {
                 logCell.memorySwitch.isOn = inMemory
                 updateDatePickerInPageCell(logCell)
                 logCell.switchValueChangedAction = { [self] in
-                    if let _ = self.delegate?.persistentContainer.viewContext {
+                    withCoreData {
                         currentPage.isMemorized = !currentPage.isMemorized
                         currentPage.dateMemorized = logCell.datePicker.date
-                        delegate?.saveContext()
                     }
                     updateDatePickerInPageCell(logCell)
                     updateData()
