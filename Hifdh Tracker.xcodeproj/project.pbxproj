@@ -22,6 +22,7 @@
 		CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */; };
 		CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */; };
 		CD46065E2A5CF0EA002F2F3F /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */; };
+		CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
+		CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				CD1E31C12A5BB8AE003B76C7 /* DateTableViewCell.swift */,
 				CD1E31C52A5BCCD9003B76C7 /* LogTableViewCell.swift */,
 				CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */,
+				CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				CD1E318F2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld in Sources */,
 				CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
+				CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
