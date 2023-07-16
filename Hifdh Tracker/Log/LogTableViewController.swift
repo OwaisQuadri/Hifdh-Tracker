@@ -18,7 +18,7 @@ class LogTableViewController: UITableViewController {
     @IBOutlet weak var percentBarButton: UIBarButtonItem!
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchData()
+        fetchData(delegate)
         self.tableView.scrollToRow(at: self.firstNotInMemoryIndexPath, at: .middle, animated: true)
     }
     override func viewDidLoad() {
@@ -30,23 +30,24 @@ class LogTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    func fetchData() {
+    func fetchData(_ delegate: AppDelegate?) {
         // load from db
-        guard let context = delegate?.persistentContainer.viewContext else { return }
-        withCoreData { [self] in
-            let request: NSFetchRequest<Page> = Page.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: (delegate?.getBoolUserDefaultsValue(for: .isFromFront)) ?? true)]
-            
-            if let pageLogsFromCoreData = try? context.fetch(request) {
-                self.logs = pageLogsFromCoreData
-                self.firstNotInMemoryIndexPath = IndexPath(row: self.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
-                self.updateData()
+        if let context = delegate?.persistentContainer.viewContext  {
+            withCoreData { [self] in
+                let request: NSFetchRequest<Page> = Page.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: (delegate?.userDefaults.bool(forKey: UserDefaultsKey.isFromFront.rawValue)) ?? true)]
+                
+                if let pageLogsFromCoreData = try? context.fetch(request) {
+                    self.logs = pageLogsFromCoreData
+                    self.firstNotInMemoryIndexPath = IndexPath(row: self.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
+                    self.updateData()
+                }
             }
         }
     }
     
     func refresh() {
-        fetchData()
+        fetchData(delegate)
         tableView.reloadData()
     }
     
@@ -112,10 +113,11 @@ class LogTableViewController: UITableViewController {
                 case 2:
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "configCell") as? ConfigTableViewCell {
                         withCoreData { [self] in
-                            cell.directionSegmentedControl.selectedSegmentIndex = ((delegate?.getBoolUserDefaultsValue(for: .isFromFront)) ?? true) ? 0 : 1
+                            cell.directionSegmentedControl.selectedSegmentIndex = ((delegate?.userDefaults.bool(forKey: UserDefaultsKey.isFromFront.rawValue)) ?? true) ? 0 : 1
                             cell.directionValueChangedAction = { [self] in
                                 delegate?.userDefaults.set(cell.directionSegmentedControl.selectedSegmentIndex == 0, forKey: UserDefaultsKey.isFromFront.rawValue)
                                 refresh()
+                                self.tableView.scrollToRow(at: self.firstNotInMemoryIndexPath, at: .middle, animated: true)
                             }
                         }
                         return cell
@@ -134,7 +136,9 @@ class LogTableViewController: UITableViewController {
                     withCoreData {
                         currentPage.isMemorized = !currentPage.isMemorized
                         currentPage.dateMemorized = logCell.datePicker.date
-                        self.tableView.scrollToRow(at: IndexPath(row: Int(currentPage.pageNumber), section: 1), at: .middle, animated: true)
+                        var rowNumber = Int(currentPage.pageNumber)
+                        if !UserDefaults.standard.bool(forKey: UserDefaultsKey.isFromFront.rawValue) { rowNumber = 603 - rowNumber}
+                        self.tableView.scrollToRow(at: IndexPath(row: rowNumber, section: 1), at: .middle, animated: true)
                     }
                     updateDatePickerInPageCell(logCell)
                     updateData()

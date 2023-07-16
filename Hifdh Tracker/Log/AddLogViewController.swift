@@ -37,9 +37,10 @@ class AddLogViewController: UIViewController {
     }
     
     @IBAction func createLogButtonTouchUpInside(_ sender: Any) {
+        
         //take values from "from" and "to" text fields and make them ints
-        let indexStart = (Int(fromPageTextField.text!) ?? 0) - 1
-        let indexEnd = (Int(untilPageTextField.text!) ?? 0) - 1
+        var indexStart = (Int(fromPageTextField.text!) ?? 0) - 1
+        var indexEnd = (Int(untilPageTextField.text!) ?? 0) - 1
         if indexStart < 0 || indexStart > 603 || indexEnd < 0 || indexEnd > 603 {
         // handle error "enter a number between 1 and 604"
             hideErrorConstraint.isActive = false
@@ -51,6 +52,10 @@ class AddLogViewController: UIViewController {
         showErrorConstraint.isActive = false
         hideErrorConstraint.isActive = true
         self.view.layoutIfNeeded()
+        if !UserDefaults.standard.bool(forKey: UserDefaultsKey.isFromFront.rawValue) {
+            indexStart = 603 - indexStart
+            indexEnd = 603 - indexEnd
+        }
         let x = min(indexEnd, indexStart)
         let y = max(indexEnd, indexStart)
         if let _ = delegate?.persistentContainer.viewContext {

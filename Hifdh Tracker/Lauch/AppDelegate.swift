@@ -20,15 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // set default first run values
-        let defaultValues = ["firstRun" : true, "isFromFront" : true]
+        let defaultValues = [UserDefaultsKey.isFirstRun.rawValue : true, UserDefaultsKey.isFromFront.rawValue : true]
         userDefaults.register(defaults: defaultValues)
         let managedContext = persistentContainer.viewContext
         
         // if first run
-        if getBoolUserDefaultsValue(for: .isFirstRun) {
+        if userDefaults.bool(forKey: UserDefaultsKey.isFirstRun.rawValue){
             Page.getDefaultPages(managedContext)
            
-            userDefaults.set(false, forKey: "firstRun")
+            userDefaults.set(false, forKey: UserDefaultsKey.isFirstRun.rawValue)
         }
         return true
     }
@@ -75,16 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-    // MARK: UserDefaults Helpers
-//    func createBoolUserDefaults(for key: UserDefaultsKey, value: Bool) {
-//
-//    }
-//    func setBoolUserDefaults(for key: UserDefaultsKey, value: Bool) {
-//
-//    }
-    func getBoolUserDefaultsValue(for key: UserDefaultsKey) -> Bool {
-        return userDefaults.bool(forKey: key.rawValue)
-    }
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {

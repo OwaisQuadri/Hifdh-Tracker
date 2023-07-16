@@ -30,9 +30,26 @@ extension Page : Identifiable {
         self.dateMemorized = nil
     }
     static func getDefaultPages(_ context: NSManagedObjectContext) -> Void {
+        Page.deleteAll(in: context)
+        try? context.save()
         for i:Int16 in 1...604 {
             let _ = Page(i, context)
             try? context.save()
+        }
+    }
+    static func deleteAll(in context: NSManagedObjectContext) {
+        // Initialize Fetch Request
+        let request: NSFetchRequest<Page> = Page.fetchRequest()
+        
+        do {
+            let items = try context.fetch(request)
+            for item in items {
+                context.delete(item)
+            }
+            try context.save()
+            
+        } catch {
+            // TODO: Error Handling
         }
     }
 }
