@@ -46,8 +46,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zr-zK-J1w">
-                                            <rect key="frame" x="20" y="11" width="36" height="37"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zr-zK-J1w">
+                                            <rect key="frame" x="20" y="11" width="195.66666666666666" height="37"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -58,6 +58,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="8Zr-zK-J1w" firstAttribute="top" secondItem="nV3-oK-qch" secondAttribute="topMargin" id="2Fy-gW-Ji4"/>
+                                        <constraint firstItem="8Zr-zK-J1w" firstAttribute="trailing" secondItem="IRG-eP-uwd" secondAttribute="leading" id="9a2-St-z0D"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="IRG-eP-uwd" secondAttribute="trailing" id="Ft5-6F-VfN"/>
                                         <constraint firstItem="IRG-eP-uwd" firstAttribute="top" secondItem="nV3-oK-qch" secondAttribute="topMargin" id="JMT-tF-cga"/>
                                         <constraint firstItem="IRG-eP-uwd" firstAttribute="centerY" secondItem="8Zr-zK-J1w" secondAttribute="centerY" id="Kpx-MX-jpa"/>
@@ -229,8 +230,8 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HE0-2q-2sr">
-                                <rect key="frame" x="129" y="207" width="133.99999999999997" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HE0-2q-2sr">
+                                <rect key="frame" x="129.66666666666666" y="179" width="133.99999999999997" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Create Log"/>
                                 <connections>
