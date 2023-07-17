@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,6 +24,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <segue destination="z31-Ws-aqo" kind="relationship" relationship="viewControllers" id="hNG-If-GPx"/>
                         <segue destination="vFN-XO-csX" kind="relationship" relationship="viewControllers" id="6qe-6O-5bI"/>
                     </connections>
                 </tabBarController>
@@ -159,7 +161,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Log" id="IfX-0E-O7G">
                         <barButtonItem key="leftBarButtonItem" title="100%" id="oCJ-zq-MLF">
-                            <color key="tintColor" systemColor="labelColor"/>
+                            <color key="tintColor" name="AccentColor"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vCs-rw-bkC">
                             <connections>
@@ -291,12 +293,63 @@
             </objects>
             <point key="canvasLocation" x="542.74809160305347" y="-388.02816901408454"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="cDd-Bx-290">
+            <objects>
+                <viewController id="2eE-ZI-AF1" customClass="ProfileViewController" customModule="Hifdh_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="goN-iU-h5l">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="16r-cv-pwZ">
+                                <rect key="frame" x="0.0" y="103" width="393" height="4"/>
+                            </progressView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lVg-Bg-IYr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="16r-cv-pwZ" firstAttribute="top" secondItem="lVg-Bg-IYr" secondAttribute="top" id="O3n-Ka-Qy4"/>
+                            <constraint firstItem="16r-cv-pwZ" firstAttribute="leading" secondItem="lVg-Bg-IYr" secondAttribute="leading" id="WTD-GB-Ysr"/>
+                            <constraint firstItem="16r-cv-pwZ" firstAttribute="centerX" secondItem="lVg-Bg-IYr" secondAttribute="centerX" id="bXY-ei-Ejy"/>
+                            <constraint firstItem="lVg-Bg-IYr" firstAttribute="trailing" secondItem="16r-cv-pwZ" secondAttribute="trailing" id="cpo-rz-JgG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="5ra-sA-DxG"/>
+                    <connections>
+                        <outlet property="memorizationProgressbar" destination="16r-cv-pwZ" id="sRx-B4-8an"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2u-js-dQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1469" y="341"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="Vab-k6-aFn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z31-Ws-aqo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle" catalog="system" id="ihN-LK-Pdd"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Ilh-rJ-svj"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aBK-Aa-RjW">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2eE-ZI-AF1" kind="relationship" relationship="rootViewController" id="lMg-5o-eOu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OBN-ac-bib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-318" y="341"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="AccentColor">
+            <color red="0.6588235294" green="0.47843137250000001" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
