@@ -6,8 +6,8 @@
 //
 //
 
-import Foundation
 import CoreData
+import UIKit
 
 
 extension Page {
@@ -29,6 +29,12 @@ extension Page : Identifiable {
         self.isMemorized = false
         self.dateMemorized = nil
     }
+    static var logs: [Page] {
+        get {
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            return fetchPages(in: delegate.persistentContainer.viewContext)
+        }
+    }
     static func getDefaultPages(_ context: NSManagedObjectContext) -> Void {
         Page.deleteAll(in: context)
         try? context.save()
@@ -37,6 +43,32 @@ extension Page : Identifiable {
             try? context.save()
         }
     }
+    
+    enum Stat {
+        case completionDate
+        case pagesPerDay
+    }
+    
+    static func fetchPages(in context: NSManagedObjectContext) -> [Page] {
+        let request: NSFetchRequest<Page> = Page.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: (UserDefaults.standard.bool(forKey: UserDefaultsKey.isFromFront.rawValue)))]
+        
+        if let pageLogsFromCoreData = try? context.fetch(request) {
+            return pageLogsFromCoreData
+        }
+        return []
+    }
+    
+    static func getStatistic(called statisticName: Stat) {
+        switch statisticName {
+            case .completionDate:
+                
+                return
+            case .pagesPerDay:
+                return
+        }
+    }
+    
     static func deleteAll(in context: NSManagedObjectContext) {
         // Initialize Fetch Request
         let request: NSFetchRequest<Page> = Page.fetchRequest()

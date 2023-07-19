@@ -304,19 +304,89 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="16r-cv-pwZ">
                                 <rect key="frame" x="0.0" y="103" width="393" height="4"/>
                             </progressView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MaE-fW-qcV">
+                                <rect key="frame" x="16" y="107" width="361" height="745"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzF-pN-gVh">
+                                        <rect key="frame" x="50" y="50" width="261" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQD-4h-wFh">
+                                                <rect key="frame" x="0.0" y="31.000000000000004" width="178" height="38.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdx-j6-RKj">
+                                                <rect key="frame" x="186" y="25" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="X5o-Wm-beK"/>
+                                                    <constraint firstAttribute="width" constant="50" id="g1C-jy-Ozs"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" image="chevron.down" catalog="system">
+                                                    <color key="baseForegroundColor" name="AccentColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="statisticsDropDownButtonPressed:" destination="2eE-ZI-AF1" eventType="touchUpInside" id="tAC-8W-yJB"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistic Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnp-S8-IHx">
+                                                <rect key="frame" x="8" y="8" width="245" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="rzM-aS-6n4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstItem="WQD-4h-wFh" firstAttribute="centerY" secondItem="gzF-pN-gVh" secondAttribute="centerY" id="6oL-eh-jUU"/>
+                                            <constraint firstItem="WQD-4h-wFh" firstAttribute="leading" secondItem="gzF-pN-gVh" secondAttribute="leading" id="7Ni-pz-v0f"/>
+                                            <constraint firstAttribute="trailing" secondItem="bdx-j6-RKj" secondAttribute="trailing" constant="25" id="FIG-Qu-82a"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="qnp-S8-IHx" secondAttribute="trailing" id="GfF-Vm-I7P"/>
+                                            <constraint firstAttribute="height" constant="100" id="Lco-AA-2tr"/>
+                                            <constraint firstAttribute="bottom" secondItem="bdx-j6-RKj" secondAttribute="bottom" constant="25" id="PV8-bK-ud7"/>
+                                            <constraint firstItem="qnp-S8-IHx" firstAttribute="top" secondItem="gzF-pN-gVh" secondAttribute="topMargin" id="Wyu-PZ-f01"/>
+                                            <constraint firstItem="qnp-S8-IHx" firstAttribute="leading" secondItem="gzF-pN-gVh" secondAttribute="leadingMargin" id="ZV1-M7-Fih"/>
+                                            <constraint firstItem="bdx-j6-RKj" firstAttribute="leading" secondItem="WQD-4h-wFh" secondAttribute="trailing" constant="8" symbolic="YES" id="gAX-iQ-vvS"/>
+                                            <constraint firstItem="bdx-j6-RKj" firstAttribute="top" secondItem="gzF-pN-gVh" secondAttribute="top" constant="25" id="nKN-wp-ntp"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gzF-pN-gVh" firstAttribute="leading" secondItem="Vij-9j-vSW" secondAttribute="leading" constant="50" id="0I6-dn-sCc"/>
+                                    <constraint firstItem="gzF-pN-gVh" firstAttribute="top" secondItem="Vij-9j-vSW" secondAttribute="top" constant="50" id="BLD-Qk-cn5"/>
+                                    <constraint firstItem="Vij-9j-vSW" firstAttribute="trailing" secondItem="gzF-pN-gVh" secondAttribute="trailing" constant="50" id="DNM-ce-OcS"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Pw5-l9-I5h"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Vij-9j-vSW"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lVg-Bg-IYr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="MaE-fW-qcV" firstAttribute="leading" secondItem="goN-iU-h5l" secondAttribute="leadingMargin" id="58H-qY-dzJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MaE-fW-qcV" secondAttribute="trailing" id="LCd-14-9Xt"/>
                             <constraint firstItem="16r-cv-pwZ" firstAttribute="top" secondItem="lVg-Bg-IYr" secondAttribute="top" id="O3n-Ka-Qy4"/>
+                            <constraint firstAttribute="bottom" secondItem="MaE-fW-qcV" secondAttribute="bottom" id="QcY-Up-bfh"/>
                             <constraint firstItem="16r-cv-pwZ" firstAttribute="leading" secondItem="lVg-Bg-IYr" secondAttribute="leading" id="WTD-GB-Ysr"/>
                             <constraint firstItem="16r-cv-pwZ" firstAttribute="centerX" secondItem="lVg-Bg-IYr" secondAttribute="centerX" id="bXY-ei-Ejy"/>
                             <constraint firstItem="lVg-Bg-IYr" firstAttribute="trailing" secondItem="16r-cv-pwZ" secondAttribute="trailing" id="cpo-rz-JgG"/>
+                            <constraint firstItem="MaE-fW-qcV" firstAttribute="top" secondItem="16r-cv-pwZ" secondAttribute="bottom" id="qgw-jx-LdL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="5ra-sA-DxG"/>
                     <connections>
                         <outlet property="memorizationProgressbar" destination="16r-cv-pwZ" id="sRx-B4-8an"/>
+                        <outlet property="statisticDropDownButton" destination="bdx-j6-RKj" id="1iW-Sd-J6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2u-js-dQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -345,11 +415,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
-            <color red="0.6588235294" green="0.47843137250000001" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.6589999794960022" green="0.4779999852180481" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

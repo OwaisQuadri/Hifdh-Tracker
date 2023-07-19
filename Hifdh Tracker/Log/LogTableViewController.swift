@@ -32,18 +32,8 @@ class LogTableViewController: UITableViewController {
     
     func fetchData(_ delegate: AppDelegate?) {
         // load from db
-        if let context = delegate?.persistentContainer.viewContext  {
-            withCoreData { [self] in
-                let request: NSFetchRequest<Page> = Page.fetchRequest()
-                request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: (delegate?.userDefaults.bool(forKey: UserDefaultsKey.isFromFront.rawValue)) ?? true)]
-                
-                if let pageLogsFromCoreData = try? context.fetch(request) {
-                    self.logs = pageLogsFromCoreData
-                    self.firstNotInMemoryIndexPath = IndexPath(row: self.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
-                    self.updateData()
-                }
-            }
-        }
+        firstNotInMemoryIndexPath = IndexPath(row: Page.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
+        updateView()
     }
     
     func refresh() {
@@ -51,8 +41,8 @@ class LogTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    private func updateData(){
-        self.startDate = self.logs.map{ $0.dateMemorized ?? Date() }.min(by: { $0 < $1 })
+    private func updateView(){
+        self.startDate = Page.logs.map{ $0.dateMemorized ?? Date() }.min(by: { $0 < $1 })
         tableView.reloadData()
         updateTopLeftPercent()
     }
@@ -61,7 +51,7 @@ class LogTableViewController: UITableViewController {
         var percentMemorized: Double = 0.0
         withCoreData {
             // load total memorized percentage from CoreData
-            let arrayOfMemorized = self.logs.compactMap{$0.isMemorized ? $0 : nil}
+            let arrayOfMemorized = Page.logs.compactMap{$0.isMemorized ? $0 : nil}
             percentMemorized = Double(arrayOfMemorized.count) / 604.0
         }
         // set top bar item to number with format
@@ -87,7 +77,7 @@ class LogTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 3
-        } else {return logs.count}
+        } else {return Page.logs.count}
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
@@ -126,7 +116,7 @@ class LogTableViewController: UITableViewController {
             }
         } else {
             if let logCell = tableView.dequeueReusableCell(withIdentifier: "logCell") as? LogTableViewCell {
-                let currentPage = logs[indexPath.row]
+                let currentPage = Page.logs[indexPath.row]
                 logCell.titleLabel.text = String(currentPage.pageNumber)
                 logCell.datePicker.setDate(currentPage.dateMemorized ?? Date (), animated: true)
                 let inMemory = currentPage.isMemorized
@@ -141,7 +131,7 @@ class LogTableViewController: UITableViewController {
                         self.tableView.scrollToRow(at: IndexPath(row: rowNumber, section: 1), at: .middle, animated: true)
                     }
                     updateDatePickerInPageCell(logCell)
-                    updateData()
+                    updateView()
                 }
                 return logCell
             }
@@ -166,11 +156,10 @@ class LogTableViewController: UITableViewController {
          if (segue.identifier == "addLog") {
              if let destination = segue.destination as? AddLogViewController {
                  //passing data
-                 destination.logs = self.logs
                  destination.delegate = self.delegate
                  destination.isDismissed = {[weak self] (pageNumber) in
                      //reload tableview when I come back
-                     self?.updateData()
+                     self?.updateView()
                      self?.tableView.scrollToRow(at: IndexPath(row: pageNumber, section: 1), at: .middle, animated: true)
                  }
              }

@@ -19,7 +19,6 @@ class AddLogViewController: UIViewController {
     @IBOutlet weak var showErrorConstraint: NSLayoutConstraint!
     // give access to appdelegate and logs
     var delegate: AppDelegate?
-    var logs: [Page]?
     
     //reload on dismiss
     var isDismissed: ( (Int) -> Void )?
@@ -60,10 +59,8 @@ class AddLogViewController: UIViewController {
         let y = max(indexEnd, indexStart)
         if let _ = delegate?.persistentContainer.viewContext {
             for i in x...y {
-                if let logs = logs {
-                    logs[i].isMemorized = true
-                    logs[i].dateMemorized = datePicker.date
-                }
+                Page.logs[i].isMemorized = true
+                Page.logs[i].dateMemorized = datePicker.date
             }
         }
         delegate?.saveContext()

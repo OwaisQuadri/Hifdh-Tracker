@@ -9,38 +9,23 @@ import UIKit
 import CoreData
 
 class ProfileViewController: UIViewController {
+    var isDropDownExpanded: Bool = false
     let delegate = UIApplication.shared.delegate as? AppDelegate
+    @IBOutlet weak var statisticDropDownButton: UIButton!
     @IBOutlet weak var memorizationProgressbar: UIProgressView!
-    
-    var logs : [Page] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        fetchData(delegate)
         setupProgressBar()
-    }
-    
-    func fetchData(_ delegate: AppDelegate?) {
-        // load from db
-        if let context = delegate?.persistentContainer.viewContext  {
-            withCoreData { [self] in
-                let request: NSFetchRequest<Page> = Page.fetchRequest()
-                request.sortDescriptors = [NSSortDescriptor(key: "pageNumber", ascending: (delegate?.userDefaults.bool(forKey: UserDefaultsKey.isFromFront.rawValue)) ?? true)]
-                
-                if let pageLogsFromCoreData = try? context.fetch(request) {
-                    self.logs = pageLogsFromCoreData
-                }
-            }
-        }
     }
     
     func setupProgressBar() {
         var percentMemorized: Float = 0.0
         withCoreData {
             // load total memorized percentage from CoreData
-            let arrayOfMemorized = self.logs.compactMap{$0.isMemorized ? $0 : nil}
+            let arrayOfMemorized = Page.logs.compactMap{$0.isMemorized ? $0 : nil}
             percentMemorized = Float(arrayOfMemorized.count) / 604.0
         }
         memorizationProgressbar.progress = percentMemorized
@@ -54,7 +39,21 @@ class ProfileViewController: UIViewController {
         }
         delegate?.saveContext()
     }
-
+    
+    @IBAction func statisticsDropDownButtonPressed(_ sender: UIButton) {
+        var imageName = "chevron."
+        if isDropDownExpanded {
+            isDropDownExpanded = false
+            imageName += "down"
+        } else {
+            isDropDownExpanded = true
+            imageName += "up"
+        }
+        UIView.animate(withDuration: 10, animations: {[self] in
+            statisticDropDownButton.setImage(UIImage(systemName: imageName), for: .normal)
+        })
+    }
+    
     /*
     // MARK: - Navigation
 
