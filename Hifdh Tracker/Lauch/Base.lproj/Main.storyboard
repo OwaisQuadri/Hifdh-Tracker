@@ -310,8 +310,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzF-pN-gVh">
                                         <rect key="frame" x="50" y="50" width="261" height="100"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQD-4h-wFh">
-                                                <rect key="frame" x="0.0" y="31.000000000000004" width="178" height="38.333333333333343"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="WQD-4h-wFh">
+                                                <rect key="frame" x="25" y="31.000000000000004" width="153" height="38.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
@@ -344,7 +344,7 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
                                             <constraint firstItem="WQD-4h-wFh" firstAttribute="centerY" secondItem="gzF-pN-gVh" secondAttribute="centerY" id="6oL-eh-jUU"/>
-                                            <constraint firstItem="WQD-4h-wFh" firstAttribute="leading" secondItem="gzF-pN-gVh" secondAttribute="leading" id="7Ni-pz-v0f"/>
+                                            <constraint firstItem="WQD-4h-wFh" firstAttribute="leading" secondItem="gzF-pN-gVh" secondAttribute="leading" constant="25" id="7Ni-pz-v0f"/>
                                             <constraint firstAttribute="trailing" secondItem="bdx-j6-RKj" secondAttribute="trailing" constant="25" id="FIG-Qu-82a"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="qnp-S8-IHx" secondAttribute="trailing" id="GfF-Vm-I7P"/>
                                             <constraint firstAttribute="height" constant="100" id="Lco-AA-2tr"/>
@@ -385,6 +385,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="5ra-sA-DxG"/>
                     <connections>
+                        <outlet property="mainStatTitleLabel" destination="qnp-S8-IHx" id="PHZ-jh-HOm"/>
+                        <outlet property="mainStatValueLabel" destination="WQD-4h-wFh" id="fkI-xR-N7X"/>
                         <outlet property="memorizationProgressbar" destination="16r-cv-pwZ" id="sRx-B4-8an"/>
                         <outlet property="statisticDropDownButton" destination="bdx-j6-RKj" id="1iW-Sd-J6O"/>
                     </connections>

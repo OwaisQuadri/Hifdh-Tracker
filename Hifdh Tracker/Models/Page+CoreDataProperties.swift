@@ -10,6 +10,13 @@ import CoreData
 import UIKit
 
 
+enum Statistic {
+    case completionDate
+    case pagesPerDay
+    case pagesMemorized
+    case percentMemorized
+}
+
 extension Page {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Page> {
@@ -29,12 +36,14 @@ extension Page : Identifiable {
         self.isMemorized = false
         self.dateMemorized = nil
     }
+    
     static var logs: [Page] {
         get {
             let delegate = UIApplication.shared.delegate as! AppDelegate
             return fetchPages(in: delegate.persistentContainer.viewContext)
         }
     }
+    
     static func getDefaultPages(_ context: NSManagedObjectContext) -> Void {
         Page.deleteAll(in: context)
         try? context.save()
@@ -42,11 +51,6 @@ extension Page : Identifiable {
             let _ = Page(i, context)
             try? context.save()
         }
-    }
-    
-    enum Stat {
-        case completionDate
-        case pagesPerDay
     }
     
     static func fetchPages(in context: NSManagedObjectContext) -> [Page] {
@@ -59,14 +63,42 @@ extension Page : Identifiable {
         return []
     }
     
-    static func getStatistic(called statisticName: Stat) {
-        switch statisticName {
-            case .completionDate:
-                
-                return
-            case .pagesPerDay:
-                return
+    static var selectedStat: Statistic?
+    
+    static var lowestLogDate: Date? {
+        arrayOfMemorized.compactMap { $0.dateMemorized }.min()
+    }
+    
+    static var highestLogDate: Date? {
+        arrayOfMemorized.compactMap { $0.dateMemorized }.max()
+    }
+    
+    static var arrayOfMemorized: [Page] {
+        return Page.logs.compactMap { $0.isMemorized ? $0 : nil }
+    }
+    
+    static var numberOfMemorized: Double {
+        return Double(arrayOfMemorized.count)
+    }
+    
+    static var numberOfNotMemorized: Double {
+        return 604.0 - numberOfMemorized
+    }
+    
+    static var percentMemorized: Double {
+        return numberOfMemorized / 604.0
+    }
+    
+    static var pagesPerDay: Double {
+        get {
+            if let highestLogDate = highestLogDate, let lowestLogDate = lowestLogDate {
+                return (numberOfMemorized)/(highestLogDate.distance(to: lowestLogDate).magnitude)
+            } else { return 0.0 }
         }
+    }
+    
+    static var completionDate: Date {
+        return (Date() + (numberOfNotMemorized/pagesPerDay))
     }
     
     static func deleteAll(in context: NSManagedObjectContext) {

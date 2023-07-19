@@ -36,7 +36,7 @@ class LogTableViewController: UITableViewController {
         updateView()
     }
     
-    func refresh() {
+    private func refresh() {
         fetchData(delegate)
         tableView.reloadData()
     }
@@ -73,12 +73,15 @@ class LogTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { return section==1 ? "Pages" : nil }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 3
         } else {return Page.logs.count}
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             switch indexPath.row {
@@ -138,6 +141,7 @@ class LogTableViewController: UITableViewController {
         }
         return UITableViewCell()
     }
+    
     func updateDatePickerInPageCell(_ logCell: LogTableViewCell) {
         if logCell.memorySwitch.isOn {
             logCell.datePicker.isEnabled = false
