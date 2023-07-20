@@ -8,23 +8,46 @@
 import UIKit
 import CoreData
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    let mainStatistics = ["Predicted Hifdh Completion", "Pages per Day", "Pages Memorized", "Percent Memorized",]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return mainStatistics.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return mainStatistics[row]
+    }
+    
+    
     var isDropDownExpanded: Bool = false
     let delegate = UIApplication.shared.delegate as? AppDelegate
+    @IBOutlet weak var mainStatPicker: UIPickerView!
     @IBOutlet weak var mainStatTitleLabel: UILabel!
     @IBOutlet weak var mainStatValueLabel: UILabel!
     @IBOutlet weak var statisticDropDownButton: UIButton!
     @IBOutlet weak var memorizationProgressbar: UIProgressView!
+    @IBOutlet weak var mainStatPickerHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        view.layoutIfNeeded()
         configureProgressBar()
         configureMainStatCard(for: Page.selectedStat ?? .pagesMemorized)
-        
-        
+        configureStatPicker()
+    }
+    
+    func configureStatPicker() {
+        mainStatPicker.dataSource = self
+        mainStatPicker.delegate = self
+        setMainStatPickerVisibility(to: isDropDownExpanded)
     }
     
     func configureProgressBar() {
@@ -67,29 +90,36 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    // MARK: Core Data
     
-    func withCoreData(completion: @escaping() -> Void ){
-        if let _ = delegate?.persistentContainer.viewContext {
-            completion()
-        }
-        delegate?.saveContext()
-    }
     
     @IBAction func statisticsDropDownButtonPressed(_ sender: UIButton) {
         var imageName = "chevron."
         if isDropDownExpanded {
             isDropDownExpanded = false
             imageName += "down"
+            configureMainStatCard(for: Statistic(rawValue:(mainStatPicker.selectedRow(inComponent: 0))) ?? .pagesMemorized)
+            
         } else {
             isDropDownExpanded = true
             imageName += "up"
         }
-        UIView.animate(withDuration: 10, animations: {[self] in
-            statisticDropDownButton.setImage(UIImage(systemName: imageName), for: .normal)
-        })
+        statisticDropDownButton.setImage(UIImage(systemName: imageName), for: .normal)
+        setMainStatPickerVisibility(to: isDropDownExpanded)
     }
     
+    private func setMainStatPickerVisibility(to show: Bool) {
+        
+        UIView.animate(withDuration: 0.3){ [self] in
+        if show {
+            mainStatPickerHeight.constant = 100
+            self.view.layoutIfNeeded()
+        } else {
+            mainStatPickerHeight.constant = 0
+            self.view.layoutIfNeeded()
+            
+        }
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -99,5 +129,14 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: Core Data
+    
+    func withCoreData(completion: @escaping() -> Void ){
+        if let _ = delegate?.persistentContainer.viewContext {
+            completion()
+        }
+        delegate?.saveContext()
+    }
 
 }

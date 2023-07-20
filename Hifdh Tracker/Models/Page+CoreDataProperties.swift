@@ -10,11 +10,11 @@ import CoreData
 import UIKit
 
 
-enum Statistic {
-    case completionDate
-    case pagesPerDay
-    case pagesMemorized
-    case percentMemorized
+enum Statistic: Int {
+    case completionDate = 0
+    case pagesPerDay = 1
+    case pagesMemorized = 2
+    case percentMemorized = 3
 }
 
 extension Page {
@@ -92,13 +92,13 @@ extension Page : Identifiable {
     static var pagesPerDay: Double {
         get {
             if let highestLogDate = highestLogDate, let lowestLogDate = lowestLogDate {
-                return (numberOfMemorized)/(highestLogDate.distance(to: lowestLogDate).magnitude)
+                return (numberOfMemorized)/(highestLogDate.distance(to: lowestLogDate).magnitude).convert(to: .days)
             } else { return 0.0 }
         }
     }
     
     static var completionDate: Date {
-        return (Date() + (numberOfNotMemorized/pagesPerDay))
+        return(Date().advanced(by: ((numberOfNotMemorized/pagesPerDay).convert(from: .days, to: .seconds))))
     }
     
     static func deleteAll(in context: NSManagedObjectContext) {
@@ -115,5 +115,37 @@ extension Page : Identifiable {
         } catch {
             // TODO: Error Handling
         }
+    }
+}
+enum TimeUnits {
+    case seconds
+    case days
+    case months
+    case years
+}
+extension TimeInterval {
+    func convert(from fromUnit: TimeUnits = .seconds, to toUnit: TimeUnits) -> TimeInterval {
+        var x = self
+        switch fromUnit {
+            case .seconds:
+                break
+            case .days:
+                x *= (60*60*24)
+            case .months:
+                x *= (60*60*24*30)
+            case .years:
+                x *= (60*60*24*365)
+        }
+        switch toUnit {
+            case .seconds:
+                break
+            case .days:
+                x /= (60*60*24)
+            case .months:
+                x /= (60*60*24*30)
+            case .years:
+                x /= (60*60*24*365)
+        }
+        return x
     }
 }

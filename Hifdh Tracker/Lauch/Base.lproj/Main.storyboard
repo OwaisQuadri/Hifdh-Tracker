@@ -301,7 +301,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="16r-cv-pwZ">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="16r-cv-pwZ">
                                 <rect key="frame" x="0.0" y="103" width="393" height="4"/>
                             </progressView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MaE-fW-qcV">
@@ -360,11 +360,20 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bz-Tu-TlB">
+                                        <rect key="frame" x="50" y="150" width="261" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="G6j-Gq-CSo"/>
+                                        </constraints>
+                                    </pickerView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="gzF-pN-gVh" firstAttribute="leading" secondItem="Vij-9j-vSW" secondAttribute="leading" constant="50" id="0I6-dn-sCc"/>
                                     <constraint firstItem="gzF-pN-gVh" firstAttribute="top" secondItem="Vij-9j-vSW" secondAttribute="top" constant="50" id="BLD-Qk-cn5"/>
                                     <constraint firstItem="Vij-9j-vSW" firstAttribute="trailing" secondItem="gzF-pN-gVh" secondAttribute="trailing" constant="50" id="DNM-ce-OcS"/>
+                                    <constraint firstItem="9bz-Tu-TlB" firstAttribute="centerX" secondItem="MaE-fW-qcV" secondAttribute="centerX" id="EKf-E2-eTx"/>
+                                    <constraint firstItem="9bz-Tu-TlB" firstAttribute="width" secondItem="gzF-pN-gVh" secondAttribute="width" id="G3B-jK-NEB"/>
+                                    <constraint firstItem="9bz-Tu-TlB" firstAttribute="top" secondItem="gzF-pN-gVh" secondAttribute="bottom" id="RLQ-S4-qsm"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Pw5-l9-I5h"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Vij-9j-vSW"/>
@@ -385,6 +394,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="5ra-sA-DxG"/>
                     <connections>
+                        <outlet property="mainStatPicker" destination="9bz-Tu-TlB" id="qhN-lU-Olh"/>
+                        <outlet property="mainStatPickerHeight" destination="G6j-Gq-CSo" id="mis-xC-UEy"/>
                         <outlet property="mainStatTitleLabel" destination="qnp-S8-IHx" id="PHZ-jh-HOm"/>
                         <outlet property="mainStatValueLabel" destination="WQD-4h-wFh" id="fkI-xR-N7X"/>
                         <outlet property="memorizationProgressbar" destination="16r-cv-pwZ" id="sRx-B4-8an"/>
