@@ -10,18 +10,18 @@ import CoreData
 
 class AddLogViewController: UIViewController {
     
+    // MARK: Outlets
     @IBOutlet weak var fromPageTextField: UITextField!
     @IBOutlet weak var untilPageTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var hideErrorConstraint: NSLayoutConstraint!
     @IBOutlet weak var showErrorConstraint: NSLayoutConstraint!
-    // give access to appdelegate and logs
-    var delegate: AppDelegate?
-    var logs: [Page]?
     
-    //reload on dismiss
+    // MARK: Variables
+    var delegate: AppDelegate? // give access to appdelegate through segue
+    
+    // MARK: VC's onDismiss
     var isDismissed: ( (Int) -> Void )?
     
     func dismiss(andScrollTo pageNumber: Int) {
@@ -29,13 +29,7 @@ class AddLogViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
-    }
-    
+    // MARK: Actions
     @IBAction func createLogButtonTouchUpInside(_ sender: Any) {
         
         //take values from "from" and "to" text fields and make them ints
@@ -60,10 +54,8 @@ class AddLogViewController: UIViewController {
         let y = max(indexEnd, indexStart)
         if let _ = delegate?.persistentContainer.viewContext {
             for i in x...y {
-                if let logs = logs {
-                    logs[i].isMemorized = true
-                    logs[i].dateMemorized = datePicker.date
-                }
+                Page.logs[i].isMemorized = true
+                Page.logs[i].dateMemorized = datePicker.date
             }
         }
         delegate?.saveContext()
