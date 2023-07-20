@@ -23,6 +23,7 @@
 		CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */; };
 		CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */; };
 		CD46065E2A5CF0EA002F2F3F /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */; };
+		CD596E0C2A68ED77006EF193 /* TimeInterval+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */; };
 		CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
+		CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Util.swift"; sourceTree = "<group>"; };
 		CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 		CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				CD596E0A2A68ED5B006EF193 /* Util */,
 				CD1C6C4F2A6462760083F6DA /* Profile */,
 				CD1E31CC2A5BD21E003B76C7 /* Models */,
 				CD1E31B92A5BA9A5003B76C7 /* Lauch */,
@@ -181,6 +184,14 @@
 				CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CD596E0A2A68ED5B006EF193 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +332,7 @@
 				CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */,
 				CD46065E2A5CF0EA002F2F3F /* AddLogViewController.swift in Sources */,
 				CD1E31C62A5BCCD9003B76C7 /* LogTableViewCell.swift in Sources */,
+				CD596E0C2A68ED77006EF193 /* TimeInterval+Util.swift in Sources */,
 				CD1E31C02A5BB4B8003B76C7 /* LogTableViewController.swift in Sources */,
 				CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */,
 				CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */,

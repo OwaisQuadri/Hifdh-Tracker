@@ -9,18 +9,19 @@ import UIKit
 import CoreData
 
 class LogTableViewController: UITableViewController {
+    // MARK: Constants
     var logs : [Page] = []
-    var startDate: Date?
+    
+    
+    // MARK: Variables
     var firstNotInMemoryIndexPath: IndexPath = IndexPath(row: 0, section: 0)
     // give access to appdelegate
     let delegate = UIApplication.shared.delegate as? AppDelegate
-    
+    // MARK: Outlets
     @IBOutlet weak var percentBarButton: UIBarButtonItem!
     
-    override func viewWillAppear(_ animated: Bool) {
-        fetchData(delegate)
-        self.tableView.scrollToRow(at: self.firstNotInMemoryIndexPath, at: .middle, animated: true)
-    }
+    
+    // MARK: viewDid...
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -28,26 +29,17 @@ class LogTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        configureViews()
+        self.tableView.scrollToRow(at: Page.firstNotInMemoryIndexPath, at: .middle, animated: true)
     }
     
-    func fetchData(_ delegate: AppDelegate?) {
-        // load from db
-        firstNotInMemoryIndexPath = IndexPath(row: Page.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
-        updateView()
-    }
-    
-    private func refresh() {
-        fetchData(delegate)
+    // MARK: Configurations
+    private func configureViews(){
         tableView.reloadData()
+        configureTopLeftBarItem()
     }
     
-    private func updateView(){
-        self.startDate = Page.logs.map{ $0.dateMemorized ?? Date() }.min(by: { $0 < $1 })
-        tableView.reloadData()
-        updateTopLeftPercent()
-    }
-    
-    private func updateTopLeftPercent() {
+    private func configureTopLeftBarItem() {
         var percentMemorized: Double = 0.0
         withCoreData {
             // load total memorized percentage from CoreData
@@ -63,13 +55,16 @@ class LogTableViewController: UITableViewController {
         percentBarButton.title = formattedTitle
     }
     
-    func withCoreData(completion: @escaping() -> Void ){
-        if let _ = delegate?.persistentContainer.viewContext {
-            completion()
+    func configureDatePickerInPageCell(_ logCell: LogTableViewCell) {
+        if logCell.memorySwitch.isOn {
+            logCell.datePicker.isEnabled = false
+        } else {
+            logCell.datePicker.isEnabled = true
+            logCell.datePicker.date = Date()
         }
-        delegate?.saveContext()
     }
     
+    // MARK: tableView
     override func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
@@ -91,7 +86,7 @@ class LogTableViewController: UITableViewController {
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "MM/dd/yyyy"
                         // get start date, from coredata
-                        cell.datePicker.date = startDate ?? Date()
+                        cell.datePicker.date = Page.lowestLogDate ?? Date()
                         cell.datePicker.isEnabled = false
                         
                         return cell
@@ -105,13 +100,11 @@ class LogTableViewController: UITableViewController {
                     }
                 case 2:
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "configCell") as? ConfigTableViewCell {
-                        withCoreData { [self] in
                             cell.directionSegmentedControl.selectedSegmentIndex = ((delegate?.userDefaults.bool(forKey: UserDefaultsKey.isFromFront.rawValue)) ?? true) ? 0 : 1
                             cell.directionValueChangedAction = { [self] in
                                 delegate?.userDefaults.set(cell.directionSegmentedControl.selectedSegmentIndex == 0, forKey: UserDefaultsKey.isFromFront.rawValue)
-                                refresh()
-                                self.tableView.scrollToRow(at: self.firstNotInMemoryIndexPath, at: .middle, animated: true)
-                            }
+                                configureViews()
+                                self.tableView.scrollToRow(at: Page.firstNotInMemoryIndexPath, at: .middle, animated: true)
                         }
                         return cell
                     }
@@ -124,7 +117,7 @@ class LogTableViewController: UITableViewController {
                 logCell.datePicker.setDate(currentPage.dateMemorized ?? Date (), animated: true)
                 let inMemory = currentPage.isMemorized
                 logCell.memorySwitch.isOn = inMemory
-                updateDatePickerInPageCell(logCell)
+                configureDatePickerInPageCell(logCell)
                 logCell.switchValueChangedAction = { [self] in
                     withCoreData {
                         currentPage.isMemorized = !currentPage.isMemorized
@@ -133,8 +126,8 @@ class LogTableViewController: UITableViewController {
                         if !UserDefaults.standard.bool(forKey: UserDefaultsKey.isFromFront.rawValue) { rowNumber = 603 - rowNumber}
                         self.tableView.scrollToRow(at: IndexPath(row: rowNumber, section: 1), at: .middle, animated: true)
                     }
-                    updateDatePickerInPageCell(logCell)
-                    updateView()
+                    configureDatePickerInPageCell(logCell)
+                    configureViews()
                 }
                 return logCell
             }
@@ -142,32 +135,31 @@ class LogTableViewController: UITableViewController {
         return UITableViewCell()
     }
     
-    func updateDatePickerInPageCell(_ logCell: LogTableViewCell) {
-        if logCell.memorySwitch.isOn {
-            logCell.datePicker.isEnabled = false
-        } else {
-            logCell.datePicker.isEnabled = true
-            logCell.datePicker.date = Date()
+    // MARK: Core Data
+    func withCoreData(completion: @escaping() -> Void ){
+        if let _ = delegate?.persistentContainer.viewContext {
+            completion()
         }
+        delegate?.saveContext()
     }
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-         if (segue.identifier == "addLog") {
-             if let destination = segue.destination as? AddLogViewController {
-                 //passing data
-                 destination.delegate = self.delegate
-                 destination.isDismissed = {[weak self] (pageNumber) in
-                     //reload tableview when I come back
-                     self?.updateView()
-                     self?.tableView.scrollToRow(at: IndexPath(row: pageNumber, section: 1), at: .middle, animated: true)
-                 }
-             }
-         }
-     }
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if (segue.identifier == "addLog") {
+            if let destination = segue.destination as? AddLogViewController {
+                //passing data
+                destination.delegate = self.delegate
+                destination.isDismissed = {[weak self] (pageNumber) in
+                    //reload tableview when I come back
+                    self?.configureViews()
+                    self?.tableView.scrollToRow(at: IndexPath(row: pageNumber, section: 1), at: .middle, animated: true)
+                }
+            }
+        }
+    }
     
 }
