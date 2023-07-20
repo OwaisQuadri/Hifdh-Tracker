@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     override func viewWillAppear(_ animated: Bool) {
         // update all views
-        configureMainStatCard(for: Page.selectedStat ?? .pagesMemorized)
+        self.configureMainStatCard(for: Page.selectedStat ?? .pagesMemorized)
     }
     
     // MARK: Configurations
@@ -47,15 +47,13 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     private func configureStatPicker() {
         mainStatPicker.dataSource = self
         mainStatPicker.delegate = self
-        mainStatPicker.selectRow(Statistic.pagesMemorized.rawValue, inComponent: 0, animated: false)
+        mainStatPicker.selectRow((Page.selectedStat ?? Statistic.pagesMemorized).rawValue, inComponent: 0, animated: false)
         setMainStatPickerVisibility(to: isDropDownExpanded)
     }
     
     private func configureProgressBar() {
         var percentMemorized: Float = 0.0
-        withCoreData {
-            percentMemorized = Float(Page.numberOfMemorized) / 604.0
-        }
+        percentMemorized = Float(Page.numberOfMemorized) / 604.0
         memorizationProgressbar.progress = percentMemorized
     }
     
@@ -68,9 +66,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MMM/dd/yyyy"
                 var mainStatValueString: String = ""
-                withCoreData {
-                    mainStatValueString = dateFormatter.string(from: Page.completionDate)
-                }
+                mainStatValueString = dateFormatter.string(from: Page.completionDate)
                 mainStatValueLabel.text = mainStatValueString
             case .pagesPerDay:
                 mainStatTitleLabel.text = "Pages per Day"
@@ -83,11 +79,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 mainStatValueLabel.text = "\(Int(Page.numberOfMemorized))"
             case .percentMemorized:
                 mainStatTitleLabel.text = "Percent Memorized"
-                let percentFormat = NumberFormatter()
-                percentFormat.numberStyle = .percent
-                percentFormat.maximumFractionDigits = 1
-                percentFormat.minimumFractionDigits = 1
-                mainStatValueLabel.text = percentFormat.string(from: NSNumber(floatLiteral: Page.percentMemorized))
+                mainStatValueLabel.text = Page.percentMemorizedAsString
         }
     }
     
@@ -97,7 +89,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         if isDropDownExpanded {
             isDropDownExpanded = false
             imageName += "down"
-            Page.selectedStat = Statistic(rawValue: mainStatPicker.selectedRow(inComponent: 0))
+            Page.selectedStat = Statistic(rawValue: self.mainStatPicker.selectedRow(inComponent: 0))
             
         } else {
             isDropDownExpanded = true
@@ -138,17 +130,8 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return mainStatistics[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        Page.selectedStat = Statistic(rawValue: mainStatPicker.selectedRow(inComponent: 0))
+        Page.selectedStat = Statistic(rawValue: self.mainStatPicker.selectedRow(inComponent: 0))
         configureMainStatCard(for: Page.selectedStat ?? .pagesMemorized)
-    }
-    
-    // MARK: Core Data
-    
-    func withCoreData(completion: @escaping() -> Void ){
-        if let _ = delegate?.persistentContainer.viewContext {
-            completion()
-        }
-        delegate?.saveContext()
     }
     
     /*

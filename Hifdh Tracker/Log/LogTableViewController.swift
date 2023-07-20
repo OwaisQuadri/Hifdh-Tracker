@@ -34,25 +34,13 @@ class LogTableViewController: UITableViewController {
     }
     
     // MARK: Configurations
-    private func configureViews(){
+    private func configureViews() {
         tableView.reloadData()
         configureTopLeftBarItem()
     }
     
     private func configureTopLeftBarItem() {
-        var percentMemorized: Double = 0.0
-        withCoreData {
-            // load total memorized percentage from CoreData
-            let arrayOfMemorized = Page.logs.compactMap{$0.isMemorized ? $0 : nil}
-            percentMemorized = Double(arrayOfMemorized.count) / 604.0
-        }
-        // set top bar item to number with format
-        let percentFormat = NumberFormatter()
-        percentFormat.numberStyle = .percent
-        percentFormat.maximumFractionDigits = 1
-        percentFormat.minimumFractionDigits = 1
-        let formattedTitle = percentFormat.string(from: NSNumber(floatLiteral: percentMemorized))
-        percentBarButton.title = formattedTitle
+        percentBarButton.title = Page.percentMemorizedAsString
     }
     
     func configureDatePickerInPageCell(_ logCell: LogTableViewCell) {
@@ -69,7 +57,7 @@ class LogTableViewController: UITableViewController {
         2
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { return section==1 ? "Pages" : nil }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { return section == 1 ? "Pages" : nil }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -100,11 +88,13 @@ class LogTableViewController: UITableViewController {
                     }
                 case 2:
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "configCell") as? ConfigTableViewCell {
-                            cell.directionSegmentedControl.selectedSegmentIndex = ((delegate?.userDefaults.bool(forKey: UserDefaultsKey.isFromFront.rawValue)) ?? true) ? 0 : 1
-                            cell.directionValueChangedAction = { [self] in
-                                delegate?.userDefaults.set(cell.directionSegmentedControl.selectedSegmentIndex == 0, forKey: UserDefaultsKey.isFromFront.rawValue)
-                                configureViews()
-                                self.tableView.scrollToRow(at: Page.firstNotInMemoryIndexPath, at: .middle, animated: true)
+                        cell.directionSegmentedControl.selectedSegmentIndex = ((delegate?.userDefaults.bool(forKey: UserDefaultsKey.isFromFront.rawValue)) ?? true) ? 0 : 1
+                        cell.directionValueChangedAction = { [self] in
+                            withCoreData {
+                                self.delegate?.userDefaults.set(cell.directionSegmentedControl.selectedSegmentIndex == 0, forKey: UserDefaultsKey.isFromFront.rawValue)
+                            }
+                            configureViews()
+                            self.tableView.scrollToRow(at: Page.firstNotInMemoryIndexPath, at: .middle, animated: true)
                         }
                         return cell
                     }
@@ -122,10 +112,10 @@ class LogTableViewController: UITableViewController {
                     withCoreData {
                         currentPage.isMemorized = !currentPage.isMemorized
                         currentPage.dateMemorized = logCell.datePicker.date
-                        var rowNumber = Int(currentPage.pageNumber)
-                        if !UserDefaults.standard.bool(forKey: UserDefaultsKey.isFromFront.rawValue) { rowNumber = 603 - rowNumber}
-                        self.tableView.scrollToRow(at: IndexPath(row: rowNumber, section: 1), at: .middle, animated: true)
                     }
+                    var rowNumber = Int(currentPage.pageNumber)
+                    if !UserDefaults.standard.bool(forKey: UserDefaultsKey.isFromFront.rawValue) { rowNumber = 603 - rowNumber}
+                    self.tableView.scrollToRow(at: IndexPath(row: rowNumber, section: 1), at: .middle, animated: true)
                     configureDatePickerInPageCell(logCell)
                     configureViews()
                 }
@@ -135,8 +125,8 @@ class LogTableViewController: UITableViewController {
         return UITableViewCell()
     }
     
-    // MARK: Core Data
-    func withCoreData(completion: @escaping() -> Void ){
+    // MARK: Core Data (for writing values)
+    func withCoreData(completion: @escaping() -> Void ) {
         if let _ = delegate?.persistentContainer.viewContext {
             completion()
         }

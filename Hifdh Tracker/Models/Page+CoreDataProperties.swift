@@ -110,6 +110,14 @@ extension Page : Identifiable {
         return numberOfMemorized / 604.0
     }
     
+    static var percentMemorizedAsString: String {
+        let percentFormat = NumberFormatter()
+        percentFormat.numberStyle = .percent
+        percentFormat.maximumFractionDigits = 1
+        percentFormat.minimumFractionDigits = 1
+        return percentFormat.string(from: NSNumber(floatLiteral: percentMemorized)) ?? "0.0%"
+    }
+    
     static var pagesPerDay: Double {
         get {
             if let highestLogDate = highestLogDate, let lowestLogDate = lowestLogDate {
