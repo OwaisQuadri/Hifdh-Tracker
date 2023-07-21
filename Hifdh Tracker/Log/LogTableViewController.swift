@@ -52,7 +52,6 @@ class LogTableViewController: UITableViewController {
             logCell.datePicker.isEnabled = false
         } else {
             logCell.datePicker.isEnabled = true
-            logCell.datePicker.date = Date()
         }
     }
     
