@@ -29,8 +29,12 @@ class LogTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        configureViews()
         self.tableView.scrollToRow(at: Page.firstNotInMemoryIndexPath, at: .middle, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureViews()
     }
     
     // MARK: Configurations

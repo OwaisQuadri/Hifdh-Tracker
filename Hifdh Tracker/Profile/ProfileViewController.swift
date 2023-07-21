@@ -30,31 +30,54 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
-        view.layoutIfNeeded()
-        configureProgressBar()
-        configureStatPicker()
+        view.layoutSubviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // update all views
-        self.configureMainStatCard(for: Page.selectedStat ?? .pagesMemorized)
+        configureViews()
     }
     
     // MARK: Configurations
+    
+    private func configureViews() {
+        configureMainStatCard(for: Page.selectedStat ?? .pagesMemorized)
+        configureTopRightMenu()
+        configureStatPicker()
+        configureProgressBar()
+        
+    }
+    
+    private func configureTopRightMenu() {
+        let resetAllDataMenuItem = UIAction(title: "Reset All Data", image: UIImage(systemName: "trash"), attributes: .destructive) { [self] (_) in
+            if let context = delegate?.persistentContainer.viewContext {
+                Page.getDefaultPages(context)
+                configureViews()
+            }
+        }
+        let topRightMenu = UIMenu(children: [resetAllDataMenuItem])
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(systemName: "gear"), primaryAction: nil, menu: topRightMenu)
+        
+        view.layoutSubviews(duration: 0.5)
+    }
     
     private func configureStatPicker() {
         mainStatPicker.dataSource = self
         mainStatPicker.delegate = self
         mainStatPicker.selectRow((Page.selectedStat ?? Statistic.pagesMemorized).rawValue, inComponent: 0, animated: false)
         setMainStatPickerVisibility(to: isDropDownExpanded)
+        
+        view.layoutIfNeeded()
     }
     
     private func configureProgressBar() {
         var percentMemorized: Float = 0.0
         percentMemorized = Float(Page.numberOfMemorized) / 604.0
         memorizationProgressbar.progress = percentMemorized
+        
+        view.layoutSubviews(duration: 0.5)
     }
     
     private func configureMainStatCard(for statistic: Statistic) -> Void {
@@ -81,6 +104,8 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 mainStatTitleLabel.text = "Percent Memorized"
                 mainStatValueLabel.text = Page.percentMemorizedAsString
         }
+        
+        view.layoutIfNeeded()
     }
     
     // MARK: Actions
@@ -97,20 +122,18 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
         statisticDropDownButton.setImage(UIImage(systemName: imageName), for: .normal)
         setMainStatPickerVisibility(to: isDropDownExpanded)
+        
+        view.layoutSubviews(duration: 0.5)
     }
     
-    // MARK: Animations / Dynamic Constraints
+    // MARK: Dynamic Constraints
     private func setMainStatPickerVisibility(to show: Bool) {
-        
-        UIView.animate(withDuration: 0.3){ [self] in
-            if show {
-                mainStatPickerHeight.constant = 100
-                self.view.layoutIfNeeded()
-            } else {
-                mainStatPickerHeight.constant = 0
-                self.view.layoutIfNeeded()
-                
-            }
+        if show {
+            mainStatPicker.isHidden = false
+            mainStatPickerHeight.constant = 100
+        } else {
+            mainStatPicker.isHidden = true
+            mainStatPickerHeight.constant = 0
         }
     }
     
