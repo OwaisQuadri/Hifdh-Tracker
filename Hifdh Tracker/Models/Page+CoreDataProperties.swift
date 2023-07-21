@@ -123,7 +123,7 @@ extension Page : Identifiable {
             if let highestLogDate = highestLogDate, let lowestLogDate = lowestLogDate {
                 let durationOfHidfh = (highestLogDate.distance(to: lowestLogDate).magnitude).convert(to: .days)
                 if durationOfHidfh <= 1 { return numberOfMemorized }
-                return (numberOfMemorized)/(highestLogDate.distance(to: lowestLogDate).magnitude).convert(to: .days)
+                return numberOfMemorized/durationOfHidfh
             } else { return 0.0 }
         }
     }
