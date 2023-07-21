@@ -121,7 +121,8 @@ extension Page : Identifiable {
     static var pagesPerDay: Double {
         get {
             if let highestLogDate = highestLogDate, let lowestLogDate = lowestLogDate {
-                return (numberOfMemorized)/(highestLogDate.distance(to: lowestLogDate).magnitude).convert(to: .days)
+                let durationOfHidfh = (highestLogDate.distance(to: lowestLogDate).magnitude).convert(to: .days)
+                return (numberOfMemorized/(durationOfHidfh + 1).rounded())
             } else { return 0.0 }
         }
     }
