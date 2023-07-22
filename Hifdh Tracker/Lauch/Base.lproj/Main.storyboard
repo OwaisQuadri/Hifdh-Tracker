@@ -304,7 +304,7 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="16r-cv-pwZ">
                                 <rect key="frame" x="0.0" y="103" width="393" height="4"/>
                             </progressView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MaE-fW-qcV">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaE-fW-qcV">
                                 <rect key="frame" x="16" y="107" width="361" height="745"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzF-pN-gVh">
@@ -399,6 +399,7 @@
                         <outlet property="mainStatTitleLabel" destination="qnp-S8-IHx" id="PHZ-jh-HOm"/>
                         <outlet property="mainStatValueLabel" destination="WQD-4h-wFh" id="fkI-xR-N7X"/>
                         <outlet property="memorizationProgressbar" destination="16r-cv-pwZ" id="sRx-B4-8an"/>
+                        <outlet property="scrollView" destination="MaE-fW-qcV" id="amu-pL-8B4"/>
                         <outlet property="statisticDropDownButton" destination="bdx-j6-RKj" id="1iW-Sd-J6O"/>
                     </connections>
                 </viewController>

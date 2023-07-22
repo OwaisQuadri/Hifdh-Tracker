@@ -24,6 +24,10 @@
 		CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */; };
 		CD25FE912A6A0874009D7759 /* UIView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25FE902A6A0874009D7759 /* UIView+Util.swift */; };
 		CD46065E2A5CF0EA002F2F3F /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */; };
+		CD5507D52A6C172500F2BD03 /* PagesPerTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507D42A6C172500F2BD03 /* PagesPerTimeInterval.swift */; };
+		CD5507D72A6C17DC00F2BD03 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507D62A6C17DC00F2BD03 /* Date+Util.swift */; };
+		CD5507DA2A6C1D5500F2BD03 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CD5507D92A6C1D5500F2BD03 /* SnapKit */; };
+		CD5507DC2A6C359500F2BD03 /* Format+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507DB2A6C359500F2BD03 /* Format+Util.swift */; };
 		CD596E0C2A68ED77006EF193 /* TimeInterval+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */; };
 		CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -67,6 +71,9 @@
 		CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD25FE902A6A0874009D7759 /* UIView+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Util.swift"; sourceTree = "<group>"; };
 		CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
+		CD5507D42A6C172500F2BD03 /* PagesPerTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesPerTimeInterval.swift; sourceTree = "<group>"; };
+		CD5507D62A6C17DC00F2BD03 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
+		CD5507DB2A6C359500F2BD03 /* Format+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Format+Util.swift"; sourceTree = "<group>"; };
 		CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Util.swift"; sourceTree = "<group>"; };
 		CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD5507DA2A6C1D5500F2BD03 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				CD1C6C522A64F1E80083F6DA /* ProfileViewController.swift */,
+				CD5507D42A6C172500F2BD03 /* PagesPerTimeInterval.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -193,6 +202,8 @@
 			children = (
 				CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */,
 				CD25FE902A6A0874009D7759 /* UIView+Util.swift */,
+				CD5507D62A6C17DC00F2BD03 /* Date+Util.swift */,
+				CD5507DB2A6C359500F2BD03 /* Format+Util.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -214,6 +225,7 @@
 			);
 			name = "Hifdh Tracker";
 			packageProductDependencies = (
+				CD5507D92A6C1D5500F2BD03 /* SnapKit */,
 			);
 			productName = "Hifdh Tracker";
 			productReference = CD1E31812A5BA4EC003B76C7 /* Hifdh Tracker.app */;
@@ -288,6 +300,7 @@
 			);
 			mainGroup = CD1E31782A5BA4EC003B76C7;
 			packageReferences = (
+				CD5507D82A6C1D5500F2BD03 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = CD1E31822A5BA4EC003B76C7 /* Products */;
 			projectDirPath = "";
@@ -332,11 +345,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD5507D52A6C172500F2BD03 /* PagesPerTimeInterval.swift in Sources */,
 				CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */,
 				CD46065E2A5CF0EA002F2F3F /* AddLogViewController.swift in Sources */,
 				CD1E31C62A5BCCD9003B76C7 /* LogTableViewCell.swift in Sources */,
 				CD596E0C2A68ED77006EF193 /* TimeInterval+Util.swift in Sources */,
 				CD1E31C02A5BB4B8003B76C7 /* LogTableViewController.swift in Sources */,
+				CD5507D72A6C17DC00F2BD03 /* Date+Util.swift in Sources */,
 				CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */,
 				CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */,
 				CD1C6C532A64F1E80083F6DA /* ProfileViewController.swift in Sources */,
@@ -344,6 +359,7 @@
 				CD25FE912A6A0874009D7759 /* UIView+Util.swift in Sources */,
 				CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
+				CD5507DC2A6C359500F2BD03 /* Format+Util.swift in Sources */,
 				CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,6 +708,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CD5507D82A6C1D5500F2BD03 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CD5507D92A6C1D5500F2BD03 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD5507D82A6C1D5500F2BD03 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CD1E318D2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld */ = {
