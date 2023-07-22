@@ -5,20 +5,23 @@
 //  Created by Owais on 2023-07-16.
 //
 
-import UIKit
 import CoreData
+import SnapKit
+import SwiftUI
+import UIKit
 
 class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // MARK: Constants
     let delegate = UIApplication.shared.delegate as? AppDelegate
-    
+    let swiftUIcontroller = UIHostingController(rootView: MemorizationHistory())
     
     // MARK: Variables
     var isDropDownExpanded: Bool = false
     
     
     // MARK: Outlets
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mainStatPicker: UIPickerView!
     @IBOutlet weak var mainStatTitleLabel: UILabel!
     @IBOutlet weak var mainStatValueLabel: UILabel!
@@ -31,23 +34,33 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.layoutSubviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         // update all views
         configureViews()
     }
     
     // MARK: Configurations
-    
     private func configureViews() {
         configureMainStatCard(for: Page.selectedStat ?? .pagesMemorized)
         configureTopRightMenu()
         configureStatPicker()
         configureProgressBar()
-        
+        configureChart()
+    }
+    
+    private func configureChart(){
+        cleanUpChart()
+        guard let chartView = swiftUIcontroller.view else { return }
+        scrollView.addSubview(chartView)
+        chartView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(mainStatPicker.snp.bottom).offset(100)
+            make.leading.equalToSuperview().offset(25)
+            make.trailing.equalToSuperview().inset(25)
+            make.height.equalTo(250)
+        }
     }
     
     private func configureTopRightMenu() {
@@ -106,6 +119,11 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
         
         view.layoutIfNeeded()
+    }
+    
+    // MARK: Cleanup Views
+    private func cleanUpChart(){
+        swiftUIcontroller.rootView = MemorizationHistory()
     }
     
     // MARK: Actions

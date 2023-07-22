@@ -144,6 +144,7 @@ enum Statistic: Int {
 enum TimeUnits {
     case seconds
     case days
+    case weeks
     case months
     case years
 }

@@ -15,6 +15,8 @@ extension TimeInterval {
                 break
             case .days:
                 x *= (60*60*24)
+            case .weeks:
+                x *= (60*60*24*7)
             case .months:
                 x *= (60*60*24*30)
             case .years:
@@ -25,6 +27,8 @@ extension TimeInterval {
                 break
             case .days:
                 x /= (60*60*24)
+            case .weeks:
+                x /= (60*60*24*7)
             case .months:
                 x /= (60*60*24*30)
             case .years:
