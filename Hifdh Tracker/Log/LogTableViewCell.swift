@@ -15,6 +15,7 @@ class LogTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        datePicker.maximumDate = Date()
         
     }
 

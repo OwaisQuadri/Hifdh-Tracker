@@ -72,7 +72,8 @@ struct MemorizationHistory: View {
                                 + Text(NumberFormatter.twoDecimals(PagesPerMonth.overall) ?? "0.00")
                             )
                             .font(.caption)
-                            .foregroundColor(.red)
+                            .fontWeight(.bold)
+                            .foregroundColor(.red).opacity(0.9)
                         }
                     
                 }
