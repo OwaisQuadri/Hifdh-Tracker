@@ -26,7 +26,6 @@ class AddLogViewController: UIViewController {
         super.viewDidLoad()
         datePicker.maximumDate = Date()
     }
-    
     // MARK: VC's onDismiss
     var isDismissed: ( (Int) -> Void )?
     

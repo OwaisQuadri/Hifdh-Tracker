@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     
     // MARK: Outlets
+    @IBOutlet weak var percentBarButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mainStatPicker: UIPickerView!
     @IBOutlet weak var mainStatTitleLabel: UILabel!
@@ -48,6 +49,11 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         configureStatPicker()
         configureProgressBar()
         configureChart()
+        configureTopLeftBarItem()
+    }
+    
+    private func configureTopLeftBarItem() {
+        percentBarButton.title = Page.percentMemorizedAsString
     }
     
     private func configureChart(){
