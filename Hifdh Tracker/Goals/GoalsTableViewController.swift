@@ -57,17 +57,35 @@ class GoalsTableViewController: UITableViewController {
         if indexPath.section == 0 {
             
             if let goalCell = tableView.dequeueReusableCell(withIdentifier: "goalTableViewCell") as? GoalTableViewCell {
-                var currentGoal = Goal.goals[indexPath.row]
+                let currentGoal = Goal.goals[indexPath.row]
+                goalCell.titleLabel.text = currentGoal.goalName
                 switch currentGoal.type {
                     case .findEndDate:
-                        goalCell.titleLabel.text = "Date Goal"
-                        
+                        if (Page.numberOfMemorized >= currentGoal.goalPages){
+                            goalCell.parameterLabel0.text = "\(NumberFormatter.integer(currentGoal.goalPages)!) of \(NumberFormatter.integer(currentGoal.goalPages)!) pages"
+                        } else {
+                            goalCell.parameterLabel0.text = "\(NumberFormatter.integer(Page.numberOfMemorized)!) of \(NumberFormatter.integer(currentGoal.goalPages)!) pages"
+                        }
+                        goalCell.parameterLabel1.text = "\(NumberFormatter.twoDecimals(currentGoal.goalPagesPerDay)!) PPD"
+                        goalCell.goalLabel.text = "\(DateFormatter.mmmDDyyyy(currentGoal.dateOfGoalComplete!)!)"
+                        goalCell.myGoal = currentGoal
+                        break
                     case .findEndPage:
-                        goalCell.titleLabel.text = "End Page Goal"
-                        
+                        goalCell.parameterLabel0.text = "\(NumberFormatter.twoDecimals(currentGoal.goalPagesPerDay)!) PPD"
+                        goalCell.parameterLabel1.text = "\(DateFormatter.mmmDDyyyy(currentGoal.goalDate ?? Date.distantFuture)!)"
+                        goalCell.goalLabel.text = "\(NumberFormatter.integer(currentGoal.endPage ?? 604)!)"
+                        goalCell.myGoal = currentGoal
+                        break
                     case .findPagesPerTimePeriod:
-                        goalCell.titleLabel.text = "Pages per Day Goal"
-                        
+                        goalCell.parameterLabel0.text = "\(DateFormatter.mmmDDyyyy(currentGoal.goalDate ?? Date.distantFuture)!)"
+                        if (Page.numberOfMemorized >= currentGoal.goalPages){
+                            goalCell.parameterLabel1.text = "\(NumberFormatter.integer(currentGoal.goalPages)!) of \(NumberFormatter.integer(currentGoal.goalPages)!) pages"
+                        } else {
+                            goalCell.parameterLabel1.text = "\(NumberFormatter.integer(Page.numberOfMemorized)!) of \(NumberFormatter.integer(currentGoal.goalPages)!) pages"
+                        }
+                        goalCell.myGoal = currentGoal
+                        goalCell.timeUnitChanged(self)
+                        break
                 }
                 return goalCell
             }
