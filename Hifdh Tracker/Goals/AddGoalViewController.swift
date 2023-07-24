@@ -12,6 +12,7 @@ class AddGoalViewController: UIViewController {
     var delegate: AppDelegate?
     var isDismissed: ( () -> Void )?
     
+    @IBOutlet weak var goalNameTextField: UITextField!
     @IBOutlet weak var datePickerYConstraint: NSLayoutConstraint!
     @IBOutlet weak var pagesPerYConstraint: NSLayoutConstraint!
     @IBOutlet weak var numberOfPagesYConstraint: NSLayoutConstraint!
@@ -67,7 +68,7 @@ class AddGoalViewController: UIViewController {
             dateTitleHeightConstraint.constant = 0
         }
     }
-    func goalPagesIsVisible(_ show : Bool){
+    func goalPagesPerTimeIsVisible(_ show : Bool){
         if show {
             pagesPerYConstraint.constant = 25
             pagesPerTextField.isHidden = false
@@ -82,7 +83,7 @@ class AddGoalViewController: UIViewController {
             timeUnitSelectorHeightConstraint.constant = 0
         }
     }
-    func goalPagesPerTimeIsVisible(_ show : Bool){
+    func goalPagesIsVisible(_ show : Bool){
         if show {
             numberOfPagesYConstraint.constant = 25
             numberOfPagesTextField.isHidden = false
@@ -100,16 +101,19 @@ class AddGoalViewController: UIViewController {
                 goalPagesIsVisible(true)
                 goalPagesPerTimeIsVisible(true)
                 goalType = .findEndDate
+                self.goalNameTextField.placeholder = Constants.dateGoalDefaultName
             case 1:
                 goalPagesPerTimeIsVisible(false)
                 goalPagesIsVisible(true)
                 goalDateIsVisible(true)
                 goalType = .findPagesPerTimePeriod
+                self.goalNameTextField.placeholder = Constants.pagesPerIntervalGoalDefaultName
             case 2:
                 goalPagesIsVisible(false)
                 goalPagesPerTimeIsVisible(true)
                 goalDateIsVisible(true)
                 goalType = .findEndPage
+                self.goalNameTextField.placeholder = Constants.endPageGoalDefaultName
             default:
                 break
         }
@@ -127,27 +131,52 @@ class AddGoalViewController: UIViewController {
             case 0:
                 timeUnits = .days
             case 1:
-                timeUnits = .months
+                timeUnits = .weeks
             case 2:
-                timeUnits = .years
+                timeUnits = .months
             default:
                 break
         }
         let goalDate = datePicker.date
+        let goalName = goalNameTextField.text == "" ? nil : goalNameTextField.text
+        
         withCoreData { [self] in
             switch goalType {
                 case .findEndDate:
-                    _ = Goal(pagesPer, pagesPer: timeUnits, forTotalPages: numOfPages, in: context)
+                    if !areFieldsEmpty([numberOfPagesTextField]) {
+                        showErrorAlert(message: Constants.genericTextFieldEmptyError)
+                        return
+                    }
+                    _ = Goal(name: goalName ?? Constants.dateGoalDefaultName , pagesPer, pagesPer: timeUnits, forTotalPages: numOfPages, in: context)
                 case .findPagesPerTimePeriod:
-                    _ = Goal(pages: numOfPages, by: goalDate, in: context)
+                    if !areFieldsEmpty([numberOfPagesTextField]) {
+                        showErrorAlert(message: Constants.genericTextFieldEmptyError)
+                        return
+                    }
+                    _ = Goal(name: goalName ?? Constants.pagesPerIntervalGoalDefaultName, pages: numOfPages, by: goalDate, in: context)
                 case .findEndPage:
-                    _ = Goal(pagesPer, pagesPer: timeUnits, until: goalDate, in: context)
+                    _ = Goal(name: goalName ?? Constants.endPageGoalDefaultName, pagesPer, pagesPer: timeUnits, until: goalDate, in: context)
                 case .none:
                     break
             }
             delegate?.saveContext()
             dismiss()
         }
+    }
+    
+    func areFieldsEmpty(_ fields: [UITextField]) -> Bool {
+        for field in fields {
+            if field.text == "" || field.text == nil {
+                return false
+            }
+        }
+        return true
+    }
+    
+    func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .destructive))
+        present(alert, animated: true)
     }
     
     // MARK: Core Data (for writing values)
