@@ -9,10 +9,7 @@ import UIKit
 import CoreData
 
 class LogTableViewController: UITableViewController {
-    // MARK: Constants
-    var logs : [Page] = []
-    
-    
+
     // MARK: Variables
     var firstNotInMemoryIndexPath: IndexPath = IndexPath(row: 0, section: 0)
     // give access to appdelegate

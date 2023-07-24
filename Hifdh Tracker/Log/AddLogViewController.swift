@@ -21,6 +21,11 @@ class AddLogViewController: UIViewController {
     // MARK: Variables
     var delegate: AppDelegate? // give access to appdelegate through segue
     
+    // MARK: viewDid...
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        datePicker.maximumDate = Date()
+    }
     // MARK: VC's onDismiss
     var isDismissed: ( (Int) -> Void )?
     

@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     
     // MARK: Outlets
+    @IBOutlet weak var percentBarButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mainStatPicker: UIPickerView!
     @IBOutlet weak var mainStatTitleLabel: UILabel!
@@ -48,6 +49,11 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         configureStatPicker()
         configureProgressBar()
         configureChart()
+        configureTopLeftBarItem()
+    }
+    
+    private func configureTopLeftBarItem() {
+        percentBarButton.title = Page.percentMemorizedAsString
     }
     
     private func configureChart(){
@@ -99,10 +105,8 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             case .completionDate:
                 // configure for date first
                 mainStatTitleLabel.text = "Predicted Hifdh Completion"
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MMM/dd/yyyy"
                 var mainStatValueString: String = ""
-                mainStatValueString = dateFormatter.string(from: Page.completionDate)
+                mainStatValueString = DateFormatter.mmmDDyyyy(Page.completionDate) ?? ""
                 mainStatValueLabel.text = mainStatValueString
             case .pagesPerDay:
                 mainStatTitleLabel.text = "Pages per Day"
