@@ -2,12 +2,12 @@
 //  Goal+CoreDataProperties.swift
 //  
 //
-//  Created by Owais on 2023-07-22.
+//  Created by Owais on 2023-07-23.
 //
 //
 
-import UIKit
 import CoreData
+import UIKit
 
 enum GoalType: String {
     case findEndDate = "findEndDate"
@@ -26,8 +26,10 @@ extension Goal {
     @NSManaged public var goalPages: Double
     @NSManaged public var goalPagesPerDay: Double
     @NSManaged public var goalType: String
+    @NSManaged public var goalName: String?
 
 }
+
 
 extension Goal: Identifiable {
     
@@ -40,23 +42,26 @@ extension Goal: Identifiable {
         }
     }
     
-    convenience init(pages: Double = 604, by date: Date, in context: NSManagedObjectContext) {
+    convenience init(name: String, pages: Double = 604, by date: Date, in context: NSManagedObjectContext) {
         self.init(context: context)
+        self.goalName = name
         self.goalDate = date
         self.goalPages = pages
         self.type = .findPagesPerTimePeriod
     }
     
-    convenience init(_ pages: Double, pagesPer timeUnits: TimeUnits, forTotalPages goalPages: Double = 604, in context: NSManagedObjectContext) {
+    convenience init(name: String, _ pages: Double, pagesPer timeUnits: TimeUnits, forTotalPages goalPages: Double = 604, in context: NSManagedObjectContext) {
         self.init(context: context)
-        self.goalPagesPerDay = pages.convert(from: timeUnits, to: .days)
+        self.goalName = name
+        self.goalPagesPerDay = pages.convert(from: .days, to: timeUnits)
         self.goalPages = goalPages
         self.type = .findEndDate
     }
     
-    convenience init(_ pages: Double, pagesPer timeUnits: TimeUnits, until date: Date, in context: NSManagedObjectContext) {
+    convenience init(name: String, _ pages: Double, pagesPer timeUnits: TimeUnits, until date: Date, in context: NSManagedObjectContext) {
         self.init(context: context)
-        self.goalPagesPerDay = pages.convert(from: timeUnits, to: .days)
+        self.goalName = name
+        self.goalPagesPerDay = pages.convert(from: .days, to: timeUnits)
         self.goalDate = date
         self.type = .findEndPage
     }
@@ -64,7 +69,7 @@ extension Goal: Identifiable {
     var dateOfGoalComplete: Date? {
         if type != .findEndDate { return nil }
         let currentDate = Date()
-        if Page.numberOfMemorized <= goalPages { return currentDate }
+        if Page.numberOfMemorized >= goalPages { return currentDate }
         let pagesRemaining = goalPages - Page.numberOfMemorized
         return currentDate + TimeInterval(pagesRemaining/goalPagesPerDay).convert(from: .days, to: .seconds)
     }
@@ -72,6 +77,7 @@ extension Goal: Identifiable {
     func pagesPer(_ timeUnits: TimeUnits) -> Double? {
         if type != .findPagesPerTimePeriod { return nil }
         let pagesRemaining = goalPages - Page.numberOfMemorized
+        if pagesRemaining <= 0.0 { return 0.0}
         let timeUnitsRemaining = Date().distance(to: goalDate! ).convert(from: .seconds, to: timeUnits)
         return pagesRemaining/timeUnitsRemaining
         
@@ -80,15 +86,15 @@ extension Goal: Identifiable {
     var endPage: Double? {
         if type != .findEndPage || goalPagesPerDay < 0 { return nil }
         //pagesPerDay multiplied by range
-        let daysRemaining = goalDate!.distance(to: Date()).convert(to: .days)
+        let daysRemaining = goalDate!.distance(to: Date()).magnitude.convert(to: .days)
         if daysRemaining <= 0 { return Page.numberOfMemorized }
-        return goalPagesPerDay * daysRemaining
+        return Page.numberOfMemorized + goalPagesPerDay * daysRemaining
     }
     
     static func fetchGoals(in context: NSManagedObjectContext) -> [Goal] {
         let request: NSFetchRequest<Goal> = Goal.fetchRequest()
         if let goalsFromCoreData = try? context.fetch(request) {
-            return goalsFromCoreData
+            return goalsFromCoreData.reversed()
         }
         return []
     }

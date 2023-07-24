@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Goal" representedClassName=".Goal" syncable="YES">
         <attribute name="goalDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="goalName" optional="YES" attributeType="String"/>
         <attribute name="goalPages" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="goalPagesPerDay" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="goalType" optional="YES" attributeType="String"/>

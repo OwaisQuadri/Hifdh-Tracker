@@ -2,7 +2,7 @@
 //  Goal+CoreDataClass.swift
 //  
 //
-//  Created by Owais on 2023-07-22.
+//  Created by Owais on 2023-07-23.
 //
 //
 
