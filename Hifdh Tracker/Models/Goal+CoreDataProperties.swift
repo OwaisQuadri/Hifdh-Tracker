@@ -94,7 +94,7 @@ extension Goal: Identifiable {
     static func fetchGoals(in context: NSManagedObjectContext) -> [Goal] {
         let request: NSFetchRequest<Goal> = Goal.fetchRequest()
         if let goalsFromCoreData = try? context.fetch(request) {
-            return goalsFromCoreData.reversed()
+            return goalsFromCoreData
         }
         return []
     }

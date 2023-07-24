@@ -66,12 +66,10 @@ class GoalsTableViewController: UITableViewController {
                         } else {
                             goalCell.parameterLabel0.text = "\(NumberFormatter.integer(Page.numberOfMemorized)!) of \(NumberFormatter.integer(currentGoal.goalPages)!) pages"
                         }
-                        goalCell.parameterLabel1.text = "\(NumberFormatter.twoDecimals(currentGoal.goalPagesPerDay)!) PPD"
                         goalCell.goalLabel.text = "\(DateFormatter.mmmDDyyyy(currentGoal.dateOfGoalComplete!)!)"
                         goalCell.myGoal = currentGoal
                         break
                     case .findEndPage:
-                        goalCell.parameterLabel0.text = "\(NumberFormatter.twoDecimals(currentGoal.goalPagesPerDay)!) PPD"
                         goalCell.parameterLabel1.text = "\(DateFormatter.mmmDDyyyy(currentGoal.goalDate ?? Date.distantFuture)!)"
                         goalCell.goalLabel.text = "\(NumberFormatter.integer(currentGoal.endPage ?? 604)!)"
                         goalCell.myGoal = currentGoal
@@ -84,9 +82,9 @@ class GoalsTableViewController: UITableViewController {
                             goalCell.parameterLabel1.text = "\(NumberFormatter.integer(Page.numberOfMemorized)!) of \(NumberFormatter.integer(currentGoal.goalPages)!) pages"
                         }
                         goalCell.myGoal = currentGoal
-                        goalCell.timeUnitChanged(self)
                         break
                 }
+                goalCell.timeUnitChanged(self)
                 return goalCell
             }
         } else if indexPath.section == 1 {
