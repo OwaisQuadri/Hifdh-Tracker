@@ -105,10 +105,8 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             case .completionDate:
                 // configure for date first
                 mainStatTitleLabel.text = "Predicted Hifdh Completion"
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MMM/dd/yyyy"
                 var mainStatValueString: String = ""
-                mainStatValueString = dateFormatter.string(from: Page.completionDate)
+                mainStatValueString = DateFormatter.mmmDDyyyy(Page.completionDate) ?? ""
                 mainStatValueLabel.text = mainStatValueString
             case .pagesPerDay:
                 mainStatTitleLabel.text = "Pages per Day"
