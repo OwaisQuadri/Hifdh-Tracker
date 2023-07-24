@@ -36,4 +36,9 @@ extension DateFormatter {
         dateFormatter.dateFormat = "MMM/dd/yyyy"
         return dateFormatter.string(from: date)
     }
+    static func getMonthOfYear(from date: Date) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM yyyy"
+        return dateFormatter.string(from: date)
+    }
 }

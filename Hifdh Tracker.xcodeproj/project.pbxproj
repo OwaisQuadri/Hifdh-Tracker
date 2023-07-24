@@ -35,6 +35,7 @@
 		CD5507F82A6D877E00F2BD03 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507F62A6D877E00F2BD03 /* Goal+CoreDataProperties.swift */; };
 		CD5507F92A6D877E00F2BD03 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507F72A6D877E00F2BD03 /* Goal+CoreDataClass.swift */; };
 		CD5507FB2A6D892A00F2BD03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507FA2A6D892A00F2BD03 /* Constants.swift */; };
+		CD5507FD2A6E133300F2BD03 /* MemorizationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507FC2A6E133300F2BD03 /* MemorizationHistory.swift */; };
 		CD596E0C2A68ED77006EF193 /* TimeInterval+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */; };
 		CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		CD5507F62A6D877E00F2BD03 /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD5507F72A6D877E00F2BD03 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD5507FA2A6D892A00F2BD03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CD5507FC2A6E133300F2BD03 /* MemorizationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemorizationHistory.swift; path = "../../../../../.Trash/Hifdh-Tracker/Hifdh Tracker/Profile/MemorizationHistory.swift"; sourceTree = "<group>"; };
 		CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Util.swift"; sourceTree = "<group>"; };
 		CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 			children = (
 				CD1C6C522A64F1E80083F6DA /* ProfileViewController.swift */,
 				CD5507D42A6C172500F2BD03 /* PagesPerTimeInterval.swift */,
+				CD5507FC2A6E133300F2BD03 /* MemorizationHistory.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				CD25FE912A6A0874009D7759 /* UIView+Util.swift in Sources */,
 				CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */,
 				CD5507F92A6D877E00F2BD03 /* Goal+CoreDataClass.swift in Sources */,
+				CD5507FD2A6E133300F2BD03 /* MemorizationHistory.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
 				CD5507DC2A6C359500F2BD03 /* Format+Util.swift in Sources */,
 				CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */,
