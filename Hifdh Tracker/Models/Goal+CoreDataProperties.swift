@@ -88,7 +88,7 @@ extension Goal: Identifiable {
         //pagesPerDay multiplied by range
         let daysRemaining = goalDate!.distance(to: Date()).magnitude.convert(to: .days)
         if daysRemaining <= 0 { return Page.numberOfMemorized }
-        return Page.numberOfMemorized + goalPagesPerDay * daysRemaining
+        return min(604.0, Page.numberOfMemorized + goalPagesPerDay * daysRemaining)
     }
     
     static func fetchGoals(in context: NSManagedObjectContext) -> [Goal] {

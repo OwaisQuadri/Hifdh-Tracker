@@ -13,5 +13,5 @@ class Constants {
     static let pagesPerIntervalGoalDefaultName = "Pages per Interval Goal"
     static let endPageGoalDefaultName = "End Page Goal"
     
-    static let genericTextFieldEmptyError = "One or more text fields are empty!"
+    static let genericTextFieldError = "One or more text fields are invalid!"
 }

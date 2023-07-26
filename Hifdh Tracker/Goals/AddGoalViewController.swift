@@ -134,6 +134,9 @@ class AddGoalViewController: UIViewController {
         else { return } // TODO: Err handle
         let numOfPages = Double(numberOfPagesString) ?? 604
         let pagesPer = Double(pagesPerString) ?? Page.pagesPerDay
+        if numOfPages > 604 || pagesPer > 604 {
+            return showErrorAlert(message: Constants.genericTextFieldError)
+        }
         var timeUnits: TimeUnits = .days
         switch timeUnitSelector.selectedSegmentIndex {
             case 0:
@@ -152,14 +155,12 @@ class AddGoalViewController: UIViewController {
             switch goalType {
                 case .findEndDate:
                     if !areFieldsEmpty([numberOfPagesTextField]) {
-                        showErrorAlert(message: Constants.genericTextFieldEmptyError)
-                        return
+                        return showErrorAlert(message: Constants.genericTextFieldError)
                     }
                     _ = Goal(name: goalName ?? Constants.dateGoalDefaultName , pagesPer, pagesPer: timeUnits, forTotalPages: numOfPages, in: context)
                 case .findPagesPerTimePeriod:
                     if !areFieldsEmpty([numberOfPagesTextField]) {
-                        showErrorAlert(message: Constants.genericTextFieldEmptyError)
-                        return
+                        return showErrorAlert(message: Constants.genericTextFieldError)
                     }
                     _ = Goal(name: goalName ?? Constants.pagesPerIntervalGoalDefaultName, pages: numOfPages, by: goalDate, in: context)
                 case .findEndPage:
