@@ -12,6 +12,7 @@ class AddGoalViewController: UIViewController {
     var delegate: AppDelegate?
     var isDismissed: ( () -> Void )?
     
+    @IBOutlet weak var pagesPerLabel: UILabel!
     @IBOutlet weak var goalNameTextField: UITextField!
     @IBOutlet weak var datePickerYConstraint: NSLayoutConstraint!
     @IBOutlet weak var pagesPerYConstraint: NSLayoutConstraint!
@@ -41,6 +42,7 @@ class AddGoalViewController: UIViewController {
         // Do any additional setup after loading the view.
         goalTypeChanged(self)
         datePicker.minimumDate = Date()
+        pagesPerTextField.text = "\(NumberFormatter.twoDecimals(Page.pagesPerDay)!)"
     }
     
 
@@ -53,6 +55,8 @@ class AddGoalViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: Dynamic Constraints
     func goalDateIsVisible(_ show : Bool){
         if show {
             datePickerYConstraint.constant = 25
@@ -72,12 +76,14 @@ class AddGoalViewController: UIViewController {
         if show {
             pagesPerYConstraint.constant = 25
             pagesPerTextField.isHidden = false
+            pagesPerLabel.isHidden = false
             pagesPerTimeHeightConstraint.constant = 30
             timeUnitSelector.isHidden = false
             timeUnitSelectorHeightConstraint.constant = 30
         } else {
             pagesPerYConstraint.constant = 0
             pagesPerTextField.isHidden = true
+            pagesPerLabel.isHidden = true
             pagesPerTimeHeightConstraint.constant = 0
             timeUnitSelector.isHidden = true
             timeUnitSelectorHeightConstraint.constant = 0
@@ -94,6 +100,8 @@ class AddGoalViewController: UIViewController {
             numberOfPagesHeightConstraint.constant = 0
         }
     }
+    
+    // MARK: IBActions
     @IBAction func goalTypeChanged(_ sender: Any) {
         switch goalTypeSegmentedControl.selectedSegmentIndex {
             case 0:
@@ -117,7 +125,7 @@ class AddGoalViewController: UIViewController {
             default:
                 break
         }
-        view.layoutSubviews(duration: 0.3)
+        view.layoutSubviews(duration: 0.5)
     }
     @IBAction func createGoal(_ sender: Any) {
         guard let context = delegate?.persistentContainer.viewContext,
@@ -164,6 +172,21 @@ class AddGoalViewController: UIViewController {
         }
     }
     
+    // MARK: Handling "Next" in the textfields
+    func textFieldShouldReturn(_ sender: UITextField) {
+        switch sender {
+            case goalNameTextField:
+                _ = numberOfPagesTextField.isHidden ? pagesPerTextField.becomeFirstResponder() : numberOfPagesTextField.becomeFirstResponder()
+            default:
+                break
+        }
+        self.resignFirstResponder()
+    }
+    @IBAction func goalNameTextFieldPrimaryAction(_ sender: UITextField) {
+        textFieldShouldReturn(sender)
+    }
+    
+    // MARK: Error Handling
     func areFieldsEmpty(_ fields: [UITextField]) -> Bool {
         for field in fields {
             if field.text == "" || field.text == nil {

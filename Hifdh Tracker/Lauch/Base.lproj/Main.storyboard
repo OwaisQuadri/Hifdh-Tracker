@@ -104,6 +104,9 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="DYu-gI-kl1" secondAttribute="bottom" id="rZ1-Ij-ck6"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectionStyle" value=".none"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="directionSegmentedControl" destination="DYu-gI-kl1" id="XpT-G3-6p4"/>
                                 </connections>
@@ -368,6 +371,9 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="ecr-3w-rLx" secondAttribute="trailing" constant="10" id="lwi-HE-djI"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectionStyle" value=".none"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="goalLabel" destination="Nop-Zu-Qt9" id="BGe-ha-C6X"/>
                                     <outlet property="parameterLabel0" destination="yZF-Sm-w7g" id="AWb-fq-Ora"/>
@@ -378,14 +384,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addGoalCell" id="Nl6-q5-9Ko" customClass="addGoalTableViewCell" customModule="Hifdh_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="170" width="393" height="56.666667938232422"/>
+                                <rect key="frame" x="0.0" y="170" width="393" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nl6-q5-9Ko" id="3eC-Ea-6X7">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="56.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="57"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueD-kl-vHp">
-                                            <rect key="frame" x="20" y="11" width="353" height="34.666666666666664"/>
+                                            <rect key="frame" x="20" y="11" width="353" height="35"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="gray" image="plus" catalog="system">
                                                 <color key="baseForegroundColor" name="AccentColor"/>
@@ -403,6 +409,9 @@
                                         <constraint firstItem="ueD-kl-vHp" firstAttribute="top" secondItem="3eC-Ea-6X7" secondAttribute="topMargin" id="e0S-6g-Hgl"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectionStyle" value=".none"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="addButton" destination="ueD-kl-vHp" id="sF6-GP-PKx"/>
                                 </connections>
@@ -451,18 +460,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pages per" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KPM-58-V8z">
-                                <rect key="frame" x="30" y="186.33333333333334" width="146.66666666666666" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# of" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KPM-58-V8z">
+                                <rect key="frame" x="29.999999999999996" y="186.33333333333334" width="53.666666666666657" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="b4Y-xi-gco"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wfJ-hr-u4R">
-                                <rect key="frame" x="186.66666666666663" y="188" width="176.33333333333337" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wfJ-hr-u4R">
+                                <rect key="frame" x="176" y="188" width="187" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="Mhs-C2-NwB"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="c1E-WQ-Bvq"/>
                                 </constraints>
                                 <segments>
                                     <segment title="DAY"/>
@@ -515,34 +525,44 @@
                                     <constraint firstAttribute="width" constant="333" id="R3c-aC-JR1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="goalNameTextFieldPrimaryAction:" destination="ak8-CA-IyA" eventType="primaryActionTriggered" id="RiO-Zo-2qi"/>
+                                </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="pages per" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POW-aW-R8M">
+                                <rect key="frame" x="91.666666666666686" y="193" width="76.333333333333314" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DyH-LK-lc7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LOC-Kp-iGu" firstAttribute="centerX" secondItem="mSc-Ol-q9R" secondAttribute="centerX" id="2Gs-Z6-hvi"/>
                             <constraint firstItem="WOk-rW-r6z" firstAttribute="leading" secondItem="mSc-Ol-q9R" secondAttribute="centerX" id="91d-Lf-fw7"/>
+                            <constraint firstItem="POW-aW-R8M" firstAttribute="height" secondItem="wfJ-hr-u4R" secondAttribute="height" multiplier="0.677419" id="9eS-6Q-RLT"/>
                             <constraint firstItem="wfJ-hr-u4R" firstAttribute="right" secondItem="7lC-ms-jtl" secondAttribute="right" id="Ee4-Vv-M1x"/>
                             <constraint firstItem="wfJ-hr-u4R" firstAttribute="centerY" secondItem="KPM-58-V8z" secondAttribute="centerY" id="HOO-Ol-HNJ"/>
                             <constraint firstItem="lvk-7m-2cK" firstAttribute="top" secondItem="s9v-vG-12n" secondAttribute="bottom" constant="15" id="J6E-Wd-ckT"/>
                             <constraint firstItem="DyH-LK-lc7" firstAttribute="trailing" secondItem="s9v-vG-12n" secondAttribute="trailing" id="Jx7-Lh-TG2"/>
                             <constraint firstItem="7lC-ms-jtl" firstAttribute="top" secondItem="WOk-rW-r6z" secondAttribute="bottom" constant="25" id="Lg9-oI-ARX"/>
                             <constraint firstItem="O9D-iv-2WI" firstAttribute="trailing" secondItem="DyH-LK-lc7" secondAttribute="centerX" id="Mhp-87-7Dt"/>
-                            <constraint firstItem="KPM-58-V8z" firstAttribute="trailing" secondItem="mSc-Ol-q9R" secondAttribute="centerX" constant="-20" id="Ms2-QE-KYU"/>
-                            <constraint firstItem="wfJ-hr-u4R" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="DyH-LK-lc7" secondAttribute="trailing" id="V1V-R9-rsr"/>
+                            <constraint firstItem="wfJ-hr-u4R" firstAttribute="leading" secondItem="POW-aW-R8M" secondAttribute="trailing" constant="8" symbolic="YES" id="UzD-xR-A9p"/>
                             <constraint firstItem="s9v-vG-12n" firstAttribute="leading" secondItem="DyH-LK-lc7" secondAttribute="leading" id="Wgm-S2-kxB"/>
                             <constraint firstItem="KPM-58-V8z" firstAttribute="top" secondItem="LOC-Kp-iGu" secondAttribute="bottom" constant="25" id="XDq-dH-bL4"/>
                             <constraint firstItem="btx-QW-qxx" firstAttribute="top" secondItem="7lC-ms-jtl" secondAttribute="bottom" constant="25" id="Xt1-xG-sOu"/>
                             <constraint firstItem="btx-QW-qxx" firstAttribute="centerX" secondItem="mSc-Ol-q9R" secondAttribute="centerX" id="dGI-EA-4PQ"/>
                             <constraint firstItem="KPM-58-V8z" firstAttribute="leading" secondItem="7lC-ms-jtl" secondAttribute="leading" id="emU-iL-rBn"/>
-                            <constraint firstItem="wfJ-hr-u4R" firstAttribute="leading" secondItem="DyH-LK-lc7" secondAttribute="centerX" constant="-10" id="f19-CJ-uEy"/>
+                            <constraint firstItem="POW-aW-R8M" firstAttribute="leading" secondItem="KPM-58-V8z" secondAttribute="trailing" constant="8" symbolic="YES" id="gA7-7n-mu0"/>
                             <constraint firstItem="lvk-7m-2cK" firstAttribute="centerX" secondItem="mSc-Ol-q9R" secondAttribute="centerX" id="iJc-ww-fay"/>
                             <constraint firstItem="WOk-rW-r6z" firstAttribute="top" secondItem="wfJ-hr-u4R" secondAttribute="bottom" constant="25" id="mKo-9S-goX"/>
                             <constraint firstItem="s9v-vG-12n" firstAttribute="top" secondItem="DyH-LK-lc7" secondAttribute="top" constant="20" id="t1U-Qn-hmM"/>
                             <constraint firstItem="LOC-Kp-iGu" firstAttribute="top" secondItem="lvk-7m-2cK" secondAttribute="bottom" constant="25" id="vCi-y6-ALV"/>
                             <constraint firstItem="O9D-iv-2WI" firstAttribute="centerY" secondItem="WOk-rW-r6z" secondAttribute="centerY" id="vKD-5P-G5v"/>
                             <constraint firstItem="7lC-ms-jtl" firstAttribute="centerX" secondItem="mSc-Ol-q9R" secondAttribute="centerX" id="vaF-U6-dsO"/>
+                            <constraint firstItem="POW-aW-R8M" firstAttribute="centerY" secondItem="wfJ-hr-u4R" secondAttribute="centerY" id="xGm-TP-648"/>
                         </constraints>
                     </view>
                     <connections>
@@ -556,6 +576,7 @@
                         <outlet property="numberOfPagesHeightConstraint" destination="JUk-mW-DZM" id="4eK-ee-RVE"/>
                         <outlet property="numberOfPagesTextField" destination="LOC-Kp-iGu" id="i2f-yj-UGc"/>
                         <outlet property="numberOfPagesYConstraint" destination="vCi-y6-ALV" id="6Ca-qE-FRA"/>
+                        <outlet property="pagesPerLabel" destination="POW-aW-R8M" id="UYL-tD-T3T"/>
                         <outlet property="pagesPerTextField" destination="KPM-58-V8z" id="29g-h2-HLY"/>
                         <outlet property="pagesPerTimeHeightConstraint" destination="b4Y-xi-gco" id="kka-ao-C8i"/>
                         <outlet property="pagesPerYConstraint" destination="XDq-dH-bL4" id="Z9a-ku-A7Y"/>
