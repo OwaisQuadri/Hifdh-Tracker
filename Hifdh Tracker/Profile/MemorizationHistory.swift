@@ -88,14 +88,10 @@ struct MemorizationHistory: View {
                         )
                 }
             })
-            
-            
-            
-            
             .padding()
             .frame(minWidth: 200, minHeight: 200)
             .chartYScale(domain: 0...maxYAxisValue)
-            .chartXScale(domain: (pagesPerMonthList.min(by: {$1.date>$0.date})?.date ?? Date())...Date.now)
+            .chartXScale(domain: (pagesPerMonthList.min(by: {$1.date>$0.date})?.date ?? Date())...(Page.percentMemorized == 1 ? Page.highestLogDate ?? Date.now : Date.now))
             .chartXAxis {
                 AxisMarks( values: pagesPerMonthList.map{ $0.date }){ _ in
                     AxisValueLabel(format: .dateTime.month(.narrow))
