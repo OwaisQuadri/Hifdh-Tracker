@@ -12,6 +12,7 @@ class AddGoalViewController: UIViewController {
     var delegate: AppDelegate?
     var isDismissed: ( () -> Void )?
     
+    @IBOutlet weak var pagesPerLabel: UILabel!
     @IBOutlet weak var goalNameTextField: UITextField!
     @IBOutlet weak var datePickerYConstraint: NSLayoutConstraint!
     @IBOutlet weak var pagesPerYConstraint: NSLayoutConstraint!
@@ -75,12 +76,14 @@ class AddGoalViewController: UIViewController {
         if show {
             pagesPerYConstraint.constant = 25
             pagesPerTextField.isHidden = false
+            pagesPerLabel.isHidden = false
             pagesPerTimeHeightConstraint.constant = 30
             timeUnitSelector.isHidden = false
             timeUnitSelectorHeightConstraint.constant = 30
         } else {
             pagesPerYConstraint.constant = 0
             pagesPerTextField.isHidden = true
+            pagesPerLabel.isHidden = true
             pagesPerTimeHeightConstraint.constant = 0
             timeUnitSelector.isHidden = true
             timeUnitSelectorHeightConstraint.constant = 0
@@ -122,7 +125,7 @@ class AddGoalViewController: UIViewController {
             default:
                 break
         }
-        view.layoutSubviews(duration: 0.3)
+        view.layoutSubviews(duration: 0.5)
     }
     @IBAction func createGoal(_ sender: Any) {
         guard let context = delegate?.persistentContainer.viewContext,
