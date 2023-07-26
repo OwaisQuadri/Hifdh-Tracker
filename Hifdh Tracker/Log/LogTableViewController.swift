@@ -98,8 +98,13 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
                     }
                 case 1:
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as? DateTableViewCell {
-                        cell.titleLabel.text = "Today's Date:"
-                        cell.datePicker.date = Date()
+                        if Page.percentMemorized == 1 {
+                            cell.titleLabel.text = "Completed on:"
+                            cell.datePicker.date = Page.highestLogDate ?? Date()
+                        } else {
+                            cell.titleLabel.text = "Today's Date:"
+                            cell.datePicker.date = Date()
+                        }
                         cell.datePicker.isEnabled = false
                         return cell
                     }
