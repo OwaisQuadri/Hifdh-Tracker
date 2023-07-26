@@ -8,10 +8,11 @@
 import UIKit
 import CoreData
 
-class LogTableViewController: UITableViewController {
+class LogTableViewController: UITableViewController, UITabBarControllerDelegate {
 
     // MARK: Variables
     var firstNotInMemoryIndexPath: IndexPath = IndexPath(row: 0, section: 0)
+    var isFirstInput = false
     // give access to appdelegate
     let delegate = UIApplication.shared.delegate as? AppDelegate
     // MARK: Outlets
@@ -19,8 +20,13 @@ class LogTableViewController: UITableViewController {
     
     
     // MARK: viewDid...
+    override func viewWillDisappear(_ animated: Bool) {
+        isFirstInput = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -32,6 +38,17 @@ class LogTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureViews()
+    }
+    // MARK: UITabBarControllerDelegate
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        if tabBarIndex == 1 {
+            if isFirstInput { isFirstInput = false } else {
+                self.tableView.scrollToRow(at: Page.firstNotInMemoryIndexPath, at: .middle, animated: true)
+            }
+        }
+        
     }
     
     // MARK: Configurations
@@ -113,7 +130,7 @@ class LogTableViewController: UITableViewController {
                         currentPage.isMemorized = !currentPage.isMemorized
                         currentPage.dateMemorized = logCell.datePicker.date
                     }
-                    var rowNumber = Int(currentPage.pageNumber)
+                    var rowNumber = Int(currentPage.pageNumber) - 1
                     if !UserDefaults.standard.bool(forKey: UserDefaultsKey.isFromFront.rawValue) { rowNumber = 603 - rowNumber}
                     self.tableView.scrollToRow(at: IndexPath(row: rowNumber, section: 1), at: .middle, animated: true)
                     configureDatePickerInPageCell(logCell)
