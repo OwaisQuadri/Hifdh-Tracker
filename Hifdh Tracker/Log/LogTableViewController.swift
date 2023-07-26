@@ -132,7 +132,7 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
                     }
                     var rowNumber = Int(currentPage.pageNumber) - 1
                     if !UserDefaults.standard.bool(forKey: UserDefaultsKey.isFromFront.rawValue) { rowNumber = 603 - rowNumber}
-                    self.tableView.scrollToRow(at: IndexPath(row: rowNumber - 1, section: 1), at: .middle, animated: true)
+                    self.tableView.scrollToRow(at: IndexPath(row: rowNumber, section: 1), at: .middle, animated: true)
                     configureDatePickerInPageCell(logCell)
                     configureViews()
                 }

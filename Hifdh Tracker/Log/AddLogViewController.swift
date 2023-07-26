@@ -48,10 +48,16 @@ class AddLogViewController: UIViewController {
         showErrorConstraint.isActive = false
         hideErrorConstraint.isActive = true
         self.view.layoutIfNeeded()
-        if indexStart == -1 {
+        if !UserDefaults.standard.bool(forKey: UserDefaultsKey.isFromFront.rawValue) {
+            indexStart = 603 - indexStart
+            indexEnd = 603 - indexEnd
+        }
+        if indexStart == -1 || indexStart == 604 {
+            indexStart = -1
             Page.logs[indexEnd].isMemorized = true
             Page.logs[indexEnd].dateMemorized = datePicker.date
-        } else if indexEnd == -1 {
+        } else if indexEnd == -1 || indexEnd == 604 {
+            indexEnd = -1
             Page.logs[indexStart].isMemorized = true
             Page.logs[indexStart].dateMemorized = datePicker.date
         } else {
