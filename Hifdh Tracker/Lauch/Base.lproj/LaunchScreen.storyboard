@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,10 +15,49 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pxg-Sz-PIF">
+                                <rect key="frame" x="96.666666666666686" y="301" width="200" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon_accent" translatesAutoresizingMaskIntoConstraints="NO" id="ZuP-Qe-fts">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="98d-V4-Yd7"/>
+                                            <constraint firstAttribute="height" constant="200" id="Ryt-Sm-k9a"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hifdh Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKa-Ni-VZu">
+                                        <rect key="frame" x="0.0" y="200" width="200" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="l6E-4c-UR2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="22"/>
+                                        <color key="textColor" name="AccentColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="0Qa-d5-0A2"/>
+                                    <constraint firstAttribute="bottom" secondItem="CKa-Ni-VZu" secondAttribute="bottom" id="BKk-fc-wpP"/>
+                                    <constraint firstItem="ZuP-Qe-fts" firstAttribute="top" secondItem="Pxg-Sz-PIF" secondAttribute="top" id="GL6-z2-mSr"/>
+                                    <constraint firstAttribute="height" constant="250" id="KHI-vJ-Yul"/>
+                                    <constraint firstAttribute="trailing" secondItem="CKa-Ni-VZu" secondAttribute="trailing" id="VNm-zC-JJy"/>
+                                    <constraint firstItem="CKa-Ni-VZu" firstAttribute="centerX" secondItem="Pxg-Sz-PIF" secondAttribute="centerX" id="YfU-6t-8g2"/>
+                                    <constraint firstItem="ZuP-Qe-fts" firstAttribute="centerX" secondItem="Pxg-Sz-PIF" secondAttribute="centerX" id="n2n-7R-oWW"/>
+                                    <constraint firstItem="CKa-Ni-VZu" firstAttribute="leading" secondItem="Pxg-Sz-PIF" secondAttribute="leading" id="peu-hm-B4U"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pxg-Sz-PIF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Gly-qN-5vl"/>
+                            <constraint firstItem="Pxg-Sz-PIF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="v1A-hD-vfR"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,4 +65,13 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="app_icon_accent" width="1024" height="1024"/>
+        <namedColor name="AccentColor">
+            <color red="0.6589999794960022" green="0.4779999852180481" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
