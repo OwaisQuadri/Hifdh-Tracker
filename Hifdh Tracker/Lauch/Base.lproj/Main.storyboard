@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4q-4S-Kdu">
-    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8HD-kq-k3M">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8HD-kq-k3M">
                                 <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="rMs-5M-4aR">
@@ -32,27 +32,27 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="onboardingCell" id="nxI-S7-Axu" customClass="OnboardingCell" customModule="Hifdh_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="12" width="393" height="700"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6nf-Ny-xdT">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="iaF-Vs-Jte">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="700"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Use the switch to log single pages" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyS-dW-7Zj">
-                                                    <rect key="frame" x="8" y="640.66666666666652" width="377" height="26.333333333333371"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the switch to log single pages" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyS-dW-7Zj">
+                                                    <rect key="frame" x="8" y="640.66666666666663" width="377" height="26.333333333333371"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="onboarding" translatesAutoresizingMaskIntoConstraints="NO" id="e8f-17-0pj">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="onboarding" translatesAutoresizingMaskIntoConstraints="NO" id="e8f-17-0pj">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="615.66666666666663"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="DyS-dW-7Zj" secondAttribute="bottom" constant="25" id="AId-tD-Zvs"/>
-                                                <constraint firstItem="DyS-dW-7Zj" firstAttribute="leading" secondItem="6nf-Ny-xdT" secondAttribute="leadingMargin" id="EH0-0N-UTx"/>
+                                                <constraint firstItem="DyS-dW-7Zj" firstAttribute="leading" secondItem="iaF-Vs-Jte" secondAttribute="leadingMargin" id="EH0-0N-UTx"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="DyS-dW-7Zj" secondAttribute="trailing" id="EX0-Hx-ll7"/>
-                                                <constraint firstItem="e8f-17-0pj" firstAttribute="top" secondItem="6nf-Ny-xdT" secondAttribute="top" id="mDc-K4-mqq"/>
+                                                <constraint firstItem="e8f-17-0pj" firstAttribute="top" secondItem="iaF-Vs-Jte" secondAttribute="top" id="mDc-K4-mqq"/>
                                                 <constraint firstAttribute="trailing" secondItem="e8f-17-0pj" secondAttribute="trailing" id="nZs-zF-GXW"/>
-                                                <constraint firstItem="e8f-17-0pj" firstAttribute="leading" secondItem="6nf-Ny-xdT" secondAttribute="leading" id="nj4-wm-hsi"/>
+                                                <constraint firstItem="e8f-17-0pj" firstAttribute="leading" secondItem="iaF-Vs-Jte" secondAttribute="leading" id="nj4-wm-hsi"/>
                                                 <constraint firstItem="DyS-dW-7Zj" firstAttribute="top" secondItem="e8f-17-0pj" secondAttribute="bottom" constant="25" id="o6f-lr-caf"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -95,6 +95,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="134" id="NyK-Ua-JSi"/>
                                 </constraints>
+                                <color key="pageIndicatorTintColor" systemColor="placeholderTextColor"/>
                                 <color key="currentPageIndicatorTintColor" name="AccentColor"/>
                             </pageControl>
                         </subviews>
@@ -500,14 +501,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addGoalCell" id="Nl6-q5-9Ko" customClass="addGoalTableViewCell" customModule="Hifdh_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="170" width="393" height="56.666667938232422"/>
+                                <rect key="frame" x="0.0" y="170" width="393" height="57.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nl6-q5-9Ko" id="3eC-Ea-6X7">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="56.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="57.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueD-kl-vHp">
-                                            <rect key="frame" x="20" y="11" width="353" height="34.666666666666664"/>
+                                            <rect key="frame" x="20" y="11" width="353" height="35.333333333333336"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="gray" image="plus" catalog="system">
                                                 <color key="baseForegroundColor" name="AccentColor"/>
@@ -894,6 +895,9 @@
         <namedColor name="AccentColor">
             <color red="0.6588235294117647" green="0.47450980392156861" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

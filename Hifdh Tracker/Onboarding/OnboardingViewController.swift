@@ -9,7 +9,7 @@ import UIKit
 
 class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     let onBoardingScreens: [OnboardingScreen] = OnboardingScreen.all
-    var currentPage: Int! {
+    var currentPage: Int = 0 {
         didSet {
             switch currentPage {
                 case 0:
@@ -32,20 +32,9 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var onboardingCollectionVew: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     
-    let isIpad = UIDevice().userInterfaceIdiom == UIUserInterfaceIdiom.pad
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentPage = 0
         // Do any additional setup after loading the view.
-        if (isIpad)
-        {
-            // device is ipad
-            currentPage = onBoardingScreens.count - 1
-            pageControl.isHidden = true
-            previousButton.isHidden = true
-        }
-        
     }
     @IBAction func previousButtonPressed(_ sender: Any) {
         goToPage(currentPage-1)
@@ -73,18 +62,21 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     // scroll detects page number
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
-        if !isIpad {
-            currentPage = Int(scrollView.contentOffset.x / width)
-        }
+        currentPage = Int(scrollView.contentOffset.x / width)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+}
+extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
-    */
-
 }
