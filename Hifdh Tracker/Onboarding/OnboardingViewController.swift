@@ -31,11 +31,20 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var onboardingCollectionVew: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
+    
+    let isIpad = UIDevice().userInterfaceIdiom == UIUserInterfaceIdiom.pad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentPage = 0
         // Do any additional setup after loading the view.
-        
+        if (isIpad)
+        {
+            // device is ipad
+            currentPage = onBoardingScreens.count - 1
+            pageControl.isHidden = true
+            previousButton.isHidden = true
+        }
         
     }
     @IBAction func previousButtonPressed(_ sender: Any) {
@@ -64,7 +73,9 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     // scroll detects page number
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
-        currentPage = Int(scrollView.contentOffset.x / width)
+        if !isIpad {
+            currentPage = Int(scrollView.contentOffset.x / width)
+        }
     }
     /*
     // MARK: - Navigation

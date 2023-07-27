@@ -12,6 +12,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let userDefaults = UserDefaults.standard
+    let isIpad = UIDevice().userInterfaceIdiom == UIUserInterfaceIdiom.pad
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

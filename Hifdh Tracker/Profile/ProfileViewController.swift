@@ -62,10 +62,9 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         scrollView.addSubview(chartView)
         chartView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(mainStatPicker.snp.bottom).offset(100)
+            make.top.equalTo(mainStatPicker.snp.bottom).offset(25)
             make.leading.equalToSuperview().offset(25)
             make.trailing.equalToSuperview().inset(25)
-            make.height.equalTo(250)
         }
     }
     
