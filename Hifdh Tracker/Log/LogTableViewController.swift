@@ -26,6 +26,17 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // if first run
+        if let delegate = delegate {
+            if delegate.userDefaults.bool(forKey: UserDefaultsKey.isFirstRun.rawValue) {
+                // show Onboarding
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let onboardingController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
+                onboardingController.modalPresentationStyle = .fullScreen
+                self.present(onboardingController, animated: true)
+            }
+        }
         self.tabBarController?.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

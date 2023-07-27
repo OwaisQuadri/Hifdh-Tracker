@@ -72,11 +72,23 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     private func configureTopRightMenu() {
         let resetAllDataMenuItem = UIAction(title: "Reset All Data", image: UIImage(systemName: "trash"), attributes: .destructive) { [self] (_) in
             if let context = delegate?.persistentContainer.viewContext {
-                Page.getDefaultPages(context)
-                configureViews()
+                // are you sure?
+                let areYouSureAlert = UIAlertController(title: "Warning!", message: "Are you sure you want to delete all your data?", preferredStyle: .alert)
+                areYouSureAlert.addAction(.init(title: "Yes, I'm sure", style: .destructive){_ in
+                    Page.getDefaultPages(context)
+                    self.configureViews()
+                })
+                areYouSureAlert.addAction(.init(title: "Cancel", style: .cancel))
+                self.present(areYouSureAlert, animated: true)
             }
         }
-        let topRightMenu = UIMenu(children: [resetAllDataMenuItem])
+        let showOnboardingMenuItem = UIAction(title: "Show Onboarding Tutorial") { [self] (_) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let onboardingController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
+            onboardingController.modalPresentationStyle = .fullScreen
+            self.present(onboardingController, animated: true)
+        }
+        let topRightMenu = UIMenu(children: [showOnboardingMenuItem, resetAllDataMenuItem])
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(systemName: "gear"), primaryAction: nil, menu: topRightMenu)
         
         view.layoutSubviews(duration: 0.5)

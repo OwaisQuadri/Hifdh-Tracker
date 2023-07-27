@@ -24,8 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // if first run
         if userDefaults.bool(forKey: UserDefaultsKey.isFirstRun.rawValue){
             Page.getDefaultPages(managedContext)
-            
-            userDefaults.set(false, forKey: UserDefaultsKey.isFirstRun.rawValue)
+            userDefaults.set(true, forKey: UserDefaultsKey.isFirstRun.rawValue)
         }
         return true
     }

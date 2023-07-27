@@ -38,6 +38,9 @@
 		CD596E0C2A68ED77006EF193 /* TimeInterval+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */; };
 		CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */; };
 		CD7A4EFF2A6E2E5600CB9F8C /* MemorizationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A4EFE2A6E2E5600CB9F8C /* MemorizationHistory.swift */; };
+		CDB07BCA2A71E68500DCAA32 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB07BC82A71E68500DCAA32 /* OnboardingViewController.swift */; };
+		CDB07BCD2A720EB600DCAA32 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB07BCC2A720EB600DCAA32 /* OnboardingScreen.swift */; };
+		CDB07BCF2A720F4300DCAA32 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB07BCE2A720F4300DCAA32 /* OnboardingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,9 @@
 		CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Util.swift"; sourceTree = "<group>"; };
 		CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 		CD7A4EFE2A6E2E5600CB9F8C /* MemorizationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizationHistory.swift; sourceTree = "<group>"; };
+		CDB07BC82A71E68500DCAA32 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		CDB07BCC2A720EB600DCAA32 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		CDB07BCE2A720F4300DCAA32 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,7 @@
 		CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				CDB07BC72A71E65100DCAA32 /* Onboarding */,
 				CD5507DD2A6CA66D00F2BD03 /* Goals */,
 				CD596E0A2A68ED5B006EF193 /* Util */,
 				CD1C6C4F2A6462760083F6DA /* Profile */,
@@ -238,6 +245,16 @@
 				CD5507FA2A6D892A00F2BD03 /* Constants.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		CDB07BC72A71E65100DCAA32 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CDB07BC82A71E68500DCAA32 /* OnboardingViewController.swift */,
+				CDB07BCE2A720F4300DCAA32 /* OnboardingCell.swift */,
+				CDB07BCC2A720EB600DCAA32 /* OnboardingScreen.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +406,7 @@
 				CD1E31C02A5BB4B8003B76C7 /* LogTableViewController.swift in Sources */,
 				CD5507D72A6C17DC00F2BD03 /* Date+Util.swift in Sources */,
 				CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */,
+				CDB07BCA2A71E68500DCAA32 /* OnboardingViewController.swift in Sources */,
 				CD5507F52A6CEF1800F2BD03 /* AddGoalViewController.swift in Sources */,
 				CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */,
 				CD1C6C532A64F1E80083F6DA /* ProfileViewController.swift in Sources */,
@@ -398,6 +416,8 @@
 				CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */,
 				CD5507F92A6D877E00F2BD03 /* Goal+CoreDataClass.swift in Sources */,
 				CD7A4EFF2A6E2E5600CB9F8C /* MemorizationHistory.swift in Sources */,
+				CDB07BCD2A720EB600DCAA32 /* OnboardingScreen.swift in Sources */,
+				CDB07BCF2A720F4300DCAA32 /* OnboardingCell.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
 				CD5507DC2A6C359500F2BD03 /* Format+Util.swift in Sources */,
 				CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */,
