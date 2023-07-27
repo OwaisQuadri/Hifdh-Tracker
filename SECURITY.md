@@ -19,7 +19,7 @@ By accessing or using the App, you agree to the terms outlined in this Privacy P
 ### 5. Third-Party Services  
    Hifdh Tracker may link to third-party websites or services for user convenience. Please note that we have no control over these external sites and their privacy policies. We advise users to review the privacy policies of any linked service before using them.  
 ### 6. Children's Privacy  
-  Our App is not intended for children under the age of 13. We do not knowingly collect any personal information from children. If you believe we have unintentionally collected personal information from a child, please contact us immediately, and we will take necessary steps to remove the data from our records.  
+  We do not knowingly collect any personal information from children. If you believe we have collected personal information from a child, please contact us immediately, and we will take necessary steps to remove the data from our records.  
 ### 7. Changes to This Privacy Policy  
   We reserve the right to update or modify this Privacy Policy at any time. Any changes will be effective immediately upon posting the revised policy in the App. We encourage you to review this Privacy Policy regularly for any updates.  
 ### 8. Contact Us  
