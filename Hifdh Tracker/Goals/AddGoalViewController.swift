@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class AddGoalViewController: UIViewController {
     
@@ -194,6 +195,9 @@ class AddGoalViewController: UIViewController {
                 }
             }
             delegate?.saveContext()
+            if let windowScene = view.window?.windowScene {
+                SKStoreReviewController.requestReview(in: windowScene)
+            }           
             dismiss()
         }
     }
