@@ -24,6 +24,8 @@
 		CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */; };
 		CD25FE912A6A0874009D7759 /* UIView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25FE902A6A0874009D7759 /* UIView+Util.swift */; };
 		CD46065E2A5CF0EA002F2F3F /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */; };
+		CD53C9212BC966B100927CAD /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53C9202BC966B100927CAD /* IAPManager.swift */; };
+		CD53C9242BC9762400927CAD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53C9232BC9762400927CAD /* StoreKit.framework */; };
 		CD5507D52A6C172500F2BD03 /* PagesPerTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507D42A6C172500F2BD03 /* PagesPerTimeInterval.swift */; };
 		CD5507D72A6C17DC00F2BD03 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507D62A6C17DC00F2BD03 /* Date+Util.swift */; };
 		CD5507DA2A6C1D5500F2BD03 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CD5507D92A6C1D5500F2BD03 /* SnapKit */; };
@@ -82,6 +84,9 @@
 		CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD25FE902A6A0874009D7759 /* UIView+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Util.swift"; sourceTree = "<group>"; };
 		CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
+		CD53C9202BC966B100927CAD /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		CD53C9232BC9762400927CAD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CD53C9252BC976BC00927CAD /* Hifdh Tracker.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Hifdh Tracker.storekit"; sourceTree = "<group>"; };
 		CD5507D42A6C172500F2BD03 /* PagesPerTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesPerTimeInterval.swift; sourceTree = "<group>"; };
 		CD5507D62A6C17DC00F2BD03 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
 		CD5507DB2A6C359500F2BD03 /* Format+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Format+Util.swift"; sourceTree = "<group>"; };
@@ -106,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD5507DA2A6C1D5500F2BD03 /* SnapKit in Frameworks */,
+				CD53C9242BC9762400927CAD /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +149,7 @@
 				CD1E319D2A5BA4ED003B76C7 /* Hifdh TrackerTests */,
 				CD1E31A72A5BA4ED003B76C7 /* Hifdh TrackerUITests */,
 				CD1E31822A5BA4EC003B76C7 /* Products */,
+				CD53C9222BC9762400927CAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,12 +166,14 @@
 		CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				CD53C9252BC976BC00927CAD /* Hifdh Tracker.storekit */,
+				CD53C91F2BC9669A00927CAD /* Managers */,
 				CDB07BC72A71E65100DCAA32 /* Onboarding */,
 				CD5507DD2A6CA66D00F2BD03 /* Goals */,
 				CD596E0A2A68ED5B006EF193 /* Util */,
 				CD1C6C4F2A6462760083F6DA /* Profile */,
 				CD1E31CC2A5BD21E003B76C7 /* Models */,
-				CD1E31B92A5BA9A5003B76C7 /* Lauch */,
+				CD1E31B92A5BA9A5003B76C7 /* Launch */,
 				CD1E31B72A5BA965003B76C7 /* Log */,
 				CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */,
 				CD1E31952A5BA4ED003B76C7 /* Info.plist */,
@@ -202,7 +211,7 @@
 			path = Log;
 			sourceTree = "<group>";
 		};
-		CD1E31B92A5BA9A5003B76C7 /* Lauch */ = {
+		CD1E31B92A5BA9A5003B76C7 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
 				CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */,
@@ -210,7 +219,7 @@
 				CD1E31922A5BA4ED003B76C7 /* LaunchScreen.storyboard */,
 				CD1E318A2A5BA4EC003B76C7 /* Main.storyboard */,
 			);
-			path = Lauch;
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		CD1E31CC2A5BD21E003B76C7 /* Models */ = {
@@ -222,6 +231,22 @@
 				CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CD53C91F2BC9669A00927CAD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CD53C9202BC966B100927CAD /* IAPManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		CD53C9222BC9762400927CAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD53C9232BC9762400927CAD /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CD5507DD2A6CA66D00F2BD03 /* Goals */ = {
@@ -394,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD53C9212BC966B100927CAD /* IAPManager.swift in Sources */,
 				CD5507E52A6CCE7200F2BD03 /* addGoalTableViewCell.swift in Sources */,
 				CD5507D52A6C172500F2BD03 /* PagesPerTimeInterval.swift in Sources */,
 				CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */,

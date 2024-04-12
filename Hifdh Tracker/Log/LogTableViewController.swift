@@ -26,9 +26,30 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        handleOnboarding()
+        self.tabBarController?.delegate = self
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
         
-        // if first run
-        if let delegate = delegate {
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.tableView.scrollToRow(at: Page.firstNotInMemoryIndexPath, at: .middle, animated: true)
+
+        // set observer for UIApplication.willEnterForegroundNotification
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureViews()
+    }
+
+    // MARK: Onboarding
+
+    func handleOnboarding() {
+        if let delegate {
             if delegate.userDefaults.bool(forKey: UserDefaultsKey.isFirstRun.rawValue) {
                 // show Onboarding
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -37,19 +58,8 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
                 self.present(onboardingController, animated: true)
             }
         }
-        self.tabBarController?.delegate = self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.tableView.scrollToRow(at: Page.firstNotInMemoryIndexPath, at: .middle, animated: true)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configureViews()
-    }
+
     // MARK: UITabBarControllerDelegate
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
@@ -79,7 +89,11 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
             logCell.datePicker.isEnabled = true
         }
     }
-    
+
+    @objc func willEnterForeground() {
+        configureViews()
+    }
+
     // MARK: tableView
     override func numberOfSections(in tableView: UITableView) -> Int {
         2

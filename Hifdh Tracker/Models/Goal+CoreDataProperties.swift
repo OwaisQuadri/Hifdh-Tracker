@@ -13,7 +13,16 @@ enum GoalType: String {
     case findEndDate = "findEndDate"
     case findPagesPerTimePeriod = "findPagesPerTimePeriod"
     case findEndPage = "findEndPage"
-    
+    var index: Int {
+        switch self {
+        case .findEndDate:
+            return 0
+        case .findPagesPerTimePeriod:
+            return 1
+        case .findEndPage:
+            return 2
+        }
+    }
 }
 
 extension Goal {
@@ -65,7 +74,14 @@ extension Goal: Identifiable {
         self.goalDate = date
         self.type = .findEndPage
     }
-    
+    func update(type: GoalType, _ name: String?, numOfPages: Double, pagesPer: Double, per timeUnits: TimeUnits, by date: Date? = nil) {
+        self.goalName = name
+        self.goalPagesPerDay = pagesPer.convert(from: .days, to: timeUnits)
+        self.goalPages = numOfPages
+        self.type = type
+        self.goalDate = date
+    }
+
     var dateOfGoalComplete: Date? {
         if type != .findEndDate { return nil }
         let currentDate = Date()

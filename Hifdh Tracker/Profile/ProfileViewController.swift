@@ -9,6 +9,7 @@ import CoreData
 import SnapKit
 import SwiftUI
 import UIKit
+import StoreKit
 
 class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -18,7 +19,8 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     // MARK: Variables
     var isDropDownExpanded: Bool = false
-    
+    var products: [SKProduct] = []
+
     
     // MARK: Outlets
     @IBOutlet weak var percentBarButton: UIBarButtonItem!
@@ -35,6 +37,9 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        IAPManager.shared.purchaseStatusBlock = { [weak self] (type) in
+            self?.showAlert(title: type.message)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,12 +49,21 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     // MARK: Configurations
     private func configureViews() {
-        configureMainStatCard(for: Page.selectedStat ?? .pagesMemorized)
+        configureMainStatCard(for: Page.selectedStat ?? .pagesPerDay)
         configureTopRightMenu()
         configureStatPicker()
         configureProgressBar()
         configureChart()
         configureTopLeftBarItem()
+
+        IAPManager.shared.initialize()
+        IAPManager.shared.fetchAvailableProductsBlock = { (productsArray) in
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.products = productsArray
+            }
+        }
+
     }
     
     private func configureTopLeftBarItem() {
@@ -81,13 +95,17 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 self.present(areYouSureAlert, animated: true)
             }
         }
-        let showOnboardingMenuItem = UIAction(title: "Show Onboarding Tutorial") { [self] (_) in
+        let showOnboardingMenuItem = UIAction(title: "Show Tutorial", image: UIImage(systemName: "book.pages.fill")) { [self] (_) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let onboardingController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
             onboardingController.modalPresentationStyle = .fullScreen
             self.present(onboardingController, animated: true)
         }
-        let topRightMenu = UIMenu(children: [showOnboardingMenuItem, resetAllDataMenuItem])
+        let buyMeACoffeeMenuItem = UIAction(title: "Buy Me a Coffee", image: UIImage(systemName: "cup.and.saucer.fill")) {[weak self]_ in
+            IAPManager.shared.purchaseProduct(withId: HTProduct.buyMeACoffee.id)
+            self?.resignFirstResponder()
+        }
+        let topRightMenu = UIMenu(children: [buyMeACoffeeMenuItem, showOnboardingMenuItem, resetAllDataMenuItem])
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(systemName: "gear"), primaryAction: nil, menu: topRightMenu)
         
         view.layoutSubviews(duration: 0.5)
@@ -135,7 +153,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         view.layoutIfNeeded()
     }
-    
+
     // MARK: Cleanup Views
     private func cleanUpChart(){
         swiftUIcontroller.rootView = MemorizationHistory()
@@ -199,4 +217,9 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
      // Pass the selected object to the new view controller.
      }
      */
+    func showAlert(title: String) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addAction(.init(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

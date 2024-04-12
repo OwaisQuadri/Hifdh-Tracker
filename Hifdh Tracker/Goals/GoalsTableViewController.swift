@@ -10,7 +10,7 @@ import UIKit
 class GoalsTableViewController: UITableViewController {
     
     var delegate = UIApplication.shared.delegate as? AppDelegate
-    
+    var editingGoal: Goal?
     @IBOutlet weak var percentBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -27,13 +27,17 @@ class GoalsTableViewController: UITableViewController {
     }
     
     func configureViews(){
+        editingGoal = nil
         tableView.reloadData()
         tableView.separatorStyle = .none
         percentBarButton.title = Page.percentMemorizedAsString
     }
     
     // MARK: - Table view data source
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        editingGoal = Goal.goals[indexPath.row]
+        performSegue(withIdentifier: "addGoal", sender: self)
+    }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let context = delegate?.persistentContainer.viewContext else { return }
@@ -143,6 +147,7 @@ class GoalsTableViewController: UITableViewController {
         if (segue.identifier == "addGoal") {
             if let destination = segue.destination as? AddGoalViewController {
                 //passing data
+                destination.editingGoal = editingGoal
                 destination.delegate = self.delegate
                 destination.isDismissed = { [self] in
                     self.configureViews()

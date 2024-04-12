@@ -11,7 +11,9 @@ class AddGoalViewController: UIViewController {
     
     var delegate: AppDelegate?
     var isDismissed: ( () -> Void )?
-    
+    var editingGoal: Goal?
+
+    @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var pagesPerLabel: UILabel!
     @IBOutlet weak var goalNameTextField: UITextField!
     @IBOutlet weak var datePickerYConstraint: NSLayoutConstraint!
@@ -38,11 +40,23 @@ class AddGoalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        goalTypeChanged(self)
         datePicker.minimumDate = Date()
         pagesPerTextField.text = "\(NumberFormatter.twoDecimals(Page.pagesPerDay)!)"
+        if let editingGoal {
+            // updateFieldsToReflectGoal
+            DispatchQueue.main.async {[weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.goalTypeSegmentedControl.selectedSegmentIndex = editingGoal.type.index
+                strongSelf.goalTypeChanged(strongSelf)
+                strongSelf.actionButton.setTitle("Save", for: .normal)
+                strongSelf.pagesPerTextField.text = "\(NumberFormatter.twoDecimals(editingGoal.type == .findPagesPerTimePeriod ? editingGoal.pagesPer(.days) ?? editingGoal.goalPagesPerDay : editingGoal.goalPagesPerDay)!)"
+                strongSelf.goalNameTextField.text = editingGoal.goalName
+                strongSelf.numberOfPagesTextField.text = "\(editingGoal.type == .findEndPage ? editingGoal.endPage ?? editingGoal.goalPages : editingGoal.goalPages)"
+                strongSelf.datePicker.date = editingGoal.type == .findEndDate ? editingGoal.dateOfGoalComplete ?? editingGoal.goalDate ?? Date() : editingGoal.goalDate ?? Date()
+            }
+        }
+        // Do any additional setup after loading the view.
+        goalTypeChanged(self)
     }
     
 
@@ -152,7 +166,17 @@ class AddGoalViewController: UIViewController {
         let goalName = goalNameTextField.text == "" ? nil : goalNameTextField.text
         
         withCoreData { [self] in
-            switch goalType {
+            if editingGoal != nil {
+                editingGoal?.update(
+                    type: goalType ?? .findEndDate,
+                    "\(goalName ?? "")",
+                    numOfPages: numOfPages, 
+                    pagesPer: pagesPer,
+                    per: timeUnits,
+                    by: goalDate
+                )
+            } else {
+                switch goalType {
                 case .findEndDate:
                     if !areFieldsEmpty([numberOfPagesTextField]) {
                         return showErrorAlert(message: Constants.genericTextFieldError)
@@ -167,6 +191,7 @@ class AddGoalViewController: UIViewController {
                     _ = Goal(name: goalName ?? Constants.endPageGoalDefaultName, pagesPer, pagesPer: timeUnits, until: goalDate, in: context)
                 case .none:
                     break
+                }
             }
             delegate?.saveContext()
             dismiss()
