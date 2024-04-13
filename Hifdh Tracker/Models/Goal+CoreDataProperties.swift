@@ -59,7 +59,7 @@ extension Goal: Identifiable {
         self.type = .findPagesPerTimePeriod
     }
     
-    convenience init(name: String, _ pages: Double, pagesPer timeUnits: TimeUnits, forTotalPages goalPages: Double = 604, in context: NSManagedObjectContext) {
+    convenience init(name: String, _ pages: Double, pagesPer timeUnits: TimeUnit, forTotalPages goalPages: Double = 604, in context: NSManagedObjectContext) {
         self.init(context: context)
         self.goalName = name
         self.goalPagesPerDay = pages.convert(from: .days, to: timeUnits)
@@ -67,14 +67,14 @@ extension Goal: Identifiable {
         self.type = .findEndDate
     }
     
-    convenience init(name: String, _ pages: Double, pagesPer timeUnits: TimeUnits, until date: Date, in context: NSManagedObjectContext) {
+    convenience init(name: String, _ pages: Double, pagesPer timeUnits: TimeUnit, until date: Date, in context: NSManagedObjectContext) {
         self.init(context: context)
         self.goalName = name
         self.goalPagesPerDay = pages.convert(from: .days, to: timeUnits)
         self.goalDate = date
         self.type = .findEndPage
     }
-    func update(type: GoalType, _ name: String?, numOfPages: Double, pagesPer: Double, per timeUnits: TimeUnits, by date: Date? = nil) {
+    func update(type: GoalType, _ name: String?, numOfPages: Double, pagesPer: Double, per timeUnits: TimeUnit, by date: Date? = nil) {
         self.goalName = name
         self.goalPagesPerDay = pagesPer.convert(from: .days, to: timeUnits)
         self.goalPages = numOfPages
@@ -90,7 +90,7 @@ extension Goal: Identifiable {
         return currentDate + TimeInterval(pagesRemaining/goalPagesPerDay).convert(from: .days, to: .seconds)
     }
     
-    func pagesPer(_ timeUnits: TimeUnits) -> Double? {
+    func pagesPer(_ timeUnits: TimeUnit) -> Double? {
         if type != .findPagesPerTimePeriod { return nil }
         let pagesRemaining = goalPages - Page.numberOfMemorized
         if pagesRemaining <= 0.0 { return 0.0}

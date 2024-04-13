@@ -30,7 +30,7 @@ class GoalTableViewCell: UITableViewCell {
     @IBAction func timeUnitChanged(_ sender: Any) {
         if let myGoal = self.myGoal {
 
-            var timeUnits: TimeUnits = .days
+            var timeUnits: TimeUnit = .days
 
             switch self.timePeriodSelector.selectedSegmentIndex {
             case 0:

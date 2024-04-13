@@ -7,33 +7,20 @@
 
 import Foundation
 
-extension TimeInterval {
-    func convert(from fromUnit: TimeUnits = .seconds, to toUnit: TimeUnits) -> TimeInterval {
-        var x = self
-        switch fromUnit {
-            case .seconds:
-                break
-            case .days:
-                x *= (60*60*24)
-            case .weeks:
-                x *= (60*60*24*7)
-            case .months:
-                x *= (60*60*24*30)
-            case .years:
-                x *= (60*60*24*365)
-        }
-        switch toUnit {
-            case .seconds:
-                break
-            case .days:
-                x /= (60*60*24)
-            case .weeks:
-                x /= (60*60*24*7)
-            case .months:
-                x /= (60*60*24*30)
-            case .years:
-                x /= (60*60*24*365)
-        }
-        return x
+enum TimeUnit: Double {
+    case seconds = 1
+    case minutes = 60
+    case hours = 3600
+    case days = 86400
+    case weeks = 604800
+    case months = 2629800
+    case years = 31536000
+}
+extension Double {
+    // convert from seconds to days or reverse
+    func convert(from: TimeUnit = .seconds, to: TimeUnit) -> Double {
+        let fromSeconds = from.rawValue
+        let toSeconds = to.rawValue
+        return self * (fromSeconds / toSeconds)
     }
 }

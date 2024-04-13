@@ -153,7 +153,7 @@ class AddGoalViewController: UIViewController {
         if numOfPages > 604 || pagesPer > 604 {
             return showErrorAlert(message: Localized.genericTextFieldError)
         }
-        var timeUnits: TimeUnits = .days
+        var timeUnits: TimeUnit = .days
         switch timeUnitSelector.selectedSegmentIndex {
             case 0:
                 timeUnits = .days
