@@ -139,6 +139,8 @@ enum Statistic: Int {
     case pagesPerDay = 1
     case pagesMemorized = 2
     case percentMemorized = 3
+
+    static let defaultValue: Self = .pagesPerDay
 }
 
 enum TimeUnits {

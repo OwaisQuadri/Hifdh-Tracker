@@ -22,19 +22,20 @@
         }
       }
     },
-    "%d of %d pages" : {
+    "%0.f of %0.f pages" : {
       "comment" : "the user has logged %d pages out of a goal of %d pages",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$d of %2$d pages"
+            "value" : "%1$.f of %2$.f pages"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$d pages sur %2$d"
+            "value" : "%1$.f pages sur %2$.f"
           }
         }
       }

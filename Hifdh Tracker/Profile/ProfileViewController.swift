@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     // MARK: Configurations
     private func configureViews() {
-        configureMainStatCard(for: Page.selectedStat ?? .pagesPerDay)
+        configureMainStatCard(for: Page.selectedStat ?? .defaultValue)
         configureTopRightMenu()
         configureStatPicker()
         configureProgressBar()
@@ -114,7 +114,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     private func configureStatPicker() {
         mainStatPicker.dataSource = self
         mainStatPicker.delegate = self
-        mainStatPicker.selectRow((Page.selectedStat ?? Statistic.pagesMemorized).rawValue, inComponent: 0, animated: false)
+        mainStatPicker.selectRow((Page.selectedStat ?? Statistic.defaultValue).rawValue, inComponent: 0, animated: false)
         setMainStatPickerVisibility(to: isDropDownExpanded)
         
         view.layoutIfNeeded()
@@ -205,7 +205,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         Page.selectedStat = Statistic(rawValue: self.mainStatPicker.selectedRow(inComponent: 0))
-        configureMainStatCard(for: Page.selectedStat ?? .pagesMemorized)
+        configureMainStatCard(for: Page.selectedStat ?? .defaultValue)
     }
     
     /*
