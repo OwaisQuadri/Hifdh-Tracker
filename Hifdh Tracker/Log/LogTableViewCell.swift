@@ -14,9 +14,10 @@ class LogTableViewCell: UITableViewCell {
     var switchValueChangedAction: (() -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+
+    override func setEditing(_ editing: Bool, animated: Bool) {
         datePicker.maximumDate = Date()
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

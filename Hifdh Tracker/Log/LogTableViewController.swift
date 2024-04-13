@@ -35,10 +35,6 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.scrollToRow(at: Page.firstNotInMemoryIndexPath, at: .middle, animated: true)
 
-        // set observer for UIApplication.willEnterForegroundNotification
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
-
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,10 +84,6 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
         } else {
             logCell.datePicker.isEnabled = true
         }
-    }
-
-    @objc func willEnterForeground() {
-        configureViews()
     }
 
     // MARK: tableView
@@ -151,7 +143,7 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
             if let logCell = tableView.dequeueReusableCell(withIdentifier: "logCell") as? LogTableViewCell {
                 let currentPage = Page.logs[indexPath.row]
                 logCell.titleLabel.text = String(currentPage.pageNumber)
-                logCell.datePicker.setDate(currentPage.dateMemorized ?? Date (), animated: true)
+                logCell.datePicker.setDate(currentPage.dateMemorized ?? Date(), animated: true)
                 let inMemory = currentPage.isMemorized
                 logCell.memorySwitch.isOn = inMemory
                 configureDatePickerInPageCell(logCell)
