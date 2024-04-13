@@ -14,7 +14,7 @@ struct MemorizationHistory: View {
     @State var currentActiveItem: PagesPerMonth?
     var body: some View {
         VStack{
-            Text("Pages Memorized per Month")
+            Text(Localized.pagesMemorizedPerMonth)
                 .multilineTextAlignment(.center)
                 .font(.headline)
                 .fontWeight(.bold)
@@ -23,14 +23,14 @@ struct MemorizationHistory: View {
             let maxYAxisValue = (max(maxPagesMemorized.pagesMemorized,Int(PagesPerMonth.overall)) * 2)
             Chart (pagesPerMonthList) { pagesPerMonth in
                 BarMark(
-                    x: .value("Week", pagesPerMonth.date, unit: .month),
-                    y: .value("Pages", pagesPerMonth.pagesMemorized)
+                    x: .value(Localized.month, pagesPerMonth.date, unit: .month),
+                    y: .value(Localized.pages, pagesPerMonth.pagesMemorized)
                 )
                 .foregroundStyle(Color.accentColor.gradient)
                 
                 // MARK: Rule mark for dragging item
                 if let currentActiveItem, currentActiveItem.id == pagesPerMonth.id {
-                    RuleMark(x: .value("Month", currentActiveItem.date.advanced(by: (15).convert(from: .days, to: .seconds))))
+                    RuleMark(x: .value(Localized.month, currentActiveItem.date.advanced(by: (15).convert(from: .days, to: .seconds))))
                         .foregroundStyle(.secondary)
                         .lineStyle(.init(dash: [3]))
                         .annotation(position: .top) {
@@ -48,12 +48,12 @@ struct MemorizationHistory: View {
                         }
                 }
                 
-                RuleMark(y:.value("Average", PagesPerMonth.overall))
+                RuleMark(y:.value(Localized.average, PagesPerMonth.overall))
                     .foregroundStyle(Color.accentColor)
                     .lineStyle(StrokeStyle(dash: [5]))
                     .annotation(alignment: .leading){
                         (
-                            Text("Avg: ")
+                            Text(Localized.avg)
                             + Text(NumberFormatter.twoDecimals(PagesPerMonth.overall) ?? "0.00")
                         )
                         .font(.caption)
@@ -102,4 +102,11 @@ struct MemorizationHistory: View {
             .scaledToFill()
         }
     }
+}
+extension Localized {
+    static let pagesMemorizedPerMonth = NSLocalizedString("Pages Memorized per Month", comment: "Title for the chart that shows the pages memorized per month")
+    static let pages = NSLocalizedString("Pages", comment: "Title for the y-coord of the chart data points")
+    static let month = NSLocalizedString("Month", comment: "Title for the x-coord of the chart data points")
+    static let average = NSLocalizedString("Average", comment: "Label for the average pages memorized per month")
+    static let avg = NSLocalizedString("Avg: ", comment: "Label for the average pages memorized per month, abbreviated to 3 letters, Sentence case, ends with ': '")
 }

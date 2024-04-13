@@ -1,0 +1,156 @@
+
+/* Class = "UILabel"; text = "ErrorLabel"; ObjectID = "2id-2X-JrM"; */
+"2id-2X-JrM.text" = "ErrorLabel";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "5ra-sA-DxG"; */
+"5ra-sA-DxG.title" = "Profile";
+
+/* Class = "UIViewController"; title = "OnboardingViewController"; ObjectID = "5yO-vt-W6C"; */
+"5yO-vt-W6C.title" = "OnboardingViewController";
+
+/* Class = "UINavigationItem"; title = "Goals"; ObjectID = "7Mp-Nv-xyl"; */
+"7Mp-Nv-xyl.title" = "Goals";
+
+/* Class = "UISegmentedControl"; 7lC-ms-jtl.segmentTitles[0] = "End Date"; ObjectID = "7lC-ms-jtl"; */
+"7lC-ms-jtl.segmentTitles[0]" = "End Date";
+
+/* Class = "UISegmentedControl"; 7lC-ms-jtl.segmentTitles[1] = "Pages Per Unit"; ObjectID = "7lC-ms-jtl"; */
+"7lC-ms-jtl.segmentTitles[1]" = "Pages Per Unit";
+
+/* Class = "UISegmentedControl"; 7lC-ms-jtl.segmentTitles[2] = "End Page"; ObjectID = "7lC-ms-jtl"; */
+"7lC-ms-jtl.segmentTitles[2]" = "End Page";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "8Zr-zK-J1w"; */
+"8Zr-zK-J1w.text" = "Date";
+
+/* Class = "UITextField"; placeholder = "From"; ObjectID = "9Uc-eh-COO"; */
+"9Uc-eh-COO.placeholder" = "From";
+
+/* Class = "UISegmentedControl"; DYu-gI-kl1.segmentTitles[0] = "From Front"; ObjectID = "DYu-gI-kl1"; */
+"DYu-gI-kl1.segmentTitles[0]" = "From Front";
+
+/* Class = "UISegmentedControl"; DYu-gI-kl1.segmentTitles[1] = "From Back"; ObjectID = "DYu-gI-kl1"; */
+"DYu-gI-kl1.segmentTitles[1]" = "From Back";
+
+/* Class = "UILabel"; text = "Use the switch to log single pages"; ObjectID = "DyS-dW-7Zj"; */
+"DyS-dW-7Zj.text" = "Use the switch to log single pages";
+
+/* Class = "UILabel"; text = "Add Log"; ObjectID = "E0X-AV-GSN"; */
+"E0X-AV-GSN.text" = "Add Log";
+
+/* Class = "UIButton"; configuration.title = "Create Log"; ObjectID = "HE0-2q-2sr"; */
+"HE0-2q-2sr.configuration.title" = "Create Log";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HE0-2q-2sr"; */
+"HE0-2q-2sr.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Log"; ObjectID = "IfX-0E-O7G"; */
+"IfX-0E-O7G.title" = "Log";
+
+/* Class = "UIBarButtonItem"; title = "100%"; ObjectID = "JbN-ef-uv2"; */
+"JbN-ef-uv2.title" = "100%";
+
+/* Class = "UIButton"; configuration.title = "Previous"; ObjectID = "JoC-FE-z91"; */
+"JoC-FE-z91.configuration.title" = "Previous";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "JoC-FE-z91"; */
+"JoC-FE-z91.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "# of"; ObjectID = "KPM-58-V8z"; */
+"KPM-58-V8z.placeholder" = "# of";
+
+/* Class = "UITextField"; placeholder = "Page Goal"; ObjectID = "LOC-Kp-iGu"; */
+"LOC-Kp-iGu.placeholder" = "Page Goal";
+
+/* Class = "UILabel"; text = "Al-Mu'minoon"; ObjectID = "LhD-kZ-EpS"; */
+"LhD-kZ-EpS.text" = "Al-Mu'minoon";
+
+/* Class = "UILabel"; text = "Dec 8, 2024"; ObjectID = "Nop-Zu-Qt9"; */
+"Nop-Zu-Qt9.text" = "Dec 8, 2024";
+
+/* Class = "UILabel"; text = "Goal Date:"; ObjectID = "O9D-iv-2WI"; */
+"O9D-iv-2WI.text" = "Goal Date:";
+
+/* Class = "UILabel"; text = "pages per"; ObjectID = "POW-aW-R8M"; */
+"POW-aW-R8M.text" = "pages per";
+
+/* Class = "UIBarButtonItem"; title = "100%"; ObjectID = "U92-7o-P1x"; */
+"U92-7o-P1x.title" = "100%";
+
+/* Class = "UIViewController"; title = "Add Log"; ObjectID = "WED-qr-7Ws"; */
+"WED-qr-7Ws.title" = "Add Log";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "WQD-4h-wFh"; */
+"WQD-4h-wFh.text" = "Label";
+
+/* Class = "UIButton"; configuration.title = "Next"; ObjectID = "a04-3t-az8"; */
+"a04-3t-az8.configuration.title" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "a04-3t-az8"; */
+"a04-3t-az8.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Add Log"; ObjectID = "aSI-t1-xuW"; */
+"aSI-t1-xuW.title" = "Add Log";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bdx-j6-RKj"; */
+"bdx-j6-RKj.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Create"; ObjectID = "btx-QW-qxx"; */
+"btx-QW-qxx.configuration.title" = "Create";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "btx-QW-qxx"; */
+"btx-QW-qxx.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Goals"; ObjectID = "dcb-Gs-wOh"; */
+"dcb-Gs-wOh.title" = "Goals";
+
+/* Class = "UILabel"; text = "Date Goal"; ObjectID = "ecr-3w-rLx"; */
+"ecr-3w-rLx.text" = "Date Goal";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "ihN-LK-Pdd"; */
+"ihN-LK-Pdd.title" = "Profile";
+
+/* Class = "UITextField"; placeholder = "Date Goal"; ObjectID = "lvk-7m-2cK"; */
+"lvk-7m-2cK.placeholder" = "Date Goal";
+
+/* Class = "UISegmentedControl"; nkW-ei-fDE.segmentTitles[0] = "DAY"; ObjectID = "nkW-ei-fDE"; */
+"nkW-ei-fDE.segmentTitles[0]" = "DAY";
+
+/* Class = "UISegmentedControl"; nkW-ei-fDE.segmentTitles[1] = "WEEK"; ObjectID = "nkW-ei-fDE"; */
+"nkW-ei-fDE.segmentTitles[1]" = "WEEK";
+
+/* Class = "UISegmentedControl"; nkW-ei-fDE.segmentTitles[2] = "MONTH"; ObjectID = "nkW-ei-fDE"; */
+"nkW-ei-fDE.segmentTitles[2]" = "MONTH";
+
+/* Class = "UIBarButtonItem"; title = "100%"; ObjectID = "oCJ-zq-MLF"; */
+"oCJ-zq-MLF.title" = "100%";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "pc2-2V-KS8"; */
+"pc2-2V-KS8.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Log"; ObjectID = "qb0-tk-ZHW"; */
+"qb0-tk-ZHW.title" = "Log";
+
+/* Class = "UILabel"; text = "Statistic Title"; ObjectID = "qnp-S8-IHx"; */
+"qnp-S8-IHx.text" = "Statistic Title";
+
+/* Class = "UILabel"; text = "Add Goal"; ObjectID = "s9v-vG-12n"; */
+"s9v-vG-12n.text" = "Add Goal";
+
+/* Class = "UITextField"; placeholder = "To"; ObjectID = "tiH-mb-YAq"; */
+"tiH-mb-YAq.placeholder" = "To";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ueD-kl-vHp"; */
+"ueD-kl-vHp.normalTitle" = "Button";
+
+/* Class = "UISegmentedControl"; wfJ-hr-u4R.segmentTitles[0] = "DAY"; ObjectID = "wfJ-hr-u4R"; */
+"wfJ-hr-u4R.segmentTitles[0]" = "DAY";
+
+/* Class = "UISegmentedControl"; wfJ-hr-u4R.segmentTitles[1] = "WEEK"; ObjectID = "wfJ-hr-u4R"; */
+"wfJ-hr-u4R.segmentTitles[1]" = "WEEK";
+
+/* Class = "UISegmentedControl"; wfJ-hr-u4R.segmentTitles[2] = "MONTH"; ObjectID = "wfJ-hr-u4R"; */
+"wfJ-hr-u4R.segmentTitles[2]" = "MONTH";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "yZF-Sm-w7g"; */
+"yZF-Sm-w7g.text" = "Label";

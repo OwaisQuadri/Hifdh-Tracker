@@ -83,25 +83,25 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     private func configureTopRightMenu() {
-        let resetAllDataMenuItem = UIAction(title: "Reset All Data", image: UIImage(systemName: "trash"), attributes: .destructive) { [self] (_) in
+        let resetAllDataMenuItem = UIAction(title: Localized.resetAllData, image: UIImage(systemName: "trash"), attributes: .destructive) { [self] (_) in
             if let context = delegate?.persistentContainer.viewContext {
                 // are you sure?
-                let areYouSureAlert = UIAlertController(title: "Warning!", message: "Are you sure you want to delete all your data?", preferredStyle: .alert)
-                areYouSureAlert.addAction(.init(title: "Yes, I'm sure", style: .destructive){_ in
+                let areYouSureAlert = UIAlertController(title: Localized.warningExclamation, message: Localized.areYouSure, preferredStyle: .alert)
+                areYouSureAlert.addAction(.init(title: Localized.yesImSure, style: .destructive){_ in
                     Page.getDefaultPages(context)
                     self.configureViews()
                 })
-                areYouSureAlert.addAction(.init(title: "Cancel", style: .cancel))
+                areYouSureAlert.addAction(.init(title: Localized.cancel, style: .cancel))
                 self.present(areYouSureAlert, animated: true)
             }
         }
-        let showOnboardingMenuItem = UIAction(title: "Show Tutorial", image: UIImage(systemName: "book.pages.fill")) { [self] (_) in
+        let showOnboardingMenuItem = UIAction(title: Localized.showTutorial, image: UIImage(systemName: "book.pages.fill")) { [self] (_) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let onboardingController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
             onboardingController.modalPresentationStyle = .fullScreen
             self.present(onboardingController, animated: true)
         }
-        let buyMeACoffeeMenuItem = UIAction(title: "Buy Me a Coffee", image: UIImage(systemName: "cup.and.saucer.fill")) {[weak self]_ in
+        let buyMeACoffeeMenuItem = UIAction(title: Localized.buyMeACoffee, image: UIImage(systemName: "cup.and.saucer.fill")) {[weak self]_ in
             IAPManager.shared.purchaseProduct(withId: HTProduct.buyMeACoffee.id)
             self?.resignFirstResponder()
         }
@@ -133,21 +133,21 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         switch statistic {
             case .completionDate:
                 // configure for date first
-                mainStatTitleLabel.text = "Predicted Hifdh Completion"
+                mainStatTitleLabel.text = Localized.predictedHifdhCompletion
                 var mainStatValueString: String = ""
                 mainStatValueString = DateFormatter.mmmDDyyyy(Page.completionDate) ?? ""
                 mainStatValueLabel.text = mainStatValueString
             case .pagesPerDay:
-                mainStatTitleLabel.text = "Pages per Day"
+                mainStatTitleLabel.text = Localized.pagesPerDay
                 let pageFormat = NumberFormatter()
                 pageFormat.maximumFractionDigits = 2
                 pageFormat.minimumFractionDigits = 2
                 mainStatValueLabel.text = pageFormat.string(from: NSNumber(floatLiteral: Page.pagesPerDay))
             case .pagesMemorized:
-                mainStatTitleLabel.text = "Pages Memorized"
+                mainStatTitleLabel.text = Localized.pagesMemorized
                 mainStatValueLabel.text = "\(Int(Page.numberOfMemorized))"
             case .percentMemorized:
-                mainStatTitleLabel.text = "Percent Memorized"
+                mainStatTitleLabel.text = Localized.percentMemorized
                 mainStatValueLabel.text = Page.percentMemorizedAsString
         }
         
@@ -190,8 +190,8 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     // MARK: UIPicker
     
-    let mainStatistics = ["Predicted Hifdh Completion", "Pages per Day", "Pages Memorized", "Percent Memorized",]
-    
+    let mainStatistics = [Localized.predictedHifdhCompletion, Localized.pagesPerDay, Localized.pagesMemorized, Localized.percentMemorized]
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -219,7 +219,22 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
      */
     func showAlert(title: String) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        alert.addAction(.init(title: "OK", style: .default))
+        alert.addAction(.init(title: Localized.okAllCaps, style: .default))
         self.present(alert, animated: true, completion: nil)
     }
+}
+
+extension Localized {
+    static let okAllCaps = NSLocalizedString("OK", comment: "'OK' in all caps")
+    static let predictedHifdhCompletion = NSLocalizedString("Predicted Hifdh Completion", comment: "Predicted Hifdh Completion title")
+    static let pagesPerDay = NSLocalizedString("Pages per Day", comment: "Pages per Day title")
+    static let pagesMemorized = NSLocalizedString("Pages Memorized", comment: "Pages Memorized title")
+    static let percentMemorized = NSLocalizedString("Percent Memorized", comment: "Percent Memorized title")
+    static let showTutorial = NSLocalizedString("Show Tutorial", comment: "Show Tutorial menu item")
+    static let resetAllData = NSLocalizedString("Reset All Data", comment: "Reset All Data menu item")
+    static let buyMeACoffee = NSLocalizedString("Buy Me a Coffee", comment: "Buy Me a Coffee menu item")
+    static let areYouSure = NSLocalizedString("Are you sure you want to delete all your data?", comment: "Data deletion alert message")
+    static let warningExclamation = NSLocalizedString("Warning!", comment: "Warning alert title")
+    static let cancel = NSLocalizedString("Cancel", comment: "Cancel alert button")
+    static let yesImSure = NSLocalizedString("Yes, I'm sure", comment: "Delete Data alert primary button")
 }

@@ -7,11 +7,9 @@
 
 import Foundation
 
-class Constants {
-    
-    static let dateGoalDefaultName = "Date Goal"
-    static let pagesPerIntervalGoalDefaultName = "Pages per Interval Goal"
-    static let endPageGoalDefaultName = "End Page Goal"
-    
-    static let genericTextFieldError = "One or more text fields are invalid!"
+class Localized {
+    static let dateGoalDefaultName = NSLocalizedString("Date Goal", comment: "default name for goal which finds the end date")
+    static let pagesPerIntervalGoalDefaultName = NSLocalizedString("Pages per Interval Goal", comment: "default name for goal which finds the number of pages to memorize")
+    static let endPageGoalDefaultName = NSLocalizedString("End Page Goal", comment: "default name for goal which finds the end page after the time has completed")
+    static let genericTextFieldError = NSLocalizedString("One or more text fields are invalid!", comment: "default error message for field validation")
 }

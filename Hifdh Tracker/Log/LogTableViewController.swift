@@ -99,8 +99,8 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
         2
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { return section == 1 ? "Pages" : nil }
-    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { return section == 1 ? Localized.pages : nil }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 3
@@ -112,7 +112,7 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
             switch indexPath.row {
                 case 0:
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as? DateTableViewCell {
-                        cell.titleLabel.text = "Start Date:"
+                        cell.titleLabel.text = Localized.startDate
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "MM/dd/yyyy"
                         // get start date, from coredata
@@ -124,10 +124,10 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
                 case 1:
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as? DateTableViewCell {
                         if Page.percentMemorized == 1 {
-                            cell.titleLabel.text = "Completed on:"
+                            cell.titleLabel.text = Localized.completedOn
                             cell.datePicker.date = Page.highestLogDate ?? Date()
                         } else {
-                            cell.titleLabel.text = "Today's Date:"
+                            cell.titleLabel.text = Localized.todaysDate
                             cell.datePicker.date = Date()
                         }
                         cell.datePicker.isEnabled = false
@@ -200,3 +200,10 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
     }
     
 }
+// MARK: - Localized Strings
+extension Localized {
+    static let startDate = NSLocalizedString("Start Date:", comment: "Start Date: row title")
+   static let completedOn = NSLocalizedString("Completed on:", comment: "Completed on: row title")
+    static let todaysDate = NSLocalizedString("Today's Date:", comment: "Today's Date: row title")
+}
+

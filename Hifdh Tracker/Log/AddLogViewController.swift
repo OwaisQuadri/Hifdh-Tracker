@@ -42,7 +42,7 @@ class AddLogViewController: UIViewController {
         var indexEnd = (Int(untilPageTextField.text!) ?? 0) - 1
         if indexStart < -1 || indexStart > 603 || indexEnd < -1 || indexEnd > 603 || (indexEnd == -1 && indexStart == -1) {
             // handle error "enter a number between 1 and 604"
-            showError(message: "Please enter a value from 1-604")
+            showError(message: Localized.enterValue)
             return
         }
         showErrorConstraint.isActive = false
@@ -95,4 +95,7 @@ class AddLogViewController: UIViewController {
      }
      */
     
+}
+extension Localized {
+    static let enterValue = NSLocalizedString("Please enter a value from 1-604", comment: "the number they enter must be in the range greater than 0 and less than (and not including) 605")
 }

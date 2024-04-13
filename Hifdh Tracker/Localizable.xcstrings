@@ -1,0 +1,451 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%.2f per" : {
+      "comment" : "2 decimal number representing pages, memorized per time period",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.2f par"
+          }
+        }
+      }
+    },
+    "%@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "%d of %d pages" : {
+      "comment" : "the user has logged %d pages out of a goal of %d pages",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$d of %2$d pages"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$d pages sur %2$d"
+          }
+        }
+      }
+    },
+    "Are you sure you want to delete all your data?" : {
+      "comment" : "Data deletion alert message",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Êtes-vous sûr de vouloir supprimer toutes vos données ?"
+          }
+        }
+      }
+    },
+    "Average" : {
+      "comment" : "Label for the average pages memorized per month",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moyenne"
+          }
+        }
+      }
+    },
+    "Avg: " : {
+      "comment" : "Label for the average pages memorized per month, abbreviated to 3 letters, Sentence case, ends with ': '",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moy:"
+          }
+        }
+      }
+    },
+    "Buy Me a Coffee" : {
+      "comment" : "Buy Me a Coffee menu item",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achète-Moi un Café"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "comment" : "Cancel alert button",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        }
+      }
+    },
+    "Completed on:" : {
+      "comment" : "Completed on: row title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminé le:"
+          }
+        }
+      }
+    },
+    "Create and edit your goals in the “Goals” tab by pressing the “+” button" : {
+      "comment" : "add and edit goals",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créez et modifiez vos objectifs dans l'onglet « Objectifs » en appuyant sur le bouton « + »"
+          }
+        }
+      }
+    },
+    "Date Goal" : {
+      "comment" : "default name for goal which finds the end date",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Objectif de rendez-vous"
+          }
+        }
+      }
+    },
+    "Dismiss" : {
+      "comment" : "Dismiss Alert button title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renvoyer"
+          }
+        }
+      }
+    },
+    "End Page Goal" : {
+      "comment" : "default name for goal which finds the end page after the time has completed",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Objectif de fin de page"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "comment" : "Error Alert title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur"
+          }
+        }
+      }
+    },
+    "Get Started" : {
+      "comment" : "Get Started button",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Débuter"
+          }
+        }
+      }
+    },
+    "Month" : {
+      "comment" : "Title for the x-coord of the chart data points",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mois"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "comment" : "Next Page button",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suivante"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "comment" : "'OK' in all caps",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D'ACCORD"
+          }
+        }
+      }
+    },
+    "One or more text fields are invalid!" : {
+      "comment" : "default error message for field validation",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un ou plusieurs champs de texte sont invalides!"
+          }
+        }
+      }
+    },
+    "Pages" : {
+      "comment" : "Title for the y-coord of the chart data points",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pages"
+          }
+        }
+      }
+    },
+    "Pages Memorized" : {
+      "comment" : "Pages Memorized title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pages Mémorisées"
+          }
+        }
+      }
+    },
+    "Pages Memorized per Month" : {
+      "comment" : "Title for the chart that shows the pages memorized per month",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pages Mémorisées par Mois"
+          }
+        }
+      }
+    },
+    "Pages per Day" : {
+      "comment" : "Pages per Day title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pages par Jour"
+          }
+        }
+      }
+    },
+    "Pages per Interval Goal" : {
+      "comment" : "default name for goal which finds the number of pages to memorize",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Objectif de Pages par Intervalle"
+          }
+        }
+      }
+    },
+    "Percent Memorized" : {
+      "comment" : "Percent Memorized title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourcentage Mémorisé"
+          }
+        }
+      }
+    },
+    "Please enter a value from 1-604" : {
+      "comment" : "the number they enter must be in the range greater than 0 and less than (and not including) 605",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez saisir une valeur comprise entre 1 et 604"
+          }
+        }
+      }
+    },
+    "Predicted Hifdh Completion" : {
+      "comment" : "Predicted Hifdh Completion title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achèvement prévu du Hifdh"
+          }
+        }
+      }
+    },
+    "Purchase failed. Please try again later." : {
+      "comment" : "inform user that purchase failed",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achat raté. Veuillez réessayer plus tard."
+          }
+        }
+      }
+    },
+    "Purchases are disabled on your device!" : {
+      "comment" : "inform user that purchases are disabled on their device",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les achats sont désactivés sur votre appareil !"
+          }
+        }
+      }
+    },
+    "Reset All Data" : {
+      "comment" : "Reset All Data menu item",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser toutes les données"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "comment" : "Save button title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauvegarder"
+          }
+        }
+      }
+    },
+    "Show Tutorial" : {
+      "comment" : "Show Tutorial menu item",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher le didacticiel"
+          }
+        }
+      }
+    },
+    "Start Date:" : {
+      "comment" : "Start Date: row title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date de Début:"
+          }
+        }
+      }
+    },
+    "Today's Date:" : {
+      "comment" : "Today's Date: row title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date d'aujourd'hui :"
+          }
+        }
+      }
+    },
+    "Use the “+” to log multiple pages on a single date" : {
+      "comment" : "using the plus symbol to log more than one page on a single date",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisez le « + » pour enregistrer plusieurs pages à une même date"
+          }
+        }
+      }
+    },
+    "Use the switch to log single pages" : {
+      "comment" : "tell the user to use the switch to log single pages on a single date",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisez le commutateur pour enregistrer des pages individuelles"
+          }
+        }
+      }
+    },
+    "View your stats on the “Profile” tab" : {
+      "comment" : "use the profile tab to view stats",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consultez vos statistiques sur l'onglet \"Profil\""
+          }
+        }
+      }
+    },
+    "Warning!" : {
+      "comment" : "Warning alert title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avertissement!"
+          }
+        }
+      }
+    },
+    "Yes, I'm sure" : {
+      "comment" : "Delete Data alert primary button",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oui, j'en suis sûr"
+          }
+        }
+      }
+    },
+    "You've successfully completed this purchase!" : {
+      "comment" : "inform user that purchase was successful",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez finalisé cet achat avec succès !"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

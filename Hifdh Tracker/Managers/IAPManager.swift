@@ -69,7 +69,7 @@ extension IAPManager: SKProductsRequestDelegate {
     }
 
     func request(_ request: SKRequest, didFailWithError error: Error) {
-        print("Error load products", error)
+        print("Error loading products", error)
     }
 }
 // MARK: - Alerts
@@ -81,10 +81,10 @@ enum IAPManagerAlertType {
 
     var message: String {
         switch self {
-        case .disabled: return "Purchases are disabled on your device!"
+        case .disabled: return NSLocalizedString("Purchases are disabled on your device!", comment: "inform user that purchases are disabled on their device")
             // case .restored: return "You've successfully restored your purchase!"
-        case .purchased: return "You've successfully completed this purchase!"
-        case .failed: return "Could not complete purchase process.\nPlease try again."
+        case .purchased: return NSLocalizedString("You've successfully completed this purchase!", comment: "inform user that purchase was successful")
+        case .failed: return NSLocalizedString("Purchase failed. Please try again later.", comment: "inform user that purchase failed")
         }
     }
 }

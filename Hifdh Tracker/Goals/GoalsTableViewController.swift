@@ -63,12 +63,13 @@ class GoalsTableViewController: UITableViewController {
             if let goalCell = tableView.dequeueReusableCell(withIdentifier: "goalTableViewCell") as? GoalTableViewCell {
                 let currentGoal = Goal.goals[indexPath.row]
                 goalCell.titleLabel.text = currentGoal.goalName
+                let parameterLabel0Text = NSLocalizedString("%d of %d pages", comment: "the user has logged %d pages out of a goal of %d pages")
                 switch currentGoal.type {
                     case .findEndDate:
                         if (Page.numberOfMemorized >= currentGoal.goalPages){
-                            goalCell.parameterLabel0.text = "\(NumberFormatter.integer(currentGoal.goalPages)!) of \(NumberFormatter.integer(currentGoal.goalPages)!) pages"
+                            goalCell.parameterLabel0.text = String(format: parameterLabel0Text, NumberFormatter.integer(currentGoal.goalPages)!, NumberFormatter.integer(currentGoal.goalPages)!)
                         } else {
-                            goalCell.parameterLabel0.text = "\(NumberFormatter.integer(Page.numberOfMemorized)!) of \(NumberFormatter.integer(currentGoal.goalPages)!) pages"
+                            goalCell.parameterLabel0.text = String(format: parameterLabel0Text, NumberFormatter.integer(Page.numberOfMemorized)!, NumberFormatter.integer(currentGoal.goalPages)!)
                         }
                         goalCell.goalLabel.text = "\(DateFormatter.mmmDDyyyy(currentGoal.dateOfGoalComplete!)!)"
                         goalCell.myGoal = currentGoal
@@ -81,9 +82,9 @@ class GoalsTableViewController: UITableViewController {
                     case .findPagesPerTimePeriod:
                         goalCell.parameterLabel0.text = "\(DateFormatter.mmmDDyyyy(currentGoal.goalDate ?? Date.distantFuture)!)"
                         if (Page.numberOfMemorized >= currentGoal.goalPages){
-                            goalCell.parameterLabel1.text = "\(NumberFormatter.integer(currentGoal.goalPages)!) of \(NumberFormatter.integer(currentGoal.goalPages)!) pages"
+                            goalCell.parameterLabel1.text = String(format: parameterLabel0Text, NumberFormatter.integer(currentGoal.goalPages)!, NumberFormatter.integer(currentGoal.goalPages)!)
                         } else {
-                            goalCell.parameterLabel1.text = "\(NumberFormatter.integer(Page.numberOfMemorized)!) of \(NumberFormatter.integer(currentGoal.goalPages)!) pages"
+                            goalCell.parameterLabel1.text = String(format: parameterLabel0Text, NumberFormatter.integer(Page.numberOfMemorized)!, NumberFormatter.integer(currentGoal.goalPages)!)
                         }
                         goalCell.myGoal = currentGoal
                         break

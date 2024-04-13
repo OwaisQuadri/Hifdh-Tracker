@@ -12,26 +12,26 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     var currentPage: Int = 0 {
         didSet {
             switch currentPage {
-                case 0:
-                    previousButton.isHidden = true
-                    nextButton.setTitle("Next", for: .normal)
-                case onBoardingScreens.count - 1:
-                    nextButton.setTitle("Get Started", for: .normal)
-                    previousButton.isHidden = false
-                default:
-                    nextButton.setTitle("Next", for: .normal)
-                    previousButton.isHidden = false
-                    
+            case 0:
+                previousButton.isHidden = true
+                nextButton.setTitle(Localized.next, for: .normal)
+            case onBoardingScreens.count - 1:
+                nextButton.setTitle(Localized.getStarted, for: .normal)
+                previousButton.isHidden = false
+            default:
+                nextButton.setTitle(Localized.next, for: .normal)
+                previousButton.isHidden = false
+
             }
             pageControl.currentPage = currentPage
-            
+
         }
     }
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var onboardingCollectionVew: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -66,17 +66,21 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     /*
      // MARK: - Navigation
-     
+
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
      }
      */
-    
+
 }
 extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
+}
+extension Localized {
+    static let next = NSLocalizedString("Next", comment: "Next Page button")
+    static let getStarted = NSLocalizedString("Get Started", comment: "Get Started button")
 }

@@ -49,7 +49,8 @@ class AddGoalViewController: UIViewController {
                 guard let strongSelf = self else { return }
                 strongSelf.goalTypeSegmentedControl.selectedSegmentIndex = editingGoal.type.index
                 strongSelf.goalTypeChanged(strongSelf)
-                strongSelf.actionButton.setTitle("Save", for: .normal)
+                let saveString = NSLocalizedString("Save", comment: "Save button title")
+                strongSelf.actionButton.setTitle(saveString, for: .normal)
                 strongSelf.pagesPerTextField.text = "\(NumberFormatter.twoDecimals(editingGoal.type == .findPagesPerTimePeriod ? editingGoal.pagesPer(.days) ?? editingGoal.goalPagesPerDay : editingGoal.goalPagesPerDay)!)"
                 strongSelf.goalNameTextField.text = editingGoal.goalName
                 strongSelf.numberOfPagesTextField.text = "\(editingGoal.type == .findEndPage ? editingGoal.endPage ?? editingGoal.goalPages : editingGoal.goalPages)"
@@ -124,19 +125,19 @@ class AddGoalViewController: UIViewController {
                 goalPagesIsVisible(true)
                 goalPagesPerTimeIsVisible(true)
                 goalType = .findEndDate
-                self.goalNameTextField.placeholder = Constants.dateGoalDefaultName
+                self.goalNameTextField.placeholder = Localized.dateGoalDefaultName
             case 1:
                 goalPagesPerTimeIsVisible(false)
                 goalPagesIsVisible(true)
                 goalDateIsVisible(true)
                 goalType = .findPagesPerTimePeriod
-                self.goalNameTextField.placeholder = Constants.pagesPerIntervalGoalDefaultName
+                self.goalNameTextField.placeholder = Localized.pagesPerIntervalGoalDefaultName
             case 2:
                 goalPagesIsVisible(false)
                 goalPagesPerTimeIsVisible(true)
                 goalDateIsVisible(true)
                 goalType = .findEndPage
-                self.goalNameTextField.placeholder = Constants.endPageGoalDefaultName
+                self.goalNameTextField.placeholder = Localized.endPageGoalDefaultName
             default:
                 break
         }
@@ -150,7 +151,7 @@ class AddGoalViewController: UIViewController {
         let numOfPages = Double(numberOfPagesString) ?? 604
         let pagesPer = Double(pagesPerString) ?? Page.pagesPerDay
         if numOfPages > 604 || pagesPer > 604 {
-            return showErrorAlert(message: Constants.genericTextFieldError)
+            return showErrorAlert(message: Localized.genericTextFieldError)
         }
         var timeUnits: TimeUnits = .days
         switch timeUnitSelector.selectedSegmentIndex {
@@ -180,16 +181,16 @@ class AddGoalViewController: UIViewController {
                 switch goalType {
                 case .findEndDate:
                     if !areFieldsEmpty([numberOfPagesTextField]) {
-                        return showErrorAlert(message: Constants.genericTextFieldError)
+                        return showErrorAlert(message: Localized.genericTextFieldError)
                     }
-                    _ = Goal(name: goalName ?? Constants.dateGoalDefaultName , pagesPer, pagesPer: timeUnits, forTotalPages: numOfPages, in: context)
+                    _ = Goal(name: goalName ?? Localized.dateGoalDefaultName , pagesPer, pagesPer: timeUnits, forTotalPages: numOfPages, in: context)
                 case .findPagesPerTimePeriod:
                     if !areFieldsEmpty([numberOfPagesTextField]) {
-                        return showErrorAlert(message: Constants.genericTextFieldError)
+                        return showErrorAlert(message: Localized.genericTextFieldError)
                     }
-                    _ = Goal(name: goalName ?? Constants.pagesPerIntervalGoalDefaultName, pages: numOfPages, by: goalDate, in: context)
+                    _ = Goal(name: goalName ?? Localized.pagesPerIntervalGoalDefaultName, pages: numOfPages, by: goalDate, in: context)
                 case .findEndPage:
-                    _ = Goal(name: goalName ?? Constants.endPageGoalDefaultName, pagesPer, pagesPer: timeUnits, until: goalDate, in: context)
+                    _ = Goal(name: goalName ?? Localized.endPageGoalDefaultName, pagesPer, pagesPer: timeUnits, until: goalDate, in: context)
                 case .none:
                     break
                 }
@@ -227,8 +228,8 @@ class AddGoalViewController: UIViewController {
     }
     
     func showErrorAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .destructive))
+        let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Error Alert title"), message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: "Dismiss Alert button title"), style: .destructive))
         present(alert, animated: true)
     }
     
