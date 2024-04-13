@@ -104,6 +104,7 @@
 		CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Util.swift"; sourceTree = "<group>"; };
 		CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 		CD7A4EFE2A6E2E5600CB9F8C /* MemorizationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizationHistory.swift; sourceTree = "<group>"; };
+		CDA888702BCB19C500336389 /* PrivacyManifest.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyManifest.xcprivacy; sourceTree = "<group>"; };
 		CDB07BC82A71E68500DCAA32 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CDB07BCC2A720EB600DCAA32 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		CDB07BCE2A720F4300DCAA32 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 		CD1E31782A5BA4EC003B76C7 = {
 			isa = PBXGroup;
 			children = (
+				CDA888702BCB19C500336389 /* PrivacyManifest.xcprivacy */,
 				CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */,
 				CD1E319D2A5BA4ED003B76C7 /* Hifdh TrackerTests */,
 				CD1E31A72A5BA4ED003B76C7 /* Hifdh TrackerUITests */,
