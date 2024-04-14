@@ -39,8 +39,12 @@
 		CD5507F92A6D877E00F2BD03 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507F72A6D877E00F2BD03 /* Goal+CoreDataClass.swift */; };
 		CD5507FB2A6D892A00F2BD03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507FA2A6D892A00F2BD03 /* Constants.swift */; };
 		CD596E0C2A68ED77006EF193 /* TimeInterval+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */; };
+		CD5B121C2BCBAB6E004D0FC9 /* Haptics+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5B121B2BCBAB6E004D0FC9 /* Haptics+Util.swift */; };
 		CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */; };
 		CD7A4EFF2A6E2E5600CB9F8C /* MemorizationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A4EFE2A6E2E5600CB9F8C /* MemorizationHistory.swift */; };
+		CDA888732BCB324300336389 /* CountersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA888722BCB324300336389 /* CountersView.swift */; };
+		CDA888752BCB329A00336389 /* CountersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA888742BCB329A00336389 /* CountersViewController.swift */; };
+		CDA888772BCB98F200336389 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDA888762BCB98F200336389 /* beep.mp3 */; };
 		CDB07BCA2A71E68500DCAA32 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB07BC82A71E68500DCAA32 /* OnboardingViewController.swift */; };
 		CDB07BCD2A720EB600DCAA32 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB07BCC2A720EB600DCAA32 /* OnboardingScreen.swift */; };
 		CDB07BCF2A720F4300DCAA32 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB07BCE2A720F4300DCAA32 /* OnboardingCell.swift */; };
@@ -102,9 +106,14 @@
 		CD5507F72A6D877E00F2BD03 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD5507FA2A6D892A00F2BD03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Util.swift"; sourceTree = "<group>"; };
+		CD5B121A2BCBA64B004D0FC9 /* Hifdh Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Hifdh Tracker.entitlements"; sourceTree = "<group>"; };
+		CD5B121B2BCBAB6E004D0FC9 /* Haptics+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Haptics+Util.swift"; sourceTree = "<group>"; };
 		CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 		CD7A4EFE2A6E2E5600CB9F8C /* MemorizationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizationHistory.swift; sourceTree = "<group>"; };
 		CDA888702BCB19C500336389 /* PrivacyManifest.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyManifest.xcprivacy; sourceTree = "<group>"; };
+		CDA888722BCB324300336389 /* CountersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersView.swift; sourceTree = "<group>"; };
+		CDA888742BCB329A00336389 /* CountersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersViewController.swift; sourceTree = "<group>"; };
+		CDA888762BCB98F200336389 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
 		CDB07BC82A71E68500DCAA32 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CDB07BCC2A720EB600DCAA32 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		CDB07BCE2A720F4300DCAA32 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
@@ -172,6 +181,7 @@
 		CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				CD5B121A2BCBA64B004D0FC9 /* Hifdh Tracker.entitlements */,
 				CD53C9252BC976BC00927CAD /* Hifdh Tracker.storekit */,
 				CD53C92B2BCA20DE00927CAD /* Localizable.xcstrings */,
 				CD53C91F2BC9669A00927CAD /* Managers */,
@@ -181,8 +191,10 @@
 				CD1C6C4F2A6462760083F6DA /* Profile */,
 				CD1E31B72A5BA965003B76C7 /* Log */,
 				CD1E31CC2A5BD21E003B76C7 /* Models */,
+				CDA888712BCB320800336389 /* Counters */,
 				CD1E31B92A5BA9A5003B76C7 /* Launch */,
 				CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */,
+				CDA888762BCB98F200336389 /* beep.mp3 */,
 				CD1E31952A5BA4ED003B76C7 /* Info.plist */,
 				CD1E318D2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld */,
 			);
@@ -275,8 +287,18 @@
 				CD5507D62A6C17DC00F2BD03 /* Date+Util.swift */,
 				CD5507DB2A6C359500F2BD03 /* Format+Util.swift */,
 				CD5507FA2A6D892A00F2BD03 /* Constants.swift */,
+				CD5B121B2BCBAB6E004D0FC9 /* Haptics+Util.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		CDA888712BCB320800336389 /* Counters */ = {
+			isa = PBXGroup;
+			children = (
+				CDA888722BCB324300336389 /* CountersView.swift */,
+				CDA888742BCB329A00336389 /* CountersViewController.swift */,
+			);
+			path = Counters;
 			sourceTree = "<group>";
 		};
 		CDB07BC72A71E65100DCAA32 /* Onboarding */ = {
@@ -401,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD1E31942A5BA4ED003B76C7 /* LaunchScreen.storyboard in Resources */,
+				CDA888772BCB98F200336389 /* beep.mp3 in Resources */,
 				CD1E31912A5BA4ED003B76C7 /* Assets.xcassets in Resources */,
 				CD53C92C2BCA20DE00927CAD /* Localizable.xcstrings in Resources */,
 				CD1E318C2A5BA4EC003B76C7 /* Main.storyboard in Resources */,
@@ -432,6 +455,7 @@
 				CD5507E52A6CCE7200F2BD03 /* addGoalTableViewCell.swift in Sources */,
 				CD5507D52A6C172500F2BD03 /* PagesPerTimeInterval.swift in Sources */,
 				CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */,
+				CDA888732BCB324300336389 /* CountersView.swift in Sources */,
 				CD5507E32A6CCE6500F2BD03 /* GoalTableViewCell.swift in Sources */,
 				CD46065E2A5CF0EA002F2F3F /* AddLogViewController.swift in Sources */,
 				CD5507F82A6D877E00F2BD03 /* Goal+CoreDataProperties.swift in Sources */,
@@ -452,10 +476,12 @@
 				CD5507F92A6D877E00F2BD03 /* Goal+CoreDataClass.swift in Sources */,
 				CD7A4EFF2A6E2E5600CB9F8C /* MemorizationHistory.swift in Sources */,
 				CDB07BCD2A720EB600DCAA32 /* OnboardingScreen.swift in Sources */,
+				CD5B121C2BCBAB6E004D0FC9 /* Haptics+Util.swift in Sources */,
 				CDB07BCF2A720F4300DCAA32 /* OnboardingCell.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
 				CD5507DC2A6C359500F2BD03 /* Format+Util.swift in Sources */,
 				CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */,
+				CDA888752BCB329A00336389 /* CountersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +664,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Hifdh Tracker/Hifdh Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 944MKRCGTA;
@@ -671,6 +698,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Hifdh Tracker/Hifdh Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 944MKRCGTA;

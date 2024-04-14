@@ -145,6 +145,7 @@
                         <segue destination="z31-Ws-aqo" kind="relationship" relationship="viewControllers" id="hNG-If-GPx"/>
                         <segue destination="vFN-XO-csX" kind="relationship" relationship="viewControllers" id="6qe-6O-5bI"/>
                         <segue destination="2fk-nC-FHi" kind="relationship" relationship="viewControllers" id="bDI-Ni-aG5"/>
+                        <segue destination="J3z-yp-RXV" kind="relationship" relationship="viewControllers" id="Vl2-yP-6AQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHm-px-YUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -501,14 +502,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addGoalCell" id="Nl6-q5-9Ko" customClass="addGoalTableViewCell" customModule="Hifdh_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="170" width="393" height="58.666667938232422"/>
+                                <rect key="frame" x="0.0" y="170" width="393" height="59.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nl6-q5-9Ko" id="3eC-Ea-6X7">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="58.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="59.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueD-kl-vHp">
-                                            <rect key="frame" x="20" y="12" width="353" height="34.666666666666664"/>
+                                            <rect key="frame" x="20" y="12" width="353" height="35.333333333333336"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="gray" image="plus" catalog="system">
                                                 <color key="baseForegroundColor" name="AccentColor"/>
@@ -847,6 +848,23 @@
             </objects>
             <point key="canvasLocation" x="1469" y="341"/>
         </scene>
+        <!--Counter-->
+        <scene sceneID="oaB-F4-nQT">
+            <objects>
+                <navigationController id="J3z-yp-RXV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Counter" image="plus.circle.fill" catalog="system" id="iHg-A0-7D6"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xy1-fn-fCY">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SnE-IN-awV" kind="relationship" relationship="rootViewController" id="jbD-dd-Ucl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yBu-ms-rrf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="1075"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="Vab-k6-aFn">
             <objects>
@@ -886,6 +904,23 @@
             </objects>
             <point key="canvasLocation" x="543" y="-1092"/>
         </scene>
+        <!--Counter-->
+        <scene sceneID="0OW-iV-DzH">
+            <objects>
+                <viewController title="Counter" id="SnE-IN-awV" customClass="CountersViewController" customModule="Hifdh_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F2l-yU-UUc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2sI-Xr-P5h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2VJ-x7-ked"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Auy-mb-0vv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1468" y="1075"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
@@ -893,6 +928,7 @@
         <image name="onboarding" width="645" height="1398"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.6588235294117647" green="0.47450980392156861" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
