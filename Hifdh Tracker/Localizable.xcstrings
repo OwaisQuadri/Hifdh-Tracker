@@ -22,6 +22,9 @@
         }
       }
     },
+    "%@ was  logged as memorized" : {
+
+    },
     "%0.f of %0.f pages" : {
       "comment" : "the user has logged %d pages out of a goal of %d pages",
       "extractionState" : "extracted_with_value",
@@ -119,6 +122,9 @@
           }
         }
       }
+    },
+    "A Page from the Mushaf Al-Madinah Quran (1-604)" : {
+
     },
     "Are you sure you want to delete all your data?" : {
       "comment" : "Data deletion alert message",
@@ -262,6 +268,9 @@
         }
       }
     },
+    "Log a Page" : {
+
+    },
     "Month" : {
       "comment" : "Title for the x-coord of the chart data points",
       "localizations" : {
@@ -305,6 +314,9 @@
           }
         }
       }
+    },
+    "Page" : {
+
     },
     "Pages" : {
       "comment" : "Title for the y-coord of the chart data points",
@@ -489,6 +501,12 @@
           }
         }
       }
+    },
+    "Suggested Next Page" : {
+
+    },
+    "Suggested Page" : {
+
     },
     "Today's Date:" : {
       "comment" : "Today's Date: row title",

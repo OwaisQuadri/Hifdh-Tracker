@@ -8,6 +8,8 @@
 
 import CoreData
 import UIKit
+import AppIntents
+import SwiftUI
 
 // MARK: Page Model
 extension Page {
@@ -129,6 +131,72 @@ extension Page : Identifiable {
     
     static var completionDate: Date {
         return(Date().advanced(by: ((numberOfNotMemorized/pagesPerDay).convert(from: .days, to: .seconds))))
+    }
+}
+
+// MARK: AppIntent
+struct PageEntity: AppEntity {
+    var id: Int {
+        pageNumber
+    }
+    var pageNumber: Int
+
+    static var defaultQuery = PageEntityQuery()
+
+    public static var typeDisplayRepresentation: TypeDisplayRepresentation = "Page"
+
+    public var displayRepresentation: DisplayRepresentation {
+        DisplayRepresentation(
+            title: .init(stringLiteral: self.description),
+            subtitle: "A Page from the Mushaf Al-Madinah Quran (1-604)",
+            image: .init(systemName: "book.pages")
+        )
+    }
+}
+
+extension PageEntity: CustomStringConvertible {
+    var description: String {
+        "Page \(pageNumber)"
+    }
+}
+
+struct PageEntityQuery: EntityQuery, EnumerableEntityQuery {
+    func allEntities() async throws -> [PageEntity] {
+        var entities = [PageEntity]()
+        await withCoreData {
+            entities = Page.logs.filter {
+                !$0.isMemorized
+            } .map {
+                PageEntity(
+                    pageNumber: Int(
+                        $0.pageNumber
+                    )
+                )
+            }
+        }
+        return entities
+    }
+
+    func entities(for identifiers: [Int]) async throws -> [PageEntity] {
+        // Provide entities based on identifiers
+        // Assuming identifiers are correctly mapped
+        return identifiers.compactMap { pageNumber in
+            // Example: You may need to fetch actual data based on the identifier
+            // Replace with actual mapping if available
+            PageEntity(pageNumber: pageNumber)
+        }
+    }
+//    func defaultResult() async -> PageEntity? {
+//        try? await suggestedEntities().first
+//    }
+    func suggestedEntities() async throws -> [PageEntity] {
+        var allSuggestions = try await allEntities()
+//        var suggested = Array(allSuggestions.prefix(1))
+//        allSuggestions.removeFirst()
+//        if let last = allSuggestions.last {
+//            suggested.append(last)
+//        }
+        return allSuggestions
     }
 }
 

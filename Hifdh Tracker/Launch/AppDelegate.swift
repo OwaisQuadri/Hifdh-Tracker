@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Page.getDefaultPages(managedContext)
             userDefaults.set(true, forKey: UserDefaultsKey.isFirstRun.rawValue)
         }
+
+        HTShortcuts.updateAppShortcutParameters()
         return true
     }
     
@@ -96,3 +98,12 @@ enum UserDefaultsKey: String {
     case isFromFront = "isFromFront"
 }
 
+
+// MARK: Core Data (for writing values)
+@MainActor func withCoreData(completion: @escaping() -> Void ) {
+    let delegate = UIApplication.shared.delegate as? AppDelegate
+    if let _ = delegate?.persistentContainer.viewContext {
+        completion()
+    }
+    delegate?.saveContext()
+}

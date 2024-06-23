@@ -48,6 +48,9 @@
 		CDB07BCA2A71E68500DCAA32 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB07BC82A71E68500DCAA32 /* OnboardingViewController.swift */; };
 		CDB07BCD2A720EB600DCAA32 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB07BCC2A720EB600DCAA32 /* OnboardingScreen.swift */; };
 		CDB07BCF2A720F4300DCAA32 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB07BCE2A720F4300DCAA32 /* OnboardingCell.swift */; };
+		CDF2482D2C27C6CA0012D16B /* HTShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2482C2C27C6CA0012D16B /* HTShortcutsProvider.swift */; };
+		CDF2482E2C27C6D90012D16B /* LogPageIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF248102C27835C0012D16B /* LogPageIntent.swift */; };
+		CDF2482F2C27C6DC0012D16B /* NextPageIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2480E2C2782170012D16B /* NextPageIntent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,19 @@
 			remoteInfo = "Hifdh Tracker";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CDF248232C27BE0B0012D16B /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CD1C6C522A64F1E80083F6DA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +133,9 @@
 		CDB07BC82A71E68500DCAA32 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CDB07BCC2A720EB600DCAA32 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		CDB07BCE2A720F4300DCAA32 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
+		CDF2480E2C2782170012D16B /* NextPageIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextPageIntent.swift; sourceTree = "<group>"; };
+		CDF248102C27835C0012D16B /* LogPageIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPageIntent.swift; sourceTree = "<group>"; };
+		CDF2482C2C27C6CA0012D16B /* HTShortcutsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTShortcutsProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +203,7 @@
 				CD5B121A2BCBA64B004D0FC9 /* Hifdh Tracker.entitlements */,
 				CD53C9252BC976BC00927CAD /* Hifdh Tracker.storekit */,
 				CD53C92B2BCA20DE00927CAD /* Localizable.xcstrings */,
+				CDF2480D2C2781EF0012D16B /* Intents */,
 				CD53C91F2BC9669A00927CAD /* Managers */,
 				CDB07BC72A71E65100DCAA32 /* Onboarding */,
 				CD5507DD2A6CA66D00F2BD03 /* Goals */,
@@ -311,6 +331,16 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		CDF2480D2C2781EF0012D16B /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				CDF2480E2C2782170012D16B /* NextPageIntent.swift */,
+				CDF248102C27835C0012D16B /* LogPageIntent.swift */,
+				CDF2482C2C27C6CA0012D16B /* HTShortcutsProvider.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -321,6 +351,7 @@
 				CD1E317D2A5BA4EC003B76C7 /* Sources */,
 				CD1E317E2A5BA4EC003B76C7 /* Frameworks */,
 				CD1E317F2A5BA4EC003B76C7 /* Resources */,
+				CDF248232C27BE0B0012D16B /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
@@ -377,7 +408,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					CD1E31802A5BA4EC003B76C7 = {
@@ -461,9 +492,12 @@
 				CD5507F82A6D877E00F2BD03 /* Goal+CoreDataProperties.swift in Sources */,
 				CD5507FB2A6D892A00F2BD03 /* Constants.swift in Sources */,
 				CD1E31C62A5BCCD9003B76C7 /* LogTableViewCell.swift in Sources */,
+				CDF2482E2C27C6D90012D16B /* LogPageIntent.swift in Sources */,
+				CDF2482D2C27C6CA0012D16B /* HTShortcutsProvider.swift in Sources */,
 				CD596E0C2A68ED77006EF193 /* TimeInterval+Util.swift in Sources */,
 				CD1E31C02A5BB4B8003B76C7 /* LogTableViewController.swift in Sources */,
 				CD5507D72A6C17DC00F2BD03 /* Date+Util.swift in Sources */,
+				CDF2482F2C27C6DC0012D16B /* NextPageIntent.swift in Sources */,
 				CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */,
 				CDB07BCA2A71E68500DCAA32 /* OnboardingViewController.swift in Sources */,
 				CD5507F52A6CEF1800F2BD03 /* AddGoalViewController.swift in Sources */,
@@ -662,6 +696,7 @@
 		CD1E31AF2A5BA4ED003B76C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Hifdh Tracker/Hifdh Tracker.entitlements";
@@ -696,6 +731,7 @@
 		CD1E31B02A5BA4ED003B76C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Hifdh Tracker/Hifdh Tracker.entitlements";

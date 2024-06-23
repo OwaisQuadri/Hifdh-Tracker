@@ -164,14 +164,6 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
         return UITableViewCell()
     }
     
-    // MARK: Core Data (for writing values)
-    func withCoreData(completion: @escaping() -> Void ) {
-        if let _ = delegate?.persistentContainer.viewContext {
-            completion()
-        }
-        delegate?.saveContext()
-    }
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
