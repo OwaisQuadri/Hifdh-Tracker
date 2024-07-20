@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0CA98A2C4B5A9000A70A2B /* OpenCounterIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9892C4B5A9000A70A2B /* OpenCounterIntent.swift */; };
 		CD1C6C532A64F1E80083F6DA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1C6C522A64F1E80083F6DA /* ProfileViewController.swift */; };
 		CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */; };
 		CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31862A5BA4EC003B76C7 /* SceneDelegate.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CD0CA9892C4B5A9000A70A2B /* OpenCounterIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCounterIntent.swift; sourceTree = "<group>"; };
 		CD1C6C522A64F1E80083F6DA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CD1E31812A5BA4EC003B76C7 /* Hifdh Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hifdh Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 			children = (
 				CDF2480E2C2782170012D16B /* NextPageIntent.swift */,
 				CDF248102C27835C0012D16B /* LogPageIntent.swift */,
+				CD0CA9892C4B5A9000A70A2B /* OpenCounterIntent.swift */,
 				CDF2482C2C27C6CA0012D16B /* HTShortcutsProvider.swift */,
 			);
 			path = Intents;
@@ -500,6 +503,7 @@
 				CDF2482F2C27C6DC0012D16B /* NextPageIntent.swift in Sources */,
 				CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */,
 				CDB07BCA2A71E68500DCAA32 /* OnboardingViewController.swift in Sources */,
+				CD0CA98A2C4B5A9000A70A2B /* OpenCounterIntent.swift in Sources */,
 				CD5507F52A6CEF1800F2BD03 /* AddGoalViewController.swift in Sources */,
 				CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */,
 				CD1C6C532A64F1E80083F6DA /* ProfileViewController.swift in Sources */,

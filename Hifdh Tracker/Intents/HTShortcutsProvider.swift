@@ -11,6 +11,15 @@ import AppIntents
 struct HTShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
         AppShortcut(
+            intent: OpenCounterIntent(),
+            phrases: [
+                "open counter session in \(.applicationName)",
+                "\(.applicationName) counter",
+            ],
+            shortTitle: "Open Counter Session",
+            systemImageName: "gauge.badge.plus"
+        )
+        AppShortcut(
             intent: LogPageIntent(),
             phrases: [
                 "Log \(\.$page) in \(.applicationName)",
