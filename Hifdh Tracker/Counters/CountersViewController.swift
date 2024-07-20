@@ -15,7 +15,6 @@ class CountersViewController: UIViewController {
 
     // MARK: Constants
     let delegate = UIApplication.shared.delegate as? AppDelegate
-    let swiftUIcontroller = UIHostingController(rootView: CountersView())
 
     // MARK: Variables
 
@@ -26,7 +25,9 @@ class CountersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        let maxCounter = delegate?.sharedUserDefaults.integer(forKey: "maxCounter") ?? 10
+        let swiftUIView = CountersView(maxCounter: maxCounter)
+        let swiftUIcontroller = UIHostingController(rootView: swiftUIView)
         addChild(swiftUIcontroller)
         swiftUIcontroller.view.frame = view.bounds
         view.addSubview(swiftUIcontroller.view)

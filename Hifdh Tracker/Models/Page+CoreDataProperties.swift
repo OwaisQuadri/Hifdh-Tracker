@@ -37,8 +37,11 @@ extension Page : Identifiable {
     // MARK: Global array
     static var logs: [Page] {
         get {
-            let delegate = UIApplication.shared.delegate as! AppDelegate
-            return fetchPages(in: delegate.persistentContainer.viewContext)
+            var pages = [Page]()
+            withCoreData { context in
+                pages = fetchPages(in: context)
+            }
+            return pages
         }
     }
     
@@ -82,8 +85,9 @@ extension Page : Identifiable {
     
     // MARK: Statistics and calculations
     
-    static var firstNotInMemoryIndexPath: IndexPath {
-        return IndexPath(row: Page.logs.firstIndex(where: { !$0.isMemorized }) ?? 0, section: 1)
+    static var firstNotInMemoryIndexPath: IndexPath? {
+        guard let index = Page.logs.firstIndex(where: { !$0.isMemorized }) else { return nil }
+        return IndexPath(row: index, section: 1)
     }
     
     static var selectedStat: Statistic?
@@ -134,72 +138,6 @@ extension Page : Identifiable {
     }
 }
 
-// MARK: AppIntent
-struct PageEntity: AppEntity {
-    var id: Int {
-        pageNumber
-    }
-    var pageNumber: Int
-
-    static var defaultQuery = PageEntityQuery()
-
-    public static var typeDisplayRepresentation: TypeDisplayRepresentation = "Page"
-
-    public var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(
-            title: .init(stringLiteral: self.description),
-            subtitle: "A Page from the Mushaf Al-Madinah Quran (1-604)",
-            image: .init(systemName: "book.pages")
-        )
-    }
-}
-
-extension PageEntity: CustomStringConvertible {
-    var description: String {
-        "Page \(pageNumber)"
-    }
-}
-
-struct PageEntityQuery: EntityQuery, EnumerableEntityQuery {
-    func allEntities() async throws -> [PageEntity] {
-        var entities = [PageEntity]()
-        await withCoreData {
-            entities = Page.logs.filter {
-                !$0.isMemorized
-            } .map {
-                PageEntity(
-                    pageNumber: Int(
-                        $0.pageNumber
-                    )
-                )
-            }
-        }
-        return entities
-    }
-
-    func entities(for identifiers: [Int]) async throws -> [PageEntity] {
-        // Provide entities based on identifiers
-        // Assuming identifiers are correctly mapped
-        return identifiers.compactMap { pageNumber in
-            // Example: You may need to fetch actual data based on the identifier
-            // Replace with actual mapping if available
-            PageEntity(pageNumber: pageNumber)
-        }
-    }
-//    func defaultResult() async -> PageEntity? {
-//        try? await suggestedEntities().first
-//    }
-    func suggestedEntities() async throws -> [PageEntity] {
-        var allSuggestions = try await allEntities()
-//        var suggested = Array(allSuggestions.prefix(1))
-//        allSuggestions.removeFirst()
-//        if let last = allSuggestions.last {
-//            suggested.append(last)
-//        }
-        return allSuggestions
-    }
-}
-
 // MARK: Enumerations
 
 enum Statistic: Int {
@@ -209,4 +147,9 @@ enum Statistic: Int {
     case percentMemorized = 3
 
     static let defaultValue: Self = .pagesPerDay
+}
+
+func withCoreData(completion: @escaping (NSManagedObjectContext) -> Void) {
+    let completion: [AnyHashable: (NSManagedObjectContext) -> Void ] = ["completion": completion]
+    NotificationCenter.default.post(name: Notification.Name("withCoreData"), object: nil, userInfo: completion)
 }

@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     // MARK: Constants
     let delegate = UIApplication.shared.delegate as? AppDelegate
     let swiftUIcontroller = UIHostingController(rootView: MemorizationHistory())
-    
+
     // MARK: Variables
     var isDropDownExpanded: Bool = false
     var products: [SKProduct] = []
@@ -83,7 +83,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     private func configureTopRightMenu() {
-        let resetAllDataMenuItem = UIAction(title: Localized.resetAllData, image: UIImage(systemName: "trash"), attributes: .destructive) { [self] (_) in
+        let resetAllDataMenuItem = UIAction(title: Localized.resetAllData, image: UIImage(systemName: "trash"), attributes: .destructive) { @MainActor [self] (_) in
             if let context = delegate?.persistentContainer.viewContext {
                 // are you sure?
                 let areYouSureAlert = UIAlertController(title: Localized.warningExclamation, message: Localized.areYouSure, preferredStyle: .alert)
@@ -111,7 +111,7 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         view.layoutSubviews(duration: 0.5)
     }
     
-    private func configureStatPicker() {
+    @MainActor private func configureStatPicker() {
         mainStatPicker.dataSource = self
         mainStatPicker.delegate = self
         mainStatPicker.selectRow((Page.selectedStat ?? Statistic.defaultValue).rawValue, inComponent: 0, animated: false)

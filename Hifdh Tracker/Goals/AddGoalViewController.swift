@@ -167,7 +167,7 @@ class AddGoalViewController: UIViewController {
         let goalDate = datePicker.date
         let goalName = goalNameTextField.text == "" ? nil : goalNameTextField.text
         
-        withCoreData { [self] in
+        withCoreData { [self] _ in
             if editingGoal != nil {
                 editingGoal?.update(
                     type: goalType ?? .findEndDate,
@@ -232,13 +232,4 @@ class AddGoalViewController: UIViewController {
         alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: "Dismiss Alert button title"), style: .destructive))
         present(alert, animated: true)
     }
-    
-    // MARK: Core Data (for writing values)
-    func withCoreData(completion: @escaping() -> Void ) {
-        if let _ = delegate?.persistentContainer.viewContext {
-            completion()
-        }
-        delegate?.saveContext()
-    }
-    
 }

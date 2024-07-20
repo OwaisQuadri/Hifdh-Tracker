@@ -11,16 +11,16 @@ import AppIntents
 struct NextPageIntent: AppIntent {// OpenIntent for intents that open your app
     static var title: LocalizedStringResource = "Suggested Next Page"
 
-    func perform() async throws -> some IntentResult & ProvidesDialog & ReturnsValue<PageEntity> {
-        var page: PageEntity = PageEntity(pageNumber: 0)
-        await withCoreData {
-            if let pageNumber = Page.logs.first(where: {
+    func perform() async throws -> some IntentResult & ReturnsValue<PageEntity> {
+        var page: PageEntity? = nil
+        withCoreData { context in
+            let pageNumber = Page.fetchPages(in: context).first(where: {
                 $0.isMemorized == false
-            })?.pageNumber {
-                page = PageEntity(pageNumber: Int(pageNumber) )
-            }
+            })?.pageNumber
+            page = PageEntity(pageNumber: Int(pageNumber ?? 0))
         }
-        return .result(value: page, dialog: .init( stringLiteral: page.pageNumber == 0 ? "None" : "\(page)"))
+        let defaultValue = PageEntity(pageNumber: 0)
+        return .result(value: page ?? defaultValue)
     }
 }
 

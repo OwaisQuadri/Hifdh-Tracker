@@ -8,11 +8,12 @@
 import SwiftUI
 import UserNotifications
 import AVFoundation
+import WidgetKit
 
 struct CountersView: View {
     @State var audioPlayer: AVAudioPlayer?
-    @State private var maxCounter = 10
-    @State private var counter = 0
+    @AppStorage("maxCounter", store: UserDefaults(suiteName: "group.HifdhTracker")) var maxCounter = 10
+    @AppStorage("counter", store: UserDefaults(suiteName: "group.HifdhTracker")) var counter = 0
 //    @State private var showNotification = false
     var body: some View {
         NavigationStack {
@@ -30,76 +31,31 @@ struct CountersView: View {
                         .font(.callout)
                 }
                 .padding()
-                .onChange(of: maxCounter) { newValue in
+                .onChange(of: maxCounter) {
                     if counter >= maxCounter { counter = 0 }
+                    WidgetCenter.shared.reloadAllTimelines()
                 }
-                Button {
-                    counter += 1
-                    if counter >= maxCounter {
-                        counter = 0
-                        Haptics.shared.play(.heavy)
-                        guard let path = Bundle.main.path(forResource: "beep", ofType:"mp3") else {
-                            return }
-                        let url = URL(fileURLWithPath: path)
-                        do {
-                            audioPlayer = try AVAudioPlayer(contentsOf: url)
-                            audioPlayer?.play()
-                        } catch let error {
-                            print(error.localizedDescription)
-                        }
-//                        // send notification with sound
-//                        if showNotification {
-//                            let content = UNMutableNotificationContent()
-//                            content.title = "Counter Completed!"
-//                            content.body = "You have read this portion \(maxCounter) times, the counter has been reset."
-//                            content.sound = UNNotificationSound.default
-//
-//                            // show this notification five seconds from now
-//                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-//
-//                            // choose a random identifier
-//                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//
-//                            // add our notification request
-//                            UNUserNotificationCenter.current().add(request)
-//                        } else {
-                        // play a sound
-//                        }
-
-                    } else {
-                        Haptics.shared.play(.soft)
-                    }
-                } label: {
+                .onChange(of: counter) {
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
+                Button(intent: IncrementCounterIntent()) {
                     Text("\(counter)")
+                        .contentTransition(.numericText())
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 .font(.largeTitle)
                 .buttonStyle(.borderedProminent)
                 .padding()
-                Button("Reset Counter") {
-                    counter = 0
-                    Haptics.shared.notify(.success)
-                }
+                Button(intent: ResetCounterIntent(), label: {
+                    Text("Reset Counter")
+                })
                 .padding()
             }
             .navigationTitle("Counter")
         }
-        .task {
-            // ask for notification permission
-//            do {
-//                print("Requesting permission")
-//                showNotification = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
-//                if showNotification {
-//                    print("Permission granted")
-//                } else {
-//                    print("Permission denied")
-//                }
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
+
 }
 
 #Preview {

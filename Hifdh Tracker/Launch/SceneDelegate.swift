@@ -51,5 +51,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else { return }
+        handleCustomURL(url)
+    }
+
+    private func handleCustomURL(_ url: URL) {
+        guard let scheme = url.scheme, scheme == "hifdh-tracker" else {
+            return
+        }
+
+        let path = url.host
+        if path == "openCountersPage" {
+            NotificationCenter.default.post(name: Notification.Name("openCountersPage"), object: nil)
+        }
+    }
+
 }
 

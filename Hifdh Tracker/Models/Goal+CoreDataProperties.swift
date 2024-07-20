@@ -116,8 +116,11 @@ extension Goal: Identifiable {
     }
     static var goals: [Goal] {
         get {
-            let delegate = UIApplication.shared.delegate as! AppDelegate
-            return fetchGoals(in: delegate.persistentContainer.viewContext)
+            var goals = [Goal]()
+            withCoreData { context in
+                goals = fetchGoals(in: context)
+            }
+            return goals
         }
     }
     func delete(in context: NSManagedObjectContext) {
@@ -130,3 +133,4 @@ extension Goal: Identifiable {
     }
     
 }
+

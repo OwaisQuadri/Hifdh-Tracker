@@ -53,6 +53,16 @@
         }
       }
     },
+    "%lld/%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld/%2$lld"
+          }
+        }
+      }
+    },
     "3" : {
       "localizations" : {
         "fr" : {
@@ -202,6 +212,9 @@
         }
       }
     },
+    "Counter Widget" : {
+
+    },
     "Create and edit your goals in the “Goals” tab by pressing the “+” button" : {
       "comment" : "add and edit goals",
       "localizations" : {
@@ -267,6 +280,12 @@
           }
         }
       }
+    },
+    "Hifdh Tracker Counter" : {
+
+    },
+    "Increment the Counter" : {
+
     },
     "Log a Page" : {
 
@@ -452,6 +471,9 @@
         }
       }
     },
+    "Reset the Counter" : {
+
+    },
     "Save" : {
       "comment" : "Save button title",
       "localizations" : {
@@ -494,6 +516,9 @@
         }
       }
     },
+    "Shows the current counter state. Pressing the background will take you to the in-app counter." : {
+
+    },
     "Start Date:" : {
       "comment" : "Start Date: row title",
       "localizations" : {
@@ -509,6 +534,9 @@
 
     },
     "Suggested Page" : {
+
+    },
+    "This is a widget." : {
 
     },
     "Today's Date:" : {
@@ -565,6 +593,9 @@
           }
         }
       }
+    },
+    "Widget Intent" : {
+
     },
     "Yes, I'm sure" : {
       "comment" : "Delete Data alert primary button",

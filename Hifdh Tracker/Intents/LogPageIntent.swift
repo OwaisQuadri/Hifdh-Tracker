@@ -17,7 +17,7 @@ struct LogPageIntent: AppIntent {// OpenIntent for intents that open your app
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         await MainActor.run {
-            withCoreData {
+            withCoreData {_ in 
                 let currentPage = Page.logs[page.pageNumber-1]
                 currentPage.isMemorized = true
                 currentPage.dateMemorized = .now

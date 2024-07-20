@@ -8,6 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		CD0CA98A2C4B5A9000A70A2B /* OpenCounterIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9892C4B5A9000A70A2B /* OpenCounterIntent.swift */; };
+		CD0CA9912C4B662E00A70A2B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0CA9902C4B662E00A70A2B /* WidgetKit.framework */; };
+		CD0CA9932C4B662E00A70A2B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0CA9922C4B662E00A70A2B /* SwiftUI.framework */; };
+		CD0CA9962C4B662E00A70A2B /* HifdhTrackerWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9952C4B662E00A70A2B /* HifdhTrackerWidgetsBundle.swift */; };
+		CD0CA9982C4B662E00A70A2B /* HifdhTrackerWidgetsLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9972C4B662E00A70A2B /* HifdhTrackerWidgetsLiveActivity.swift */; };
+		CD0CA99A2C4B662E00A70A2B /* HifdhTrackerWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9992C4B662E00A70A2B /* HifdhTrackerWidgets.swift */; };
+		CD0CA99E2C4B662F00A70A2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0CA99D2C4B662F00A70A2B /* Assets.xcassets */; };
+		CD0CA9A22C4B662F00A70A2B /* HifdhTrackerWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CD0CA98F2C4B662E00A70A2B /* HifdhTrackerWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CD0CA9A72C4B676400A70A2B /* HifdhTrackerWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9992C4B662E00A70A2B /* HifdhTrackerWidgets.swift */; };
+		CD0CA9AB2C4B74BE00A70A2B /* OpenCounterIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9892C4B5A9000A70A2B /* OpenCounterIntent.swift */; };
+		CD0CA9AC2C4B7ED400A70A2B /* NextPageIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2480E2C2782170012D16B /* NextPageIntent.swift */; };
+		CD0CA9B52C4B853300A70A2B /* PageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9B42C4B853300A70A2B /* PageEntity.swift */; };
+		CD0CA9B62C4B853800A70A2B /* PageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9B42C4B853300A70A2B /* PageEntity.swift */; };
+		CD0CA9B72C4B857B00A70A2B /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */; };
+		CD0CA9BB2C4B86C500A70A2B /* UserDefaults+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9BA2C4B86C500A70A2B /* UserDefaults+Util.swift */; };
+		CD0CA9BC2C4B86CB00A70A2B /* UserDefaults+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9BA2C4B86C500A70A2B /* UserDefaults+Util.swift */; };
+		CD0CA9BE2C4B871700A70A2B /* TimeInterval+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD596E0B2A68ED77006EF193 /* TimeInterval+Util.swift */; };
+		CD0CA9BF2C4B890F00A70A2B /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */; };
+		CD0CA9C32C4B899E00A70A2B /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507F62A6D877E00F2BD03 /* Goal+CoreDataProperties.swift */; };
+		CD0CA9C42C4B89A000A70A2B /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5507F72A6D877E00F2BD03 /* Goal+CoreDataClass.swift */; };
+		CD0CA9C62C4BA47400A70A2B /* Hifdh_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD1E318D2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld */; };
+		CD0CA9C82C4BAF6000A70A2B /* IncrementCounterIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9C72C4BAF6000A70A2B /* IncrementCounterIntent.swift */; };
+		CD0CA9C92C4BB23400A70A2B /* IncrementCounterIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA9C72C4BAF6000A70A2B /* IncrementCounterIntent.swift */; };
+		CD0CA9CA2C4BB25700A70A2B /* Haptics+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5B121B2BCBAB6E004D0FC9 /* Haptics+Util.swift */; };
 		CD1C6C532A64F1E80083F6DA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1C6C522A64F1E80083F6DA /* ProfileViewController.swift */; };
 		CD1E31852A5BA4EC003B76C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */; };
 		CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31862A5BA4EC003B76C7 /* SceneDelegate.swift */; };
@@ -55,6 +78,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CD0CA9A02C4B662F00A70A2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD1E31792A5BA4EC003B76C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD0CA98E2C4B662E00A70A2B;
+			remoteInfo = HifdhTrackerWidgetsExtension;
+		};
 		CD1E319B2A5BA4ED003B76C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CD1E31792A5BA4EC003B76C7 /* Project object */;
@@ -72,6 +102,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CD0CA9A62C4B662F00A70A2B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CD0CA9A22C4B662F00A70A2B /* HifdhTrackerWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDF248232C27BE0B0012D16B /* Embed ExtensionKit Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,6 +127,18 @@
 
 /* Begin PBXFileReference section */
 		CD0CA9892C4B5A9000A70A2B /* OpenCounterIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCounterIntent.swift; sourceTree = "<group>"; };
+		CD0CA98F2C4B662E00A70A2B /* HifdhTrackerWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HifdhTrackerWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0CA9902C4B662E00A70A2B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		CD0CA9922C4B662E00A70A2B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CD0CA9952C4B662E00A70A2B /* HifdhTrackerWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HifdhTrackerWidgetsBundle.swift; sourceTree = "<group>"; };
+		CD0CA9972C4B662E00A70A2B /* HifdhTrackerWidgetsLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HifdhTrackerWidgetsLiveActivity.swift; sourceTree = "<group>"; };
+		CD0CA9992C4B662E00A70A2B /* HifdhTrackerWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HifdhTrackerWidgets.swift; sourceTree = "<group>"; };
+		CD0CA99D2C4B662F00A70A2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD0CA99F2C4B662F00A70A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD0CA9A82C4B6A7500A70A2B /* HifdhTrackerWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HifdhTrackerWidgetsExtension.entitlements; sourceTree = "<group>"; };
+		CD0CA9B42C4B853300A70A2B /* PageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageEntity.swift; sourceTree = "<group>"; };
+		CD0CA9BA2C4B86C500A70A2B /* UserDefaults+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Util.swift"; sourceTree = "<group>"; };
+		CD0CA9C72C4BAF6000A70A2B /* IncrementCounterIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementCounterIntent.swift; sourceTree = "<group>"; };
 		CD1C6C522A64F1E80083F6DA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CD1E31812A5BA4EC003B76C7 /* Hifdh Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hifdh Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1E31842A5BA4EC003B76C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +194,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CD0CA98C2C4B662E00A70A2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0CA9932C4B662E00A70A2B /* SwiftUI.framework in Frameworks */,
+				CD0CA9912C4B662E00A70A2B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CD1E317E2A5BA4EC003B76C7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -167,6 +229,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD0CA9942C4B662E00A70A2B /* HifdhTrackerWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				CD0CA9952C4B662E00A70A2B /* HifdhTrackerWidgetsBundle.swift */,
+				CD0CA9972C4B662E00A70A2B /* HifdhTrackerWidgetsLiveActivity.swift */,
+				CD0CA9992C4B662E00A70A2B /* HifdhTrackerWidgets.swift */,
+				CD0CA99D2C4B662F00A70A2B /* Assets.xcassets */,
+				CD0CA99F2C4B662F00A70A2B /* Info.plist */,
+			);
+			path = HifdhTrackerWidgets;
+			sourceTree = "<group>";
+		};
+		CD0CA9B22C4B836900A70A2B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CD0CA9B42C4B853300A70A2B /* PageEntity.swift */,
+				CD0CA9BA2C4B86C500A70A2B /* UserDefaults+Util.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		CD1C6C4F2A6462760083F6DA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,10 +263,12 @@
 		CD1E31782A5BA4EC003B76C7 = {
 			isa = PBXGroup;
 			children = (
+				CD0CA9A82C4B6A7500A70A2B /* HifdhTrackerWidgetsExtension.entitlements */,
 				CDA888702BCB19C500336389 /* PrivacyManifest.xcprivacy */,
 				CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */,
 				CD1E319D2A5BA4ED003B76C7 /* Hifdh TrackerTests */,
 				CD1E31A72A5BA4ED003B76C7 /* Hifdh TrackerUITests */,
+				CD0CA9942C4B662E00A70A2B /* HifdhTrackerWidgets */,
 				CD1E31822A5BA4EC003B76C7 /* Products */,
 				CD53C9222BC9762400927CAD /* Frameworks */,
 			);
@@ -195,6 +280,7 @@
 				CD1E31812A5BA4EC003B76C7 /* Hifdh Tracker.app */,
 				CD1E319A2A5BA4ED003B76C7 /* Hifdh TrackerTests.xctest */,
 				CD1E31A42A5BA4ED003B76C7 /* Hifdh TrackerUITests.xctest */,
+				CD0CA98F2C4B662E00A70A2B /* HifdhTrackerWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +302,7 @@
 				CDA888712BCB320800336389 /* Counters */,
 				CD1E31B92A5BA9A5003B76C7 /* Launch */,
 				CD1E31902A5BA4ED003B76C7 /* Assets.xcassets */,
+				CD0CA9B22C4B836900A70A2B /* Shared */,
 				CDA888762BCB98F200336389 /* beep.mp3 */,
 				CD1E31952A5BA4ED003B76C7 /* Info.plist */,
 				CD1E318D2A5BA4EC003B76C7 /* Hifdh_Tracker.xcdatamodeld */,
@@ -286,6 +373,8 @@
 			isa = PBXGroup;
 			children = (
 				CD53C9232BC9762400927CAD /* StoreKit.framework */,
+				CD0CA9902C4B662E00A70A2B /* WidgetKit.framework */,
+				CD0CA9922C4B662E00A70A2B /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -340,6 +429,7 @@
 				CDF248102C27835C0012D16B /* LogPageIntent.swift */,
 				CD0CA9892C4B5A9000A70A2B /* OpenCounterIntent.swift */,
 				CDF2482C2C27C6CA0012D16B /* HTShortcutsProvider.swift */,
+				CD0CA9C72C4BAF6000A70A2B /* IncrementCounterIntent.swift */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -347,6 +437,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CD0CA98E2C4B662E00A70A2B /* HifdhTrackerWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD0CA9A32C4B662F00A70A2B /* Build configuration list for PBXNativeTarget "HifdhTrackerWidgetsExtension" */;
+			buildPhases = (
+				CD0CA98B2C4B662E00A70A2B /* Sources */,
+				CD0CA98C2C4B662E00A70A2B /* Frameworks */,
+				CD0CA98D2C4B662E00A70A2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HifdhTrackerWidgetsExtension;
+			productName = HifdhTrackerWidgetsExtension;
+			productReference = CD0CA98F2C4B662E00A70A2B /* HifdhTrackerWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CD1E31802A5BA4EC003B76C7 /* Hifdh Tracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD1E31AE2A5BA4ED003B76C7 /* Build configuration list for PBXNativeTarget "Hifdh Tracker" */;
@@ -355,10 +462,12 @@
 				CD1E317E2A5BA4EC003B76C7 /* Frameworks */,
 				CD1E317F2A5BA4EC003B76C7 /* Resources */,
 				CDF248232C27BE0B0012D16B /* Embed ExtensionKit Extensions */,
+				CD0CA9A62C4B662F00A70A2B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CD0CA9A12C4B662F00A70A2B /* PBXTargetDependency */,
 			);
 			name = "Hifdh Tracker";
 			packageProductDependencies = (
@@ -414,6 +523,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					CD0CA98E2C4B662E00A70A2B = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					CD1E31802A5BA4EC003B76C7 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -447,11 +559,20 @@
 				CD1E31802A5BA4EC003B76C7 /* Hifdh Tracker */,
 				CD1E31992A5BA4ED003B76C7 /* Hifdh TrackerTests */,
 				CD1E31A32A5BA4ED003B76C7 /* Hifdh TrackerUITests */,
+				CD0CA98E2C4B662E00A70A2B /* HifdhTrackerWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CD0CA98D2C4B662E00A70A2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0CA99E2C4B662F00A70A2B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CD1E317F2A5BA4EC003B76C7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -481,12 +602,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CD0CA98B2C4B662E00A70A2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0CA9B72C4B857B00A70A2B /* Page+CoreDataClass.swift in Sources */,
+				CD0CA9BC2C4B86CB00A70A2B /* UserDefaults+Util.swift in Sources */,
+				CD0CA9C32C4B899E00A70A2B /* Goal+CoreDataProperties.swift in Sources */,
+				CD0CA9AC2C4B7ED400A70A2B /* NextPageIntent.swift in Sources */,
+				CD0CA9962C4B662E00A70A2B /* HifdhTrackerWidgetsBundle.swift in Sources */,
+				CD0CA9BE2C4B871700A70A2B /* TimeInterval+Util.swift in Sources */,
+				CD0CA9982C4B662E00A70A2B /* HifdhTrackerWidgetsLiveActivity.swift in Sources */,
+				CD0CA9C62C4BA47400A70A2B /* Hifdh_Tracker.xcdatamodeld in Sources */,
+				CD0CA9CA2C4BB25700A70A2B /* Haptics+Util.swift in Sources */,
+				CD0CA9C42C4B89A000A70A2B /* Goal+CoreDataClass.swift in Sources */,
+				CD0CA9BF2C4B890F00A70A2B /* Page+CoreDataProperties.swift in Sources */,
+				CD0CA9AB2C4B74BE00A70A2B /* OpenCounterIntent.swift in Sources */,
+				CD0CA99A2C4B662E00A70A2B /* HifdhTrackerWidgets.swift in Sources */,
+				CD0CA9C92C4BB23400A70A2B /* IncrementCounterIntent.swift in Sources */,
+				CD0CA9B62C4B853800A70A2B /* PageEntity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CD1E317D2A5BA4EC003B76C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CD53C9212BC966B100927CAD /* IAPManager.swift in Sources */,
 				CD5507E52A6CCE7200F2BD03 /* addGoalTableViewCell.swift in Sources */,
+				CD0CA9BB2C4B86C500A70A2B /* UserDefaults+Util.swift in Sources */,
 				CD5507D52A6C172500F2BD03 /* PagesPerTimeInterval.swift in Sources */,
 				CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */,
 				CDA888732BCB324300336389 /* CountersView.swift in Sources */,
@@ -499,6 +643,7 @@
 				CDF2482D2C27C6CA0012D16B /* HTShortcutsProvider.swift in Sources */,
 				CD596E0C2A68ED77006EF193 /* TimeInterval+Util.swift in Sources */,
 				CD1E31C02A5BB4B8003B76C7 /* LogTableViewController.swift in Sources */,
+				CD0CA9A72C4B676400A70A2B /* HifdhTrackerWidgets.swift in Sources */,
 				CD5507D72A6C17DC00F2BD03 /* Date+Util.swift in Sources */,
 				CDF2482F2C27C6DC0012D16B /* NextPageIntent.swift in Sources */,
 				CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */,
@@ -518,6 +663,8 @@
 				CDB07BCF2A720F4300DCAA32 /* OnboardingCell.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
 				CD5507DC2A6C359500F2BD03 /* Format+Util.swift in Sources */,
+				CD0CA9C82C4BAF6000A70A2B /* IncrementCounterIntent.swift in Sources */,
+				CD0CA9B52C4B853300A70A2B /* PageEntity.swift in Sources */,
 				CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */,
 				CDA888752BCB329A00336389 /* CountersViewController.swift in Sources */,
 			);
@@ -543,6 +690,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CD0CA9A12C4B662F00A70A2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD0CA98E2C4B662E00A70A2B /* HifdhTrackerWidgetsExtension */;
+			targetProxy = CD0CA9A02C4B662F00A70A2B /* PBXContainerItemProxy */;
+		};
 		CD1E319C2A5BA4ED003B76C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CD1E31802A5BA4EC003B76C7 /* Hifdh Tracker */;
@@ -577,6 +729,69 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CD0CA9A42C4B662F00A70A2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HifdhTrackerWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 944MKRCGTA;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HifdhTrackerWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HifdhTrackerWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.quadriow.Hifdh-Tracker.HifdhTrackerWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD0CA9A52C4B662F00A70A2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HifdhTrackerWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 944MKRCGTA;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HifdhTrackerWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HifdhTrackerWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.quadriow.Hifdh-Tracker.HifdhTrackerWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CD1E31AC2A5BA4ED003B76C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -630,7 +845,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -687,7 +902,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -718,12 +933,12 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quadriow.Hifdh-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -753,12 +968,12 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quadriow.Hifdh-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -846,6 +1061,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CD0CA9A32C4B662F00A70A2B /* Build configuration list for PBXNativeTarget "HifdhTrackerWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD0CA9A42C4B662F00A70A2B /* Debug */,
+				CD0CA9A52C4B662F00A70A2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CD1E317C2A5BA4EC003B76C7 /* Build configuration list for PBXProject "Hifdh Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
