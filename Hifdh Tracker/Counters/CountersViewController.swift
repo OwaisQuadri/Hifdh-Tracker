@@ -34,6 +34,14 @@ class CountersViewController: UIViewController {
         swiftUIcontroller.didMove(toParent: self)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        Task {
+            await SubscriptionManager.shared.updatePurchasedProducts()
+            if !SubscriptionManager.shared.isPremium {
+                FullscreenCoverManager.shared.presentFullscreenCover()
+            }
+        }
+    }
     /*
      // MARK: - Navigation
 

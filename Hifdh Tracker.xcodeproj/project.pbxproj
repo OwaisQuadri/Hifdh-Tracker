@@ -48,8 +48,6 @@
 		CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */; };
 		CD25FE912A6A0874009D7759 /* UIView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25FE902A6A0874009D7759 /* UIView+Util.swift */; };
 		CD35E6C52CD7D8DE00389D71 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6C42CD7D8D400389D71 /* SubscriptionManager.swift */; };
-		CD35E6C72CD7DA2900389D71 /* IntentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6C62CD7DA1C00389D71 /* IntentError.swift */; };
-		CD35E6C82CD7DA2900389D71 /* IntentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6C62CD7DA1C00389D71 /* IntentError.swift */; };
 		CD35E6C92CD7DA5100389D71 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6C42CD7D8D400389D71 /* SubscriptionManager.swift */; };
 		CD35E6CC2CD7DC2200389D71 /* FullscreenCoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6CA2CD7DC2200389D71 /* FullscreenCoverManager.swift */; };
 		CD35E6CF2CD7DCAF00389D71 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6CE2CD7DCAF00389D71 /* PaywallView.swift */; };
@@ -72,6 +70,9 @@
 		CD5B121C2BCBAB6E004D0FC9 /* Haptics+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5B121B2BCBAB6E004D0FC9 /* Haptics+Util.swift */; };
 		CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */; };
 		CD7A4EFF2A6E2E5600CB9F8C /* MemorizationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A4EFE2A6E2E5600CB9F8C /* MemorizationHistory.swift */; };
+		CDA39C5C2CD7EEAC00757B37 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = CDA39C5B2CD7EEAC00757B37 /* StoreKitTestCertificate.cer */; };
+		CDA39C5D2CD7EF1E00757B37 /* Hifdh Tracker: Quran Aid.storekit in Resources */ = {isa = PBXBuildFile; fileRef = CD35E6D02CD7E1FB00389D71 /* Hifdh Tracker: Quran Aid.storekit */; };
+		CDA39C5E2CD7EF4A00757B37 /* Hifdh Tracker: Quran Aid.storekit in Resources */ = {isa = PBXBuildFile; fileRef = CD35E6D02CD7E1FB00389D71 /* Hifdh Tracker: Quran Aid.storekit */; };
 		CDA888732BCB324300336389 /* CountersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA888722BCB324300336389 /* CountersView.swift */; };
 		CDA888752BCB329A00336389 /* CountersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA888742BCB329A00336389 /* CountersViewController.swift */; };
 		CDA888772BCB98F200336389 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDA888762BCB98F200336389 /* beep.mp3 */; };
@@ -166,7 +167,6 @@
 		CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD25FE902A6A0874009D7759 /* UIView+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Util.swift"; sourceTree = "<group>"; };
 		CD35E6C42CD7D8D400389D71 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
-		CD35E6C62CD7DA1C00389D71 /* IntentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentError.swift; sourceTree = "<group>"; };
 		CD35E6CA2CD7DC2200389D71 /* FullscreenCoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenCoverManager.swift; sourceTree = "<group>"; };
 		CD35E6CE2CD7DCAF00389D71 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		CD35E6D02CD7E1FB00389D71 /* Hifdh Tracker: Quran Aid.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Hifdh Tracker: Quran Aid.storekit"; sourceTree = "<group>"; };
@@ -175,7 +175,6 @@
 		CD53C9232BC9762400927CAD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CD53C9252BC976BC00927CAD /* Hifdh Tracker.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Hifdh Tracker.storekit"; sourceTree = "<group>"; };
 		CD53C9262BCA1EF000927CAD /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		CD53C9282BCA1F3600927CAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		CD53C92B2BCA20DE00927CAD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		CD5507D42A6C172500F2BD03 /* PagesPerTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesPerTimeInterval.swift; sourceTree = "<group>"; };
 		CD5507D62A6C17DC00F2BD03 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
@@ -192,6 +191,8 @@
 		CD5B121B2BCBAB6E004D0FC9 /* Haptics+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Haptics+Util.swift"; sourceTree = "<group>"; };
 		CD6900482A633FD8003E2153 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 		CD7A4EFE2A6E2E5600CB9F8C /* MemorizationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizationHistory.swift; sourceTree = "<group>"; };
+		CDA39C5A2CD7EDD100757B37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		CDA39C5B2CD7EEAC00757B37 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		CDA888702BCB19C500336389 /* PrivacyManifest.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyManifest.xcprivacy; sourceTree = "<group>"; };
 		CDA888722BCB324300336389 /* CountersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersView.swift; sourceTree = "<group>"; };
 		CDA888742BCB329A00336389 /* CountersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				CD35E6D02CD7E1FB00389D71 /* Hifdh Tracker: Quran Aid.storekit */,
+				CDA39C5B2CD7EEAC00757B37 /* StoreKitTestCertificate.cer */,
 				CD0CA9A82C4B6A7500A70A2B /* HifdhTrackerWidgetsExtension.entitlements */,
 				CDA888702BCB19C500336389 /* PrivacyManifest.xcprivacy */,
 				CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */,
@@ -448,12 +450,11 @@
 		CDF2480D2C2781EF0012D16B /* Intents */ = {
 			isa = PBXGroup;
 			children = (
-				CD35E6C62CD7DA1C00389D71 /* IntentError.swift */,
 				CDF2480E2C2782170012D16B /* NextPageIntent.swift */,
 				CDF248102C27835C0012D16B /* LogPageIntent.swift */,
 				CD0CA9892C4B5A9000A70A2B /* OpenCounterIntent.swift */,
-				CDF2482C2C27C6CA0012D16B /* HTShortcutsProvider.swift */,
 				CD0CA9C72C4BAF6000A70A2B /* IncrementCounterIntent.swift */,
+				CDF2482C2C27C6CA0012D16B /* HTShortcutsProvider.swift */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -593,6 +594,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA39C5E2CD7EF4A00757B37 /* Hifdh Tracker: Quran Aid.storekit in Resources */,
 				CD0CA99E2C4B662F00A70A2B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +608,8 @@
 				CD1E31912A5BA4ED003B76C7 /* Assets.xcassets in Resources */,
 				CD53C92C2BCA20DE00927CAD /* Localizable.xcstrings in Resources */,
 				CD1E318C2A5BA4EC003B76C7 /* Main.storyboard in Resources */,
+				CDA39C5D2CD7EF1E00757B37 /* Hifdh Tracker: Quran Aid.storekit in Resources */,
+				CDA39C5C2CD7EEAC00757B37 /* StoreKitTestCertificate.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,7 +642,6 @@
 				CD0CA9BE2C4B871700A70A2B /* TimeInterval+Util.swift in Sources */,
 				CD0CA9982C4B662E00A70A2B /* HifdhTrackerWidgetsLiveActivity.swift in Sources */,
 				CD0CA9C62C4BA47400A70A2B /* Hifdh_Tracker.xcdatamodeld in Sources */,
-				CD35E6C72CD7DA2900389D71 /* IntentError.swift in Sources */,
 				CD0CA9CA2C4BB25700A70A2B /* Haptics+Util.swift in Sources */,
 				CD0CA9C42C4B89A000A70A2B /* Goal+CoreDataClass.swift in Sources */,
 				CD0CA9BF2C4B890F00A70A2B /* Page+CoreDataProperties.swift in Sources */,
@@ -689,7 +692,6 @@
 				CD35E6CF2CD7DCAF00389D71 /* PaywallView.swift in Sources */,
 				CD5B121C2BCBAB6E004D0FC9 /* Haptics+Util.swift in Sources */,
 				CDB07BCF2A720F4300DCAA32 /* OnboardingCell.swift in Sources */,
-				CD35E6C82CD7DA2900389D71 /* IntentError.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
 				CD5507DC2A6C359500F2BD03 /* Format+Util.swift in Sources */,
 				CD0CA9C82C4BAF6000A70A2B /* IncrementCounterIntent.swift in Sources */,
@@ -743,7 +745,7 @@
 			children = (
 				CD1E318B2A5BA4EC003B76C7 /* Base */,
 				CD53C9262BCA1EF000927CAD /* fr */,
-				CD53C9282BCA1F3600927CAD /* en */,
+				CDA39C5A2CD7EDD100757B37 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -773,7 +775,7 @@
 				INFOPLIST_FILE = HifdhTrackerWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HifdhTrackerWidgets;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -805,7 +807,7 @@
 				INFOPLIST_FILE = HifdhTrackerWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HifdhTrackerWidgets;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -963,7 +965,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -998,7 +1000,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

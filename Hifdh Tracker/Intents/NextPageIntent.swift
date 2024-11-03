@@ -11,9 +11,12 @@ import AppIntents
 struct NextPageIntent: AppIntent {// OpenIntent for intents that open your app
     static var title: LocalizedStringResource = "Suggested Next Page"
 
-    func perform() async throws -> some IntentResult & ReturnsValue<PageEntity> {
+    func perform() async throws -> some IntentResult & ReturnsValue<PageEntity?> & ProvidesDialog {
         guard SubscriptionManager.shared.isPremium else {
-            throw IntentError.notPremium
+            return .result(
+                value: nil,
+                dialog: .init(stringLiteral: "This feature requires a premium subscription. please open the app to adjust your settings.")
+            )
         }
         var page: PageEntity? = nil
         withCoreData { context in
@@ -22,8 +25,16 @@ struct NextPageIntent: AppIntent {// OpenIntent for intents that open your app
             })?.pageNumber
             page = PageEntity(pageNumber: Int(pageNumber ?? 0))
         }
-        let defaultValue = PageEntity(pageNumber: 0)
-        return .result(value: page ?? defaultValue)
+        var dialog = ""
+        if let page {
+            dialog = "The next suggested page is \(page)"
+        } else {
+            dialog = "We could not determine the next page. please open the app to refresh shortcut availability"
+        }
+        return .result(
+            value: page,
+            dialog: .init(stringLiteral: dialog)
+        )
     }
 }
 

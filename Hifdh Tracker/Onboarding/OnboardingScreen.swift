@@ -21,7 +21,7 @@ struct OnboardingScreen {
             image: UIImage(named: "onboarding2")!
         ),
         OnboardingScreen(
-            caption: NSLocalizedString("View your stats on the “Profile” tab", comment: "use the profile tab to view stats"),
+            caption: NSLocalizedString("View your stats on the “Stats” tab", comment: "use the stats tab to view stats"),
             image: UIImage(named: "onboarding3")!
         ),
         OnboardingScreen(

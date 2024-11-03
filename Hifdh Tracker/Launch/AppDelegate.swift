@@ -31,9 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         registerNotifHandlers()
 
-        HTShortcuts.updateAppShortcutParameters()
         Task { @MainActor in
             await SubscriptionManager.shared.updatePurchasedProducts()
+            if SubscriptionManager.shared.isPremium {
+                HTShortcuts.updateAppShortcutParameters()
+            }
         }
         return true
     }

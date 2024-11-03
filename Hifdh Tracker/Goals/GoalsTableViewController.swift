@@ -23,6 +23,12 @@ class GoalsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     override func viewWillAppear(_ animated: Bool) {
+        Task {
+            await SubscriptionManager.shared.updatePurchasedProducts()
+            if !SubscriptionManager.shared.isPremium {
+                FullscreenCoverManager.shared.presentFullscreenCover()
+            }
+        }
         configureViews()
     }
     

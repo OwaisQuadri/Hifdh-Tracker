@@ -43,8 +43,11 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if !SubscriptionManager.shared.isPremium {
-            FullscreenCoverManager.shared.presentFullscreenCover()
+        Task {
+            await SubscriptionManager.shared.updatePurchasedProducts()
+            if !SubscriptionManager.shared.isPremium {
+                FullscreenCoverManager.shared.presentFullscreenCover()
+            }
         }
         // update all views
         configureViews()
@@ -104,11 +107,22 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             onboardingController.modalPresentationStyle = .fullScreen
             self.present(onboardingController, animated: true)
         }
-//        let buyMeACoffeeMenuItem = UIAction(title: Localized.buyMeACoffee, image: UIImage(systemName: "cup.and.saucer.fill")) {[weak self]_ in
-//            IAPManager.shared.purchaseProduct(withId: HTProduct.buyMeACoffee.id)
-//            self?.resignFirstResponder()
-//        }
-        let topRightMenu = UIMenu(children: [/*buyMeACoffeeMenuItem,*/ showOnboardingMenuItem, resetAllDataMenuItem])
+        let manageSubscription = UIAction(title: Localized.manageSubscription, image: UIImage(systemName: "star.circle")) {[weak self]_ in
+            guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+                return
+            }
+            Task {
+                try await AppStore.showManageSubscriptions(in: scene)
+            }
+            self?.resignFirstResponder()
+        }
+        let topRightMenu = UIMenu(
+            children: [
+                manageSubscription,
+                showOnboardingMenuItem,
+                resetAllDataMenuItem
+            ]
+        )
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(systemName: "gear"), primaryAction: nil, menu: topRightMenu)
         
         view.layoutSubviews(duration: 0.5)
@@ -236,6 +250,7 @@ extension Localized {
     static let showTutorial = NSLocalizedString("Show Tutorial", comment: "Show Tutorial menu item")
     static let resetAllData = NSLocalizedString("Reset All Data", comment: "Reset All Data menu item")
     static let buyMeACoffee = NSLocalizedString("Buy Me a Coffee", comment: "Buy Me a Coffee menu item")
+    static let manageSubscription = NSLocalizedString("Manage Subscription", comment: "edit subscription menu item")
     static let areYouSure = NSLocalizedString("Are you sure you want to delete all your data?", comment: "Data deletion alert message")
     static let warningExclamation = NSLocalizedString("Warning!", comment: "Warning alert title")
     static let cancel = NSLocalizedString("Cancel", comment: "Cancel alert button")

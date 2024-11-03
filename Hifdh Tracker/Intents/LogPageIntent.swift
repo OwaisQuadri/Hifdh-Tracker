@@ -17,7 +17,9 @@ struct LogPageIntent: AppIntent {// OpenIntent for intents that open your app
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         guard SubscriptionManager.shared.isPremium else {
-            throw IntentError.notPremium
+            return .result(
+                dialog: .init(stringLiteral: "This feature requires a premium subscription. please open the app to adjust your settings.")
+            )
         }
         await MainActor.run {
             withCoreData {_ in 

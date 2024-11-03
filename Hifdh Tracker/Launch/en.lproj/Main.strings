@@ -2,8 +2,8 @@
 /* Class = "UILabel"; text = "ErrorLabel"; ObjectID = "2id-2X-JrM"; */
 "2id-2X-JrM.text" = "ErrorLabel";
 
-/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "5ra-sA-DxG"; */
-"5ra-sA-DxG.title" = "Profile";
+/* Class = "UINavigationItem"; title = "Stats"; ObjectID = "5ra-sA-DxG"; */
+"5ra-sA-DxG.title" = "Stats";
 
 /* Class = "UIViewController"; title = "OnboardingViewController"; ObjectID = "5yO-vt-W6C"; */
 "5yO-vt-W6C.title" = "OnboardingViewController";
@@ -74,6 +74,9 @@
 /* Class = "UILabel"; text = "pages per"; ObjectID = "POW-aW-R8M"; */
 "POW-aW-R8M.text" = "pages per";
 
+/* Class = "UIViewController"; title = "Counter"; ObjectID = "SnE-IN-awV"; */
+"SnE-IN-awV.title" = "Counter";
+
 /* Class = "UIBarButtonItem"; title = "100%"; ObjectID = "U92-7o-P1x"; */
 "U92-7o-P1x.title" = "100%";
 
@@ -107,8 +110,11 @@
 /* Class = "UILabel"; text = "Date Goal"; ObjectID = "ecr-3w-rLx"; */
 "ecr-3w-rLx.text" = "Date Goal";
 
-/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "ihN-LK-Pdd"; */
-"ihN-LK-Pdd.title" = "Profile";
+/* Class = "UITabBarItem"; title = "Counter"; ObjectID = "iHg-A0-7D6"; */
+"iHg-A0-7D6.title" = "Counter";
+
+/* Class = "UITabBarItem"; title = "Stats"; ObjectID = "ihN-LK-Pdd"; */
+"ihN-LK-Pdd.title" = "Stats";
 
 /* Class = "UITextField"; placeholder = "Date Goal"; ObjectID = "lvk-7m-2cK"; */
 "lvk-7m-2cK.placeholder" = "Date Goal";

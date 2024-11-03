@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%.2f per" : {
       "comment" : "2 decimal number representing pages, memorized per time period",
       "localizations" : {
@@ -129,6 +132,9 @@
     "A Page from the Mushaf Al-Madinah Quran (1-604)" : {
 
     },
+    "All features, widgets, shortcuts, and more to supplement your hifdh journey!" : {
+
+    },
     "Are you sure you want to delete all your data?" : {
       "comment" : "Data deletion alert message",
       "localizations" : {
@@ -205,6 +211,12 @@
         }
       }
     },
+    "Counter has been incremented." : {
+
+    },
+    "Counter has been reset." : {
+
+    },
     "Counter Widget" : {
 
     },
@@ -274,7 +286,7 @@
         }
       }
     },
-    "Hifdh Tracker Counter" : {
+    "Hifdh Tracker Premium" : {
 
     },
     "Increment the Counter" : {
@@ -282,6 +294,9 @@
     },
     "Log a Page" : {
 
+    },
+    "Manage Subscription" : {
+      "comment" : "edit subscription menu item"
     },
     "Mark ${page} as Memorized" : {
 
@@ -413,6 +428,9 @@
         }
       }
     },
+    "Please upgrade to Premium" : {
+
+    },
     "Predicted Hifdh Completion" : {
       "comment" : "Predicted Hifdh Completion title",
       "localizations" : {
@@ -423,6 +441,9 @@
           }
         }
       }
+    },
+    "Privacy Policy" : {
+
     },
     "Purchase failed. Please try again later." : {
       "comment" : "inform user that purchase failed",
@@ -532,6 +553,12 @@
     "Suggested Page" : {
 
     },
+    "Terms of Service" : {
+
+    },
+    "This feature requires a premium subscription. please open the app to adjust your settings." : {
+
+    },
     "This is a widget." : {
 
     },
@@ -570,6 +597,7 @@
     },
     "View your stats on the “Profile” tab" : {
       "comment" : "use the profile tab to view stats",
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -578,6 +606,9 @@
           }
         }
       }
+    },
+    "View your stats on the “Stats” tab" : {
+      "comment" : "use the stats tab to view stats"
     },
     "Warning!" : {
       "comment" : "Warning alert title",

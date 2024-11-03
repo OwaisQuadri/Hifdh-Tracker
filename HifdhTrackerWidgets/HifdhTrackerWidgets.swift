@@ -11,11 +11,23 @@ import AppIntents
 
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        return SimpleEntry(date: Date(), counter: getCounter(), maxCounter: getMaxCounter(), configuration: ConfigurationAppIntent())
+        return SimpleEntry(
+            date: Date(),
+            counter: getCounter(),
+            maxCounter: getMaxCounter(),
+            configuration: ConfigurationAppIntent(),
+            isPremium: SubscriptionManager.shared.isPremium
+        )
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), counter: getCounter(), maxCounter: getMaxCounter(), configuration: configuration)
+        SimpleEntry(
+            date: Date(),
+            counter: getCounter(),
+            maxCounter: getMaxCounter(),
+            configuration: configuration,
+            isPremium: SubscriptionManager.shared.isPremium
+        )
     }
 
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
@@ -25,7 +37,13 @@ struct Provider: AppIntentTimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .minute, value: hourOffset * 15, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, counter: getCounter(), maxCounter: getMaxCounter(), configuration: configuration)
+            let entry = SimpleEntry(
+                date: entryDate,
+                counter: getCounter(),
+                maxCounter: getMaxCounter(),
+                configuration: configuration,
+                isPremium: SubscriptionManager.shared.isPremium
+            )
             entries.append(entry)
         }
 
@@ -48,40 +66,48 @@ struct SimpleEntry: TimelineEntry {
     let counter: Int
     let maxCounter: Int
     let configuration: ConfigurationAppIntent
+    let isPremium: Bool
 }
 
 struct HifdhTrackerWidgetsEntryView : View {
     var entry: Provider.Entry
     var body: some View {
         ZStack {
-            Text("\(entry.counter)/\(entry.maxCounter)")
-                .contentTransition(.numericText())
-                .monospacedDigit()
-                .font(.largeTitle).bold()
+            if entry.isPremium {
+                Text("\(entry.counter)/\(entry.maxCounter)")
+                    .contentTransition(.numericText())
+                    .monospacedDigit()
+                    .font(.largeTitle).bold()
+            }
             VStack(alignment: .center) {
-                Text("Hifdh Tracker Counter")
+                Text("Counter Widget")
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.secondary)
                     .font(.caption)
-                Spacer()
-                HStack(alignment: .center) {
-                    Button(intent: ResetCounterIntent()) {
-                        Image(systemName: "arrow.counterclockwise")
-                            .font(.title).bold()
-                            .frame(width: 40, height: 40)
-                    }
-                    .aspectRatio(1, contentMode: .fit)
+                if entry.isPremium {
                     Spacer()
-                    Button(intent: IncrementCounterIntent()) {
-                        Image(systemName: entry.counter + 1 == entry.maxCounter ? "checkmark" : "plus")
-                            .font(.title).bold()
-                            .frame(width: 40, height: 40)
-                            .contentTransition(.symbolEffect(.replace))
+                    HStack(alignment: .center) {
+                        Button(intent: ResetCounterIntent()) {
+                            Image(systemName: "arrow.counterclockwise")
+                                .font(.title).bold()
+                                .frame(width: 40, height: 40)
+                        }
+                        .aspectRatio(1, contentMode: .fit)
+                        Spacer()
+                        Button(intent: IncrementCounterIntent()) {
+                            Image(systemName: entry.counter + 1 == entry.maxCounter ? "checkmark" : "plus")
+                                .font(.title).bold()
+                                .frame(width: 40, height: 40)
+                                .contentTransition(.symbolEffect(.replace))
+                        }
+                        .aspectRatio(1, contentMode: .fit)
                     }
-                    .aspectRatio(1, contentMode: .fit)
+                    .tint(.accent)
+                } else {
+                    Text("Please upgrade to Premium")
                 }
-                .tint(.accent)
             }
+            .multilineTextAlignment(.center)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }

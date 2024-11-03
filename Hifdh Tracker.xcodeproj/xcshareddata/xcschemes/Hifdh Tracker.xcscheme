@@ -51,7 +51,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../Hifdh Tracker/Hifdh Tracker.storekit">
+         identifier = "../Hifdh Tracker: Quran Aid.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

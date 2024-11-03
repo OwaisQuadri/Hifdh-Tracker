@@ -16,7 +16,9 @@ struct IncrementCounterIntent: AppIntent {
     }
     func perform() async throws -> some IntentResult {
         guard SubscriptionManager.shared.isPremium else {
-            throw IntentError.notPremium
+            return .result(
+                dialog: .init(stringLiteral: "This feature requires a premium subscription. please open the app to adjust your settings.")
+            )
         }
         var counter: Int =  defaults.integer(forKey: "counter") {
             didSet {
@@ -45,7 +47,9 @@ struct IncrementCounterIntent: AppIntent {
         } else {
             Haptics.shared.play(.soft)
         }
-        return .result()
+        return .result(
+            dialog: .init(stringLiteral: "Counter has been incremented.")
+        )
     }
 
 }
@@ -55,6 +59,11 @@ struct ResetCounterIntent: AppIntent {
         UserDefaults(suiteName: "group.HifdhTracker") ?? .standard
     }
     func perform() async throws -> some IntentResult {
+        guard SubscriptionManager.shared.isPremium else {
+            return .result(
+                dialog: .init(stringLiteral: "This feature requires a premium subscription. please open the app to adjust your settings.")
+            )
+        }
         var counter: Int =  defaults.integer(forKey: "counter") {
             didSet {
                 defaults.setValue(counter, forKey: "counter")
@@ -62,7 +71,9 @@ struct ResetCounterIntent: AppIntent {
         }
         counter = 0
         Haptics.shared.notify(.success)
-        return .result()
+        return .result(
+            dialog: .init(stringLiteral: "Counter has been reset.")
+        )
     }
 
 }

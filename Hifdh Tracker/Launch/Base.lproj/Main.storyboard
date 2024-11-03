@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4q-4S-Kdu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4q-4S-Kdu">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -726,7 +726,7 @@
             </objects>
             <point key="canvasLocation" x="542.74809160305347" y="-388.02816901408454"/>
         </scene>
-        <!--Profile-->
+        <!--Stats-->
         <scene sceneID="cDd-Bx-290">
             <objects>
                 <viewController id="2eE-ZI-AF1" customClass="ProfileViewController" customModule="Hifdh_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -827,7 +827,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Profile" id="5ra-sA-DxG">
+                    <navigationItem key="navigationItem" title="Stats" id="5ra-sA-DxG">
                         <barButtonItem key="leftBarButtonItem" title="100%" id="U92-7o-P1x">
                             <color key="tintColor" name="AccentColor"/>
                         </barButtonItem>
@@ -865,11 +865,11 @@
             </objects>
             <point key="canvasLocation" x="553" y="1075"/>
         </scene>
-        <!--Profile-->
+        <!--Stats-->
         <scene sceneID="Vab-k6-aFn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z31-Ws-aqo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle" catalog="system" id="ihN-LK-Pdd"/>
+                    <tabBarItem key="tabBarItem" title="Stats" image="chart.xyaxis.line" catalog="system" id="ihN-LK-Pdd"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Ilh-rJ-svj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aBK-Aa-RjW">
@@ -923,11 +923,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.down" catalog="system" width="32" height="32"/>
+        <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="figure.climbing" catalog="system" width="108" height="128"/>
         <image name="onboarding" width="645" height="1398"/>
-        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
-        <image name="plus" catalog="system" width="32" height="32"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.6588235294117647" green="0.47450980392156861" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
