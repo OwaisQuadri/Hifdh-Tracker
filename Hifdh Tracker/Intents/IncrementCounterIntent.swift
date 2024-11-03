@@ -17,7 +17,7 @@ struct IncrementCounterIntent: AppIntent {
     func perform() async throws -> some IntentResult {
         guard SubscriptionManager.shared.isPremium else {
             return .result(
-                dialog: .init(stringLiteral: "This feature requires a premium subscription. please open the app to adjust your settings.")
+                dialog: .init(stringLiteral: "This feature requires a premium subscription. Please open the app to adjust your settings.")
             )
         }
         var counter: Int =  defaults.integer(forKey: "counter") {
@@ -62,7 +62,7 @@ struct ResetCounterIntent: AppIntent {
     func perform() async throws -> some IntentResult {
         guard SubscriptionManager.shared.isPremium else {
             return .result(
-                dialog: .init(stringLiteral: "This feature requires a premium subscription. please open the app to adjust your settings.")
+                dialog: .init(stringLiteral: "This feature requires a premium subscription. Please open the app to adjust your settings.")
             )
         }
         var counter: Int =  defaults.integer(forKey: "counter") {

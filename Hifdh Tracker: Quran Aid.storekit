@@ -34,7 +34,7 @@
     "_applicationInternalID" : "6451350122",
     "_developerTeamID" : "944MKRCGTA",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 752349976.38694704,
+    "_lastSynchronizedDate" : 752359127.56551397,
     "_locale" : "en_CA",
     "_storefront" : "CAN",
     "_storeKitErrors" : [
@@ -128,7 +128,7 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "1.99",
+          "displayPrice" : "2.99",
           "familyShareable" : false,
           "groupNumber" : 2,
           "internalID" : "6737742806",

@@ -15,7 +15,7 @@ struct NextPageIntent: AppIntent {// OpenIntent for intents that open your app
         guard SubscriptionManager.shared.isPremium else {
             return .result(
                 value: nil,
-                dialog: .init(stringLiteral: "This feature requires a premium subscription. please open the app to adjust your settings.")
+                dialog: .init(stringLiteral: "This feature requires a premium subscription. Please open the app to adjust your settings.")
             )
         }
         var page: PageEntity? = nil
@@ -25,15 +25,15 @@ struct NextPageIntent: AppIntent {// OpenIntent for intents that open your app
             })?.pageNumber
             page = PageEntity(pageNumber: Int(pageNumber ?? 0))
         }
-        var dialog = ""
+        var dialog: IntentDialog
         if let page {
-            dialog = "The next suggested page is \(page)"
+            dialog = .init("The next suggested page is \(page)")
         } else {
-            dialog = "We could not determine the next page. please open the app to refresh shortcut availability"
+            dialog = .init("We could not determine the next page. please open the app to refresh shortcut availability")
         }
         return .result(
             value: page,
-            dialog: .init(stringLiteral: dialog)
+            dialog: dialog
         )
     }
 }

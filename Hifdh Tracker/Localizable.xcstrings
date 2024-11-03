@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "%.2f per" : {
       "comment" : "2 decimal number representing pages, memorized per time period",
       "localizations" : {
@@ -26,14 +23,21 @@
       }
     },
     "%@ was  logged as memorized" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ a été enregistré comme mémorisé"
+          }
+        }
+      }
     },
     "%0.f of %0.f pages" : {
       "comment" : "the user has logged %d pages out of a goal of %d pages",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "%1$.f pages sur %2$.f"
           }
         }
@@ -57,7 +61,8 @@
             "value" : "%1$lld/%2$lld"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "3" : {
       "localizations" : {
@@ -130,10 +135,24 @@
       }
     },
     "A Page from the Mushaf Al-Madinah Quran (1-604)" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une page du Mushaf Al-Madinah Quran (1-604)"
+          }
+        }
+      }
     },
     "All features, widgets, shortcuts, and more to supplement your hifdh journey!" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toutes les fonctionnalités, widgets, raccourcis et bien plus pour accompagner votre parcours de hifdh!"
+          }
+        }
+      }
     },
     "Are you sure you want to delete all your data?" : {
       "comment" : "Data deletion alert message",
@@ -212,13 +231,34 @@
       }
     },
     "Counter has been incremented." : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le compteur a été incrémenté."
+          }
+        }
+      }
     },
     "Counter has been reset." : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le compteur a été réinitialisé."
+          }
+        }
+      }
     },
     "Counter Widget" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget de compteur"
+          }
+        }
+      }
     },
     "Create and edit your goals in the “Goals” tab by pressing the “+” button" : {
       "comment" : "add and edit goals",
@@ -287,19 +327,55 @@
       }
     },
     "Hifdh Tracker Premium" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hifdh Tracker Premium"
+          }
+        }
+      }
     },
     "Increment the Counter" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incrémenter le compteur"
+          }
+        }
+      }
     },
     "Log a Page" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer une page"
+          }
+        }
+      }
     },
     "Manage Subscription" : {
-      "comment" : "edit subscription menu item"
+      "comment" : "edit subscription menu item",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gérer l'abonnement"
+          }
+        }
+      }
     },
     "Mark ${page} as Memorized" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marquer ${page} comme mémorisé"
+          }
+        }
+      }
     },
     "Month" : {
       "comment" : "Title for the x-coord of the chart data points",
@@ -346,10 +422,24 @@
       }
     },
     "Open Counter Session" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la session de compteur"
+          }
+        }
+      }
     },
     "Page" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page"
+          }
+        }
+      }
     },
     "Pages" : {
       "comment" : "Title for the y-coord of the chart data points",
@@ -429,7 +519,14 @@
       }
     },
     "Please upgrade to Premium" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez passer à la version Premium"
+          }
+        }
+      }
     },
     "Predicted Hifdh Completion" : {
       "comment" : "Predicted Hifdh Completion title",
@@ -443,7 +540,14 @@
       }
     },
     "Privacy Policy" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Politique de confidentialité"
+          }
+        }
+      }
     },
     "Purchase failed. Please try again later." : {
       "comment" : "inform user that purchase failed",
@@ -489,7 +593,14 @@
       }
     },
     "Reset the Counter" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser le compteur"
+          }
+        }
+      }
     },
     "Save" : {
       "comment" : "Save button title",
@@ -534,7 +645,14 @@
       }
     },
     "Shows the current counter state. Pressing the background will take you to the in-app counter." : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Affiche l'état actuel du compteur. Appuyer sur l'arrière-plan vous amènera au compteur dans l'application."
+          }
+        }
+      }
     },
     "Start Date:" : {
       "comment" : "Start Date: row title",
@@ -548,19 +666,57 @@
       }
     },
     "Suggested Next Page" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page suivante suggérée"
+          }
+        }
+      }
     },
     "Suggested Page" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page suggérée"
+          }
+        }
+      }
     },
     "Terms of Service" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conditions d'utilisation"
+          }
+        }
+      }
     },
-    "This feature requires a premium subscription. please open the app to adjust your settings." : {
-
+    "The next suggested page is %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La prochaine page suggérée est %@"
+          }
+        }
+      }
+    },
+    "This feature requires a premium subscription. Please open the app to adjust your settings." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette fonctionnalité nécessite un abonnement premium. Veuillez ouvrir l'application pour ajuster vos paramètres."
+          }
+        }
+      }
     },
     "This is a widget." : {
-
+      "shouldTranslate" : false
     },
     "Today's Date:" : {
       "comment" : "Today's Date: row title",
@@ -595,20 +751,16 @@
         }
       }
     },
-    "View your stats on the “Profile” tab" : {
-      "comment" : "use the profile tab to view stats",
-      "extractionState" : "stale",
+    "View your stats on the “Stats” tab" : {
+      "comment" : "use the stats tab to view stats",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Consultez vos statistiques sur l'onglet \"Profil\""
+            "value" : "Voir vos statistiques dans l'onglet « Stats »"
           }
         }
       }
-    },
-    "View your stats on the “Stats” tab" : {
-      "comment" : "use the stats tab to view stats"
     },
     "Warning!" : {
       "comment" : "Warning alert title",
@@ -621,8 +773,18 @@
         }
       }
     },
+    "We could not determine the next page. please open the app to refresh shortcut availability" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous n'avons pas pu déterminer la page suivante. Veuillez ouvrir l'application pour actualiser la disponibilité des raccourcis."
+          }
+        }
+      }
+    },
     "Widget Intent" : {
-
+      "shouldTranslate" : false
     },
     "Yes, I'm sure" : {
       "comment" : "Delete Data alert primary button",
