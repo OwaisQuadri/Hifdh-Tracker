@@ -27,17 +27,10 @@
     },
     "%0.f of %0.f pages" : {
       "comment" : "the user has logged %d pages out of a goal of %d pages",
-      "extractionState" : "extracted_with_value",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$.f of %2$.f pages"
-          }
-        },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%1$.f pages sur %2$.f"
           }
         }
@@ -288,6 +281,9 @@
 
     },
     "Log a Page" : {
+
+    },
+    "Mark ${page} as Memorized" : {
 
     },
     "Month" : {

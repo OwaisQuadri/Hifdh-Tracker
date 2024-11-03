@@ -47,6 +47,12 @@
 		CD1E31CF2A5BD258003B76C7 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */; };
 		CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */; };
 		CD25FE912A6A0874009D7759 /* UIView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25FE902A6A0874009D7759 /* UIView+Util.swift */; };
+		CD35E6C52CD7D8DE00389D71 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6C42CD7D8D400389D71 /* SubscriptionManager.swift */; };
+		CD35E6C72CD7DA2900389D71 /* IntentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6C62CD7DA1C00389D71 /* IntentError.swift */; };
+		CD35E6C82CD7DA2900389D71 /* IntentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6C62CD7DA1C00389D71 /* IntentError.swift */; };
+		CD35E6C92CD7DA5100389D71 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6C42CD7D8D400389D71 /* SubscriptionManager.swift */; };
+		CD35E6CC2CD7DC2200389D71 /* FullscreenCoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6CA2CD7DC2200389D71 /* FullscreenCoverManager.swift */; };
+		CD35E6CF2CD7DCAF00389D71 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35E6CE2CD7DCAF00389D71 /* PaywallView.swift */; };
 		CD46065E2A5CF0EA002F2F3F /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */; };
 		CD53C9212BC966B100927CAD /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53C9202BC966B100927CAD /* IAPManager.swift */; };
 		CD53C9242BC9762400927CAD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53C9232BC9762400927CAD /* StoreKit.framework */; };
@@ -159,6 +165,11 @@
 		CD1E31CD2A5BD258003B76C7 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD1E31CE2A5BD258003B76C7 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD25FE902A6A0874009D7759 /* UIView+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Util.swift"; sourceTree = "<group>"; };
+		CD35E6C42CD7D8D400389D71 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		CD35E6C62CD7DA1C00389D71 /* IntentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentError.swift; sourceTree = "<group>"; };
+		CD35E6CA2CD7DC2200389D71 /* FullscreenCoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenCoverManager.swift; sourceTree = "<group>"; };
+		CD35E6CE2CD7DCAF00389D71 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		CD35E6D02CD7E1FB00389D71 /* Hifdh Tracker: Quran Aid.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Hifdh Tracker: Quran Aid.storekit"; sourceTree = "<group>"; };
 		CD46065D2A5CF0EA002F2F3F /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
 		CD53C9202BC966B100927CAD /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		CD53C9232BC9762400927CAD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -263,6 +274,7 @@
 		CD1E31782A5BA4EC003B76C7 = {
 			isa = PBXGroup;
 			children = (
+				CD35E6D02CD7E1FB00389D71 /* Hifdh Tracker: Quran Aid.storekit */,
 				CD0CA9A82C4B6A7500A70A2B /* HifdhTrackerWidgetsExtension.entitlements */,
 				CDA888702BCB19C500336389 /* PrivacyManifest.xcprivacy */,
 				CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */,
@@ -288,6 +300,7 @@
 		CD1E31832A5BA4EC003B76C7 /* Hifdh Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				CD35E6CD2CD7DCA200389D71 /* Paywall */,
 				CD5B121A2BCBA64B004D0FC9 /* Hifdh Tracker.entitlements */,
 				CD53C9252BC976BC00927CAD /* Hifdh Tracker.storekit */,
 				CD53C92B2BCA20DE00927CAD /* Localizable.xcstrings */,
@@ -361,10 +374,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		CD35E6CD2CD7DCA200389D71 /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				CD35E6CA2CD7DC2200389D71 /* FullscreenCoverManager.swift */,
+				CD35E6CE2CD7DCAF00389D71 /* PaywallView.swift */,
+			);
+			path = Paywall;
+			sourceTree = "<group>";
+		};
 		CD53C91F2BC9669A00927CAD /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				CD53C9202BC966B100927CAD /* IAPManager.swift */,
+				CD35E6C42CD7D8D400389D71 /* SubscriptionManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -425,6 +448,7 @@
 		CDF2480D2C2781EF0012D16B /* Intents */ = {
 			isa = PBXGroup;
 			children = (
+				CD35E6C62CD7DA1C00389D71 /* IntentError.swift */,
 				CDF2480E2C2782170012D16B /* NextPageIntent.swift */,
 				CDF248102C27835C0012D16B /* LogPageIntent.swift */,
 				CD0CA9892C4B5A9000A70A2B /* OpenCounterIntent.swift */,
@@ -614,9 +638,11 @@
 				CD0CA9BE2C4B871700A70A2B /* TimeInterval+Util.swift in Sources */,
 				CD0CA9982C4B662E00A70A2B /* HifdhTrackerWidgetsLiveActivity.swift in Sources */,
 				CD0CA9C62C4BA47400A70A2B /* Hifdh_Tracker.xcdatamodeld in Sources */,
+				CD35E6C72CD7DA2900389D71 /* IntentError.swift in Sources */,
 				CD0CA9CA2C4BB25700A70A2B /* Haptics+Util.swift in Sources */,
 				CD0CA9C42C4B89A000A70A2B /* Goal+CoreDataClass.swift in Sources */,
 				CD0CA9BF2C4B890F00A70A2B /* Page+CoreDataProperties.swift in Sources */,
+				CD35E6C92CD7DA5100389D71 /* SubscriptionManager.swift in Sources */,
 				CD0CA9AB2C4B74BE00A70A2B /* OpenCounterIntent.swift in Sources */,
 				CD0CA99A2C4B662E00A70A2B /* HifdhTrackerWidgets.swift in Sources */,
 				CD0CA9C92C4BB23400A70A2B /* IncrementCounterIntent.swift in Sources */,
@@ -646,6 +672,7 @@
 				CD0CA9A72C4B676400A70A2B /* HifdhTrackerWidgets.swift in Sources */,
 				CD5507D72A6C17DC00F2BD03 /* Date+Util.swift in Sources */,
 				CDF2482F2C27C6DC0012D16B /* NextPageIntent.swift in Sources */,
+				CD35E6CC2CD7DC2200389D71 /* FullscreenCoverManager.swift in Sources */,
 				CD1E31C22A5BB8AE003B76C7 /* DateTableViewCell.swift in Sources */,
 				CDB07BCA2A71E68500DCAA32 /* OnboardingViewController.swift in Sources */,
 				CD0CA98A2C4B5A9000A70A2B /* OpenCounterIntent.swift in Sources */,
@@ -659,11 +686,14 @@
 				CD5507F92A6D877E00F2BD03 /* Goal+CoreDataClass.swift in Sources */,
 				CD7A4EFF2A6E2E5600CB9F8C /* MemorizationHistory.swift in Sources */,
 				CDB07BCD2A720EB600DCAA32 /* OnboardingScreen.swift in Sources */,
+				CD35E6CF2CD7DCAF00389D71 /* PaywallView.swift in Sources */,
 				CD5B121C2BCBAB6E004D0FC9 /* Haptics+Util.swift in Sources */,
 				CDB07BCF2A720F4300DCAA32 /* OnboardingCell.swift in Sources */,
+				CD35E6C82CD7DA2900389D71 /* IntentError.swift in Sources */,
 				CD1E31872A5BA4EC003B76C7 /* SceneDelegate.swift in Sources */,
 				CD5507DC2A6C359500F2BD03 /* Format+Util.swift in Sources */,
 				CD0CA9C82C4BAF6000A70A2B /* IncrementCounterIntent.swift in Sources */,
+				CD35E6C52CD7D8DE00389D71 /* SubscriptionManager.swift in Sources */,
 				CD0CA9B52C4B853300A70A2B /* PageEntity.swift in Sources */,
 				CD6900492A633FD8003E2153 /* ConfigTableViewCell.swift in Sources */,
 				CDA888752BCB329A00336389 /* CountersViewController.swift in Sources */,
@@ -933,7 +963,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -968,7 +998,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

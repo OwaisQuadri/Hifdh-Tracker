@@ -43,6 +43,9 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if !SubscriptionManager.shared.isPremium {
+            FullscreenCoverManager.shared.presentFullscreenCover()
+        }
         // update all views
         configureViews()
     }
@@ -101,11 +104,11 @@ class ProfileViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             onboardingController.modalPresentationStyle = .fullScreen
             self.present(onboardingController, animated: true)
         }
-        let buyMeACoffeeMenuItem = UIAction(title: Localized.buyMeACoffee, image: UIImage(systemName: "cup.and.saucer.fill")) {[weak self]_ in
-            IAPManager.shared.purchaseProduct(withId: HTProduct.buyMeACoffee.id)
-            self?.resignFirstResponder()
-        }
-        let topRightMenu = UIMenu(children: [buyMeACoffeeMenuItem, showOnboardingMenuItem, resetAllDataMenuItem])
+//        let buyMeACoffeeMenuItem = UIAction(title: Localized.buyMeACoffee, image: UIImage(systemName: "cup.and.saucer.fill")) {[weak self]_ in
+//            IAPManager.shared.purchaseProduct(withId: HTProduct.buyMeACoffee.id)
+//            self?.resignFirstResponder()
+//        }
+        let topRightMenu = UIMenu(children: [/*buyMeACoffeeMenuItem,*/ showOnboardingMenuItem, resetAllDataMenuItem])
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(systemName: "gear"), primaryAction: nil, menu: topRightMenu)
         
         view.layoutSubviews(duration: 0.5)

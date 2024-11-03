@@ -16,6 +16,9 @@ struct LogPageIntent: AppIntent {// OpenIntent for intents that open your app
     var page: PageEntity
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
+        guard SubscriptionManager.shared.isPremium else {
+            throw IntentError.notPremium
+        }
         await MainActor.run {
             withCoreData {_ in 
                 let currentPage = Page.logs[page.pageNumber-1]

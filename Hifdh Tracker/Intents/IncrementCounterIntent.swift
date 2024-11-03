@@ -15,6 +15,9 @@ struct IncrementCounterIntent: AppIntent {
         UserDefaults(suiteName: "group.HifdhTracker") ?? .standard
     }
     func perform() async throws -> some IntentResult {
+        guard SubscriptionManager.shared.isPremium else {
+            throw IntentError.notPremium
+        }
         var counter: Int =  defaults.integer(forKey: "counter") {
             didSet {
                 defaults.setValue(counter, forKey: "counter")

@@ -12,6 +12,9 @@ struct NextPageIntent: AppIntent {// OpenIntent for intents that open your app
     static var title: LocalizedStringResource = "Suggested Next Page"
 
     func perform() async throws -> some IntentResult & ReturnsValue<PageEntity> {
+        guard SubscriptionManager.shared.isPremium else {
+            throw IntentError.notPremium
+        }
         var page: PageEntity? = nil
         withCoreData { context in
             let pageNumber = Page.fetchPages(in: context).first(where: {
