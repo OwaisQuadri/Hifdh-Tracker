@@ -30,10 +30,17 @@ final class SubscriptionManager {
     private var isPremiumDebug = true
     private var isPremiumRelease: Bool {
         get {
-            UserDefaults.standard.bool(forKey: "isPremium")
+            let defaults = UserDefaults(
+                suiteName: "group.HifdhTracker"
+            ) ?? .standard
+            let isP = defaults.bool(forKey: "isPremium")
+            return isP
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "isPremium")
+            let defaults = UserDefaults(
+                suiteName: "group.HifdhTracker"
+            ) ?? .standard
+            defaults.set(newValue, forKey: "isPremium")
         }
     }
     var isPremium: Bool {

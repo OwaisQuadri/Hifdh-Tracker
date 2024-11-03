@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import Mixpanel
+import WidgetKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,15 +41,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         registerNotifHandlers()
 
+        return true
+    }
+    func applicationWillEnterForeground(_ application: UIApplication) {
         Task { @MainActor in
             await SubscriptionManager.shared.updatePurchasedProducts()
             if SubscriptionManager.shared.isPremium {
+                WidgetCenter.shared.reloadAllTimelines()
                 HTShortcuts.updateAppShortcutParameters()
             }
         }
-        return true
     }
-
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
