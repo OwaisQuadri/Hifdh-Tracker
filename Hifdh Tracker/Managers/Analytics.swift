@@ -11,6 +11,7 @@ enum Screen: String {
 }
 enum AnalyticsEvent: String {
     case logPage = "Log a page"
+    case bulkLog = "Bulk Logging"
     case counterIncrement = "Incremented Counter"
     case resetCounter = "Reset Counter"
     case addGoal = "Add a Goal"

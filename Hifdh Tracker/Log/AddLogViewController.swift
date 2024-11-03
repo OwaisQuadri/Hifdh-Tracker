@@ -73,6 +73,7 @@ class AddLogViewController: UIViewController {
                     Page.logs[i].dateMemorized = datePicker.date
                 }
             }}
+        Analytics.shared.track(events: .bulkLog)
         delegate?.saveContext()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
             // Put your code which should be executed with a delay here
