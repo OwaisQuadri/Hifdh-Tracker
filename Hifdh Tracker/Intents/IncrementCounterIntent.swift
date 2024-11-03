@@ -23,9 +23,10 @@ struct IncrementCounterIntent: AppIntent {
         var counter: Int =  defaults.integer(forKey: "counter") {
             didSet {
                 defaults.setValue(counter, forKey: "counter")
+                Analytics.shared.track(events: .counterIncrement)
             }
         }
-        let maxCounter =  defaults.integer(forKey: "maxCounter")
+        let maxCounter = defaults.integer(forKey: "maxCounter")
         counter += 1
         if counter >= maxCounter {
             counter = 0
@@ -67,6 +68,7 @@ struct ResetCounterIntent: AppIntent {
         var counter: Int =  defaults.integer(forKey: "counter") {
             didSet {
                 defaults.setValue(counter, forKey: "counter")
+                Analytics.shared.track(events: .resetCounter)
             }
         }
         counter = 0

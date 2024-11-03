@@ -73,6 +73,10 @@
 		CDA39C5C2CD7EEAC00757B37 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = CDA39C5B2CD7EEAC00757B37 /* StoreKitTestCertificate.cer */; };
 		CDA39C5D2CD7EF1E00757B37 /* Hifdh Tracker: Quran Aid.storekit in Resources */ = {isa = PBXBuildFile; fileRef = CD35E6D02CD7E1FB00389D71 /* Hifdh Tracker: Quran Aid.storekit */; };
 		CDA39C5E2CD7EF4A00757B37 /* Hifdh Tracker: Quran Aid.storekit in Resources */ = {isa = PBXBuildFile; fileRef = CD35E6D02CD7E1FB00389D71 /* Hifdh Tracker: Quran Aid.storekit */; };
+		CDA39C612CD808F900757B37 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = CDA39C602CD808F900757B37 /* Mixpanel */; };
+		CDA39C632CD80A2700757B37 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA39C622CD80A2000757B37 /* Analytics.swift */; };
+		CDA39C642CD80A2700757B37 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA39C622CD80A2000757B37 /* Analytics.swift */; };
+		CDA39C662CD80C5900757B37 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = CDA39C652CD80C5900757B37 /* Mixpanel */; };
 		CDA888732BCB324300336389 /* CountersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA888722BCB324300336389 /* CountersView.swift */; };
 		CDA888752BCB329A00336389 /* CountersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA888742BCB329A00336389 /* CountersViewController.swift */; };
 		CDA888772BCB98F200336389 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDA888762BCB98F200336389 /* beep.mp3 */; };
@@ -193,6 +197,7 @@
 		CD7A4EFE2A6E2E5600CB9F8C /* MemorizationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizationHistory.swift; sourceTree = "<group>"; };
 		CDA39C5A2CD7EDD100757B37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		CDA39C5B2CD7EEAC00757B37 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
+		CDA39C622CD80A2000757B37 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		CDA888702BCB19C500336389 /* PrivacyManifest.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyManifest.xcprivacy; sourceTree = "<group>"; };
 		CDA888722BCB324300336389 /* CountersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersView.swift; sourceTree = "<group>"; };
 		CDA888742BCB329A00336389 /* CountersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA39C662CD80C5900757B37 /* Mixpanel in Frameworks */,
 				CD0CA9932C4B662E00A70A2B /* SwiftUI.framework in Frameworks */,
 				CD0CA9912C4B662E00A70A2B /* WidgetKit.framework in Frameworks */,
 			);
@@ -219,6 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA39C612CD808F900757B37 /* Mixpanel in Frameworks */,
 				CD5507DA2A6C1D5500F2BD03 /* SnapKit in Frameworks */,
 				CD53C9242BC9762400927CAD /* StoreKit.framework in Frameworks */,
 			);
@@ -388,6 +395,7 @@
 		CD53C91F2BC9669A00927CAD /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CDA39C622CD80A2000757B37 /* Analytics.swift */,
 				CD53C9202BC966B100927CAD /* IAPManager.swift */,
 				CD35E6C42CD7D8D400389D71 /* SubscriptionManager.swift */,
 			);
@@ -497,6 +505,7 @@
 			name = "Hifdh Tracker";
 			packageProductDependencies = (
 				CD5507D92A6C1D5500F2BD03 /* SnapKit */,
+				CDA39C602CD808F900757B37 /* Mixpanel */,
 			);
 			productName = "Hifdh Tracker";
 			productReference = CD1E31812A5BA4EC003B76C7 /* Hifdh Tracker.app */;
@@ -576,6 +585,7 @@
 			mainGroup = CD1E31782A5BA4EC003B76C7;
 			packageReferences = (
 				CD5507D82A6C1D5500F2BD03 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CDA39C5F2CD808F900757B37 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 			);
 			productRefGroup = CD1E31822A5BA4EC003B76C7 /* Products */;
 			projectDirPath = "";
@@ -639,6 +649,7 @@
 				CD0CA9C32C4B899E00A70A2B /* Goal+CoreDataProperties.swift in Sources */,
 				CD0CA9AC2C4B7ED400A70A2B /* NextPageIntent.swift in Sources */,
 				CD0CA9962C4B662E00A70A2B /* HifdhTrackerWidgetsBundle.swift in Sources */,
+				CDA39C642CD80A2700757B37 /* Analytics.swift in Sources */,
 				CD0CA9BE2C4B871700A70A2B /* TimeInterval+Util.swift in Sources */,
 				CD0CA9982C4B662E00A70A2B /* HifdhTrackerWidgetsLiveActivity.swift in Sources */,
 				CD0CA9C62C4BA47400A70A2B /* Hifdh_Tracker.xcdatamodeld in Sources */,
@@ -661,6 +672,7 @@
 				CD5507E52A6CCE7200F2BD03 /* addGoalTableViewCell.swift in Sources */,
 				CD0CA9BB2C4B86C500A70A2B /* UserDefaults+Util.swift in Sources */,
 				CD5507D52A6C172500F2BD03 /* PagesPerTimeInterval.swift in Sources */,
+				CDA39C632CD80A2700757B37 /* Analytics.swift in Sources */,
 				CD1E31D02A5BD258003B76C7 /* Page+CoreDataProperties.swift in Sources */,
 				CDA888732BCB324300336389 /* CountersView.swift in Sources */,
 				CD5507E32A6CCE6500F2BD03 /* GoalTableViewCell.swift in Sources */,
@@ -1149,6 +1161,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		CDA39C5F2CD808F900757B37 /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1156,6 +1176,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CD5507D82A6C1D5500F2BD03 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		CDA39C602CD808F900757B37 /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDA39C5F2CD808F900757B37 /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
+		CDA39C652CD80C5900757B37 /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDA39C5F2CD808F900757B37 /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
 		};
 /* End XCSwiftPackageProductDependency section */
 

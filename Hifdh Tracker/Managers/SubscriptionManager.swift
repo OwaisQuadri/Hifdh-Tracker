@@ -11,6 +11,7 @@ import SwiftUI
 
 enum StoreKitProduct: String, CaseIterable {
     case ht_monthly
+    case ht_yearly
 }
 
 
@@ -126,7 +127,9 @@ final class SubscriptionManager {
             ) {
                 switch productId {
                 case .ht_monthly:
-                    debugPrint("log purchase")
+                    Analytics.shared.track(events: .subToPremium_monthly)
+                case .ht_yearly:
+                    Analytics.shared.track(events: .subToPremium_yearly)
                 }
             }
             await transaction.finish()

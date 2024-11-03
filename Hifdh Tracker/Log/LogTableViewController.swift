@@ -41,6 +41,7 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        Analytics.shared.view(screen: .log)
         configureViews()
     }
 
@@ -159,6 +160,7 @@ class LogTableViewController: UITableViewController, UITabBarControllerDelegate 
                     withCoreData {_ in
                         currentPage.isMemorized = !currentPage.isMemorized
                         currentPage.dateMemorized = logCell.datePicker.date
+                        Analytics.shared.track(events: .logPage)
                     }
                     var rowNumber = Int(currentPage.pageNumber) - 1
                     if !UserDefaults.standard.bool(forKey: UserDefaultsKey.isFromFront.rawValue) { rowNumber = 603 - rowNumber}

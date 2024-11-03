@@ -50,6 +50,13 @@
             ReferencedContainer = "container:Hifdh Tracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "mixpanel"
+            value = "102245a28ed613f9a832822ee373133e"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <StoreKitConfigurationFileReference
          identifier = "../Hifdh Tracker: Quran Aid.storekit">
       </StoreKitConfigurationFileReference>

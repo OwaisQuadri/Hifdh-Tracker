@@ -39,6 +39,8 @@ class CountersViewController: UIViewController {
             await SubscriptionManager.shared.updatePurchasedProducts()
             if !SubscriptionManager.shared.isPremium {
                 FullscreenCoverManager.shared.presentFullscreenCover()
+            } else {
+                Analytics.shared.view(screen: .goals)
             }
         }
     }

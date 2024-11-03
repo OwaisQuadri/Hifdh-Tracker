@@ -29,6 +29,7 @@ class FullscreenCoverManager {
                     let hostingController = UIHostingController(rootView: swiftUIView)
                     hostingController.modalPresentationStyle = .fullScreen
                     guard let rootViewController = window.rootViewController else { return }
+                    Analytics.shared.view(screen: .paywall)
                     rootViewController.present(hostingController, animated: true, completion: nil)
                 }
             }

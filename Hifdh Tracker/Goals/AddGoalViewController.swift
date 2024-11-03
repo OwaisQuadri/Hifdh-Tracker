@@ -196,6 +196,7 @@ class AddGoalViewController: UIViewController {
                 }
             }
             delegate?.saveContext()
+            Analytics.shared.track(events: .addGoal)
             if let windowScene = view.window?.windowScene {
                 SKStoreReviewController.requestReview(in: windowScene)
             }           

@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Mixpanel
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        if let apiKey = ProcessInfo.processInfo.environment["mixpanel"] {
+            Mixpanel
+                .initialize(
+                    token: apiKey,
+                    trackAutomaticEvents: false
+                )
+        }
         // MARK: Init UserDefaults booleans
         // set default first run values
         let defaultValues = [UserDefaultsKey.isFirstRun.rawValue : true, UserDefaultsKey.isFromFront.rawValue : true]

@@ -26,6 +26,7 @@ struct LogPageIntent: AppIntent {// OpenIntent for intents that open your app
                 let currentPage = Page.logs[page.pageNumber-1]
                 currentPage.isMemorized = true
                 currentPage.dateMemorized = .now
+                Analytics.shared.track(events: .logPage)
             }
         }
         return .result(dialog: .init("\(page) was  logged as memorized"))
