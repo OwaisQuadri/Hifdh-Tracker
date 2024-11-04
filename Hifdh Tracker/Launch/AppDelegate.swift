@@ -19,14 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
-        if let apiKey = ProcessInfo.processInfo.environment["mixpanel"] {
-            Mixpanel
-                .initialize(
-                    token: apiKey,
-                    trackAutomaticEvents: false
-                )
-        }
+        Mixpanel
+            .initialize(
+                token: "102245a28ed613f9a832822ee373133e",
+                trackAutomaticEvents: true
+            )
         // MARK: Init UserDefaults booleans
         // set default first run values
         let defaultValues = [UserDefaultsKey.isFirstRun.rawValue : true, UserDefaultsKey.isFromFront.rawValue : true]
