@@ -10,7 +10,7 @@ import StoreKit
 import SwiftUI
 
 enum StoreKitProduct: String, CaseIterable {
-    case ht_monthly
+    case ht_monthly = "hifdhTracker_monthly"
     case ht_yearly
 }
 

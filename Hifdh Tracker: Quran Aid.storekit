@@ -34,7 +34,7 @@
     "_applicationInternalID" : "6451350122",
     "_developerTeamID" : "944MKRCGTA",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 752359127.56551397,
+    "_lastSynchronizedDate" : 752444664.57474995,
     "_locale" : "en_CA",
     "_storefront" : "CAN",
     "_storeKitErrors" : [
@@ -91,7 +91,7 @@
       "localizations" : [
 
       ],
-      "name" : "HT",
+      "name" : "Hifdh Tracker Premium",
       "subscriptions" : [
         {
           "adHocOffers" : [
@@ -100,38 +100,10 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "24.99",
+          "displayPrice" : "3.99",
           "familyShareable" : false,
           "groupNumber" : 1,
-          "internalID" : "6737743477",
-          "introductoryOffer" : null,
-          "localizations" : [
-            {
-              "description" : "The discounted plan for committed students.",
-              "displayName" : "Yearly",
-              "locale" : "en_CA"
-            }
-          ],
-          "productID" : "ht_annual",
-          "recurringSubscriptionPeriod" : "P1Y",
-          "referenceName" : "Annual",
-          "subscriptionGroupID" : "21575161",
-          "type" : "RecurringSubscription",
-          "winbackOffers" : [
-
-          ]
-        },
-        {
-          "adHocOffers" : [
-
-          ],
-          "codeOffers" : [
-
-          ],
-          "displayPrice" : "2.99",
-          "familyShareable" : false,
-          "groupNumber" : 2,
-          "internalID" : "6737742806",
+          "internalID" : "6737782129",
           "introductoryOffer" : null,
           "localizations" : [
             {
@@ -140,7 +112,7 @@
               "locale" : "en_CA"
             }
           ],
-          "productID" : "ht_monthly",
+          "productID" : "hifdhTracker_monthly",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Monthly",
           "subscriptionGroupID" : "21575161",
