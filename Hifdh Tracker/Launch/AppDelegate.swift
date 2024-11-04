@@ -37,16 +37,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         registerNotifHandlers()
+        Task {
+            await premiumStuff()
+        }
 
         return true
     }
+
+    @MainActor func premiumStuff() async {
+        await SubscriptionManager.shared.updatePurchasedProducts()
+        if SubscriptionManager.shared.isPremium {
+            WidgetCenter.shared.reloadAllTimelines()
+            HTShortcuts.updateAppShortcutParameters()
+        }
+    }
+
     func applicationWillEnterForeground(_ application: UIApplication) {
-        Task { @MainActor in
-            await SubscriptionManager.shared.updatePurchasedProducts()
-            if SubscriptionManager.shared.isPremium {
-                WidgetCenter.shared.reloadAllTimelines()
-                HTShortcuts.updateAppShortcutParameters()
-            }
+        Task {
+            await premiumStuff()
         }
     }
     // MARK: UISceneSession Lifecycle
